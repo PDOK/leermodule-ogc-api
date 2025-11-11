@@ -1,3 +1,38 @@
-# OGC API leermodule startpagina
+# Introductie
+
+Welkom bij de Leermodule “Geodata bevragen en gebruiken met de OGC API’s van PDOK” !
+
+In deze leermodule ga je aan de slag met de OGC API’s van PDOK (Publieke dienstverlening op de kaart). PDOK is hét geodataplatform van de Nederlandse overheid. Je leert in deze leermodule hoe je met behulp van OGC API’s geografische data in je browser kunt bekijken, hoe je de data kunt bevragen en hoe je de data op een interactieve kaart kunt tonen. Denk bijvoorbeeld aan een kaart waarop je kunt zien hoeveel inwoners er bij jou in de buurt wonen. 
+
+## Wat is een OGC API? 
+Een OGC API is een gestandaardiseerde interface voor het bekijken en bevragen van geografische data. Met een API, een Application Programming Interface, kunnen ontwikkelaars op een eenvoudige manier data van andere bronnen in hun eigen software integreren. Een API is dus een stopcontact voor data. Je hebt, in tegenstelling tot vroeger, geen specifieke kennis over geodata meer nodig om dit te kunnen. 
+Het OGC (Open Geospatial Consortium) is een wereldwijde organisatie die standaarden voor het uitwisselen van geodata maakt. 
+OGC API is een wereldwijde standaard. Dat zorgt ervoor dat iedereen op dezelfde manier geodata kan gebruiken. Dat bespaart een hoop tijd, geld en frustratie. 
+
+## Voor wie is deze leermodule bedoeld?
+In eerste instantie is deze leermodule bedoeld voor IT-studenten. Je hoeft geen ervaring met geodata te hebben om deze module te kunnen volgen. 
+
+## Wat ga je leren?
+TO DO
+
+## Benodigde voorkennis
+To do
+
+## Uit welke onderdelen bestaat deze leermodule?
+De stof is opgesplitst in de volgende onderdelen:
+
+| Onderdeel | Beschrijving |
+| ----------- | ----------- |
+| 1. Achtergrondinformatie| *Wat is geografische data? Wat zijn OGC API’s? En wat doet PDOK?* |
+| 2. Verken de OGC API | *Ontdek stapsgewijs hoe een OGC API werkt* | 
+| 3.	Maak een kaart met OGC API - Tiles | *Bekijk geodata* |
+| 4.	Voeg interactieve data toe met OGC API – Features | *Vraag objectinformatie op, werk op een interactieve manier met data* |
+| 5.	Terugblik |  |
+| 6.	Tot slot |  |
+
+## Bijdragen
+Heb je suggesties voor verbeteringen of zie je een fout? Maak een GitHub issue aan. 
+
+Bijdragen zijn altijd welkom! 
 
 
