@@ -1,0 +1,34 @@
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Pas aan naar jouw default branch (bijv. 'master')
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Stap 1: Haal de repository op
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Stap 2: Installeer Python
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'  # Kies gewenste versie
+
+      # Stap 3: Installeer MkDocs en plugins
+      - name: Install dependencies
+        run: |
+          pip install mkdocs mkdocs-material
+          # Voeg extra plugins toe indien nodig, bijv.:
+          # pip install mkdocs-awesome-pages-plugin
+
+      # Stap 4: Build en deploy naar GitHub Pages
+      - name: Deploy to GitHub Pages
+        run: |
+          mkdocs gh-deploy --force
+
