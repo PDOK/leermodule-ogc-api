@@ -3,3 +3,17 @@ site_url: https://www.acceptatie.pdok.nl/leermodule
 site_description: Een leermodule met achtergrondinformatie en oefeningen om te leren werken met OGC API's van PDOK
 repo_url: https://github.com/PDOK/leermodule-ogc-api/
 edit_uri: edit/master/docs/
+
+nav:
+    - Introductie: index.md
+    - OGC API - Tiles: 
+        - Introductie: tiles/Introductie.md
+        - Maak een kaart met OGC API - Tiles: tiles/Maak een kaart met OGC API - Tiles.md
+        - Terugblik: tiles/Terugblik.md
+    - OGC API - Features:
+        - Introductie: features/Introductie.md
+        - Voeg interactieve data toe met OGC API - Features: features/Voeg interactieve data toe met OGC API - Features.md
+        - Terugblik: features/Terugblik.md
+    - Afronding: Afronding.md
+    - Referenties:
+        - Verwijzingen: referenties/features.md 
