@@ -1,5 +1,5 @@
 site_name: OGC API Leermodule
-site_url: https://www.pdok.nl/leermodule-ogc-ap
+site_url: https://www.pdok.nl/leermodule-ogc-api
 site_description: Een leermodule met achtergrondinformatie en oefeningen om te leren werken met OGC API's van PDOK
 repo_url: https://github.com/PDOK/leermodule-ogc-api/
 edit_uri: edit/master/docs/
