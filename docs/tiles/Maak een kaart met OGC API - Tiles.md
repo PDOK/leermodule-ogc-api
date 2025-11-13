@@ -23,10 +23,10 @@ Maak gebruik van een platform naar keuze om code uit te voeren
 ## Bekijk een voorbeeld
 Doel: leer uit welke componenten een web map bestaat en hoe die samenwerken. Leer uit welke componenten een OGC API – Tiles bestaat en hoe die componenten samenwerken. 
 
-- Bekijk voorbeelden/tiles_maplibre/index.html
+- Bekijk `voorbeelden/tiles_maplibre/index.html`
 - Bekijk de kaart zelf, zoom eens in en uit
 
-Dit is een web viewer die gemaakt is met de library MapLibre. Deze kaart maakt gebruik van de OGC API – Tiles van de BRT Achtergrondkaart: https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1 
+Dit is een web viewer die gemaakt is met de library MapLibre. Deze kaart maakt gebruik van de OGC API – Tiles van de BRT Achtergrondkaart: <https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1> 
 <img width="476" height="535" alt="brtachtergrondkaart" src="https://github.com/user-attachments/assets/d26c23cb-a1c3-480b-843e-168c22b3cb4b" />
  
 VRAAG: wat verandert er als je in- en uitzoomt op de kaart? 
@@ -61,6 +61,7 @@ De URL is als volgt opgebouwd:
 
 Als het goed is, zie je in `index.html` een `div` met als id `map`
 In `main.js` zie je dat er verwezen wordt naar diezelfde `map` als container. In dit javascript bestand wordt de kaart gedefinieerd:
+
 - `style`: verwijst naar een `style.json` bestand. Hierin wordt gedefinieerd hoe de tiles gevisualiseerd worden
 - `center`: bepaalt het startmiddenpunt van de kaart
 - `zoom`: bepaalt het startzoomlevel van de kaart
