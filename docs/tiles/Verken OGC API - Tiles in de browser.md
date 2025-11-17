@@ -1,4 +1,4 @@
-# Verken OGC API - Tiles
+# Verken OGC API - Tiles in de browser
 
 ## Leerdoelen
 
