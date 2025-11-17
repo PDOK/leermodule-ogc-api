@@ -24,11 +24,10 @@ De stof is opgesplitst in de volgende onderdelen:
 | Onderdeel | Beschrijving |
 | ----------- | ----------- |
 | 1. Achtergrondinformatie| *Wat is geografische data? Wat zijn OGC API’s? En wat doet PDOK?* |
-| 2. Verken de OGC API | *Ontdek stapsgewijs hoe een OGC API werkt* | 
-| 3.	Maak een kaart met OGC API - Tiles | *Bekijk geodata* |
-| 4.	Voeg interactieve data toe met OGC API – Features | *Vraag objectinformatie op, werk op een interactieve manier met data* |
-| 5.	Terugblik |  |
-| 6.	Tot slot |  |
+| 2.	Maak een kaart met OGC API - Tiles | *Bekijk geodata* |
+| 3.	Voeg interactieve data toe met OGC API – Features | *Vraag objectinformatie op, werk op een interactieve manier met data* |
+| 4.	Terugblik |  |
+| 5.	Tot slot |  |
 
 ## Bijdragen
 Heb je suggesties voor verbeteringen of zie je een fout? Maak een GitHub issue aan. 
