@@ -9,10 +9,12 @@ nav:
     - Achtergrondinformatie: Achtergrondinformatie.md
     - OGC API - Tiles: 
         - Introductie: tiles/Introductie.md
+        - Verken OGC API - Tiles: tiles/Verken OGC API - Tiles.md
         - Maak een kaart met OGC API - Tiles: tiles/Maak een kaart met OGC API - Tiles.md
         - Terugblik: tiles/Terugblik.md
     - OGC API - Features:
         - Introductie: features/Introductie.md
+        - Verken OGC API - Features: features/Verken OGC API - Features.md
         - Voeg interactieve data toe met OGC API - Features: features/Voeg interactieve data toe met OGC API - Features.md
         - Terugblik: features/Terugblik.md
     - Afronding: Afronding.md
