@@ -1,1 +1,0 @@
-# Verken OGC API - Tiles
