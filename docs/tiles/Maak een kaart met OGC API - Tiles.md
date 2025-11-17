@@ -21,15 +21,19 @@ Maak gebruik van een platform naar keuze om code uit te voeren
 •	Fork en clone de repo
 
 ## Bekijk een voorbeeld
-Doel: leer uit welke componenten een web map bestaat en hoe die samenwerken. Leer uit welke componenten een OGC API – Tiles bestaat en hoe die componenten samenwerken. 
+Leerdoelen: 
 
+- Je leert uit welke componenten een web map bestaat en hoe die samenwerken. 
+- Je leert uit welke componenten een OGC API – Tiles bestaat en hoe die componenten samenwerken. 
+
+We gaan eerst een voorbeeld bekijken. 
 - Bekijk `voorbeelden/tiles_maplibre/index.html`
 - Bekijk de kaart zelf, zoom eens in en uit
 
 Dit is een web viewer die gemaakt is met de library MapLibre. Deze kaart maakt gebruik van de OGC API – Tiles van de BRT Achtergrondkaart: <https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1> 
 <img width="476" height="535" alt="brtachtergrondkaart" src="https://github.com/user-attachments/assets/d26c23cb-a1c3-480b-843e-168c22b3cb4b" />
  
-VRAAG: wat verandert er als je in- en uitzoomt op de kaart? 
+> **VRAAG:** wat verandert er als je in- en uitzoomt op de kaart? 
 
 - Open de developer tools in je browser. 
 - Refresh de pagina
@@ -41,11 +45,15 @@ Merk op dat er onder andere een `main.js` en `https://api.pdok.nl/kadaster/brt-a
 - Zoom eens in en uit
 
 Merk op dat er nu veel bestanden worden ingeladen, bijvoorbeeld `262?f=mvt`. De volledige URL van is: <https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1/tiles/WebMercatorQuad/9/168/262?f=mvt> 
+
 Dit zijn de tiles (kaarttegels) zelf. 
 
-Je kunt nu zien dat deze web viewer de BRT Achtergrondkaart gebruikt, en meer specifiek de WebMercatorQuad TileMatrixSet. Dat zie je aan de URL’s van de tiles. En je ziet dat de standaard style wordt gebruikt voor deze tilematrixset. Dat zie je aan de style URL die na main.js werd ingeladen: <https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1/styles/standaard__webmercatorquad?f=json>
+Je kunt nu zien dat deze web viewer de BRT Achtergrondkaart gebruikt, en meer specifiek de WebMercatorQuad TileMatrixSet. Dat zie je aan de URL’s van de tiles. En je ziet dat de standaard style wordt gebruikt voor deze tilematrixset. Dat zie je aan de style URL die na `main.js` werd ingeladen: <https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1/styles/standaard__webmercatorquad?f=json>
 
-- Zoek deze TileMatrixSet en Style ook op via de landing page in de browser: <https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1> en zoek de gelijkenissen.
+- Zoek deze TileMatrixSet en Style ook op via de landing page in de browser: <https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1> 
+> **VRAAG:** Waar vind je de URL van de TileMatrixSet en de Style die gebruikt zijn in het voorbeeld?
+
+Dit is een visuele weergave van een Tile Matrix Set:
   
 <img width="617" alt="tilematrix" src="https://github.com/user-attachments/assets/ab79fa47-77a6-4293-8926-fd05c783ed9d" />
  

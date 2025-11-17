@@ -13,6 +13,7 @@
 Je vind hier een overzicht van alle API’s van PDOK.  
 
 - Scan de hele pagina eens.
+
 > **VRAAG:** Zijn dit allemaal OGC API’s of ook andere soorten API’s?
 - Zoek de volgende API op en klik deze aan: Basisregistratie Grootschalige Topografie (OGC API)
 
