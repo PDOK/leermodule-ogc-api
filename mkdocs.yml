@@ -14,7 +14,7 @@ nav:
         - Terugblik: tiles/Terugblik.md
     - OGC API - Features:
         - Introductie: features/Introductie.md
-        - Verken OGC API - Features in de browser: features/Verken OGC API - Features.md
+        - Verken OGC API - Features in de browser: features/Verken OGC API - Features in de browser.md
         - Bevraag OGC API - Features met curl: features/Bevraag OGC API - Features met curl.md
         - Maak een interactieve kaart met OGC API - Features: features/Maak een interactieve kaart met OGC API - Features.md
         - Terugblik: features/Terugblik.md
