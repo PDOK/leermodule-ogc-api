@@ -10,13 +10,13 @@ Het OGC (Open Geospatial Consortium) is een wereldwijde organisatie die standaar
 OGC API is een wereldwijde standaard. Dat zorgt ervoor dat iedereen op dezelfde manier geodata kan gebruiken. Dat bespaart een hoop tijd, geld en frustratie. 
 
 ## Voor wie is deze leermodule bedoeld?
-In eerste instantie is deze leermodule bedoeld voor IT-studenten. Je hoeft geen ervaring met geodata te hebben om deze module te kunnen volgen. 
+In eerste instantie is deze leermodule bedoeld voor IT-studenten. Jij bent bijvoorbeeld web developer of data-analist (in opleiding). Je hoeft geen ervaring met geodata te hebben om deze module te kunnen volgen. 
 
 ## Wat ga je leren?
 TO DO
 
 ## Benodigde voorkennis
-To do
+Om deze leermodule goed te kunnen volgen, is het handig dat je al kunt werken met (REST) API's en data. Daarnast is basiskennis web development en JavaScript noodzakelijk. En tot slot kun je omgaan met de commandline. 
 
 ## Uit welke onderdelen bestaat deze leermodule?
 De stof is opgesplitst in de volgende onderdelen:
