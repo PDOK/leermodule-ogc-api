@@ -15,6 +15,7 @@ Je vind hier een overzicht van alle API’s van PDOK.
 - Scan de hele pagina eens.
 
 > **VRAAG:** Zijn dit allemaal OGC API’s of ook andere soorten API’s?
+
 - Zoek de volgende API op en klik deze aan: Basisregistratie Grootschalige Topografie (OGC API)
 
 ## Landing page
@@ -24,6 +25,7 @@ Je bent nu op de landing page van de BGT OGC API terecht gekomen. De BGT (Basisr
 De landing page is een voor mensen leesbare beschrijving en toegangspunt van de API. Door mensen leesbaar? Ja wel, want er is ook een beschrijving die vooral voor machines is gemaakt.  
 
 > **VRAAG:** Waar vind je de beschrijving die voor machines is bedoeld? Bekijk deze ook eens.
+
 - En ga daarna terug naar de HTML-weergave (de leesbare variant)
 
 Een landing page bevat een beschrijving van de dataset met eventueel verwijzingen naar andere bronnen, de trefwoorden en metadata. 
