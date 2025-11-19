@@ -4,6 +4,7 @@ We gaan zelf een kaart maken met behulp van de library MapLibre. Dit is een Java
 In dit onderdeel maken een web map met OGC API - Tiles. We maken deze kaart aan de hand van een casus. 
 
 
+
 ## Introductie casus
 Je gaat een kaart maken van jouw buurt die inzicht geeft in de kwaliteit van de leefomgeving. Hoe is het in jouw buurt of wijk bijvoorbeeld gesteld met het aantal bomen? Zijn er voldoende scholen in de buurt? 
 Met data kun je inzicht geven in dit soort vraagstukken. PDOK ontsluit dit soort data middels OGC API's. En specialisten en ontwikkelaars kunnen met behulp van die API's kaarten en viewers maken. 

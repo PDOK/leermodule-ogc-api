@@ -2,6 +2,7 @@
 
 ## Leerdoelen
 
+Aan het einde van dit onderdeel, 
 - Je leert uit welke onderdelen OGC API is opgebouwd
 - Je leert welke onderdelen PDOK heeft geïmplementeerd
 - Je leert hoe je de landing page van de PDOK OGC API's kunt gebruiken
