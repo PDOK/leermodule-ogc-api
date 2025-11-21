@@ -1,5 +1,10 @@
 # Introductie OGC API - Tiles
 
+In dit onderdeel verkennen we OGC API - Tiles en maken we een kaart. 
+
+OGC API - Tiles ontsluit kaarttegels, bedoeld voor het bekijken van geodata. Een online kaartapplicatie kan niet zonder achtergrondkaart en dit is waar OGC API - Tiles in uitblinkt. Performance, flexibiliteit en gebruiksgemak staan voorop. 
+
+Eerst leer je met behulp van de API landing page wat de verschillende mogelijkheden zijn en krijg je een voortvertoning van de data. En daarna maak je zelf een web map met de OGC API - Tiles, waarmee eindgebruikers de geodata kunnen bekijken.
 
 ## Leerdoelen
 Na het afronden van dit onderdeel:

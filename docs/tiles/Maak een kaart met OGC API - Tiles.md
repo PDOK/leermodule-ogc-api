@@ -1,9 +1,7 @@
 # Maak een kaart met OGC API – Tiles
 We gaan zelf een kaart maken met behulp van de library MapLibre. Dit is een JavaScript library voor het maken van interactieve web maps. Het doel is niet om MapLibre zelf te leren; we gebruiken MapLibre alleen om de werking van OGC API aan te tonen. 
 
-In dit onderdeel maken een web map met OGC API - Tiles. We maken deze kaart aan de hand van een casus. 
-
-
+Je maakt deze kaart aan de hand van een casus. Eerst introduceren we deze casus. Daarna bekijken we een voorbeeld. Hierna maak je je eigen kaart. En tot slot voeg je een OGC API - Tiles toe aan jouw eigen kaart. 
 
 ## Introductie casus
 Je gaat een kaart maken van jouw buurt die inzicht geeft in de kwaliteit van de leefomgeving. Hoe is het in jouw buurt of wijk bijvoorbeeld gesteld met het aantal bomen? Zijn er voldoende scholen in de buurt? 
