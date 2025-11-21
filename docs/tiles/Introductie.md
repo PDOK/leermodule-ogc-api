@@ -1,7 +1,9 @@
 # Introductie OGC API - Tiles
 
+
 ## Leerdoelen
 Na het afronden van dit onderdeel:
+
 - Weet je uit welke verschillende onderdelen de OGC API (- Tiles) bestaat en wat die onderdelen doen. 
 - Weet je welke onderdelen PDOK heeft geïmplementeerd. 
 - Kun je de landing page van de PDOK OGC API's gebruiken:

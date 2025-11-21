@@ -3,6 +3,7 @@ OGC API's stellen geodata beschikbaar. Wat is geodata, ook wel **ruimtelijke inf
 
 ## Leerdoelen
 Na het afronden van dit onderdeel:
+
 - Ben je je bewust van de meerwaarde van geo-informatie
 - Ben je je bewust van de meerwaarde van het ontsluiten van geodata met gestandaardiseerde API's 
 - Ben je bekend met PDOK en het Kadaster

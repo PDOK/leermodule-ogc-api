@@ -17,7 +17,8 @@ OGC API is een wereldwijde standaard. Dat zorgt ervoor dat iedereen op dezelfde 
 In eerste instantie is deze leermodule bedoeld voor IT-studenten. Jij bent bijvoorbeeld web developer of data-analist (in opleiding). Je hoeft geen ervaring met geodata te hebben om deze module te kunnen volgen. 
 
 ## Wat ga je leren?
-Na voltooiing van de leermodule…  
+Na voltooiing van de leermodule:
+
 - Ben je je bewust van de meerwaarde van geo-informatie
 - Ben je je bewust van het belang van geodata en PDOK 
 - Ben je je bewust van de meerwaarde van het ontsluiten van geodata met gestandaardiseerde API's 
