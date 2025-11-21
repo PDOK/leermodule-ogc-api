@@ -27,7 +27,7 @@ Na voltooiing van de leermodule…
 - Weet je welke onderdelen van OGC API PDOK heeft geïmplementeerd en hoe PDOK dat heeft gedaan
 - Weet je hoe een web map werkt
 - Kun je de landing page van de PDOK OGC API's gebruiken 
-- Kun je de URL's van de OGC API - Tiles vinden en gebruiken
+- Kun je de URL's van de OGC API's vinden en gebruiken
 - Kun je API GET requests samenstellen voor OGC API's:
 	- Kun je featuredata bevragen met OGC API - Features
 	- Kun je tiles opvragen met OGC API - Tiles
