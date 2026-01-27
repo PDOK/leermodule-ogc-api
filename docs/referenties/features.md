@@ -9,4 +9,4 @@ De leermodule is gebaseerd op:
   * [CRS84  /req/core/crs84](https://github.com/opengeospatial/ogcapi-features/blob/master/core/standard/requirements/core/REQ_crs84.adoc)
   * [Feature collection metadata  /req/core/fc-md-success](https://github.com/opengeospatial/ogcapi-features/blob/master/core/standard/requirements/core/REQ_fc-md-success.adoc)
 * OGC API - Features - Deel 2: Coördinaatreferentiesystemen [Versie 1.0.1 (laatste goedgekeurde versie)](https://docs.ogc.org/is/18-058r1/18-058r1.html)
-* OGC API - Features - Deel 3: Filteren [Versie 1.0.0 (laatste goedgekeurde versie)](https://docs.ogc.org/is/19-079r2/19-079r2.html)
+
