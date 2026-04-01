@@ -1,0 +1,95 @@
+{
+  "version": 8,
+  "metadata": {
+    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
+    "gokoala:title-items": "id"
+  },
+  "name": "",
+  "center": [
+	5.3878,
+    52.1561
+  ],
+  "pitch": 0,
+  "sources": {
+    "top10nl": {
+      "type": "vector",
+      "tiles": [
+        "https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/WebMercatorQuad/{z}/{y}/{x}?f=mvt"
+      ],
+      "minzoom": 14,
+      "maxzoom": 17
+    }
+  },
+  "sprite": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/standaardsprites/sprite@1",
+  "glyphs": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "functioneel_gebied_vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "functioneel_gebied_vlak",
+      "paint": {
+        "fill-color": "#ffffff",
+        "fill-opacity": 0,
+        "fill-outline-color": "#38A800"
+      }
+    },
+    {
+      "id": "grasland_terrein_vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14130, 14132, 14133],
+      "paint": {
+        "fill-color": "#C3DBB5"
+      }
+    },
+    {
+      "id": "waterdeel_vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "paint": {
+        "fill-color": "#80BDE3"
+      }
+    },
+    {
+      "id": "waterdeel_lijn",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_lijn",
+      "paint": {
+        "fill-color": "#80BDE3"
+      }
+    },
+    {
+      "id": "gebouw_vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "gebouw_vlak",
+      "paint": {
+        "fill-color": "#8f8f8fff",
+        "fill-outline-color": "#9c9c9cff"
+      }
+    },
+    {
+      "id": "hoofdweg wegdeel_vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10302,
+        10300,
+        10301,
+        10310,
+        10311,
+        10312
+      ],
+      "paint": {
+        "fill-color": "#E60000"
+      }
+    }
+  ]
+}

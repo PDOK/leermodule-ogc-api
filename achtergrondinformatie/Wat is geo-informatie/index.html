@@ -1,0 +1,1733 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Een leermodule met achtergrondinformatie en oefeningen om te leren werken met OGC API's van PDOK">
+      
+      
+      
+        <link rel="canonical" href="https://www.acceptatie.pdok.nl/leermodule/achtergrondinformatie/Wat%20is%20geo-informatie/">
+      
+      
+        <link rel="prev" href="../Introductie/">
+      
+      
+        <link rel="next" href="../Wat%20doet%20het%20Kadaster%20-%20PDOK/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/pdok.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Wat is geo-informatie? - OGC API Leermodule</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#wat-is-geo-informatie" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OGC API Leermodule" class="md-header__button md-logo" aria-label="OGC API Leermodule" data-md-component="logo">
+      
+  <img src="../../assets/pdok.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OGC API Leermodule
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Wat is geo-informatie?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PDOK/leermodule-ogc-api/" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introductie
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Introductie/" class="md-tabs__link">
+          
+  
+  
+  Achtergrondinformatie
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tiles/Introductie/" class="md-tabs__link">
+          
+  
+  
+  OGC API - Tiles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../features/Introductie/" class="md-tabs__link">
+          
+  
+  
+  OGC API - Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Afronding/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Afronding
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Community
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../referenties/features/" class="md-tabs__link">
+          
+  
+  
+  Referenties
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OGC API Leermodule" class="md-nav__button md-logo" aria-label="OGC API Leermodule" data-md-component="logo">
+      
+  <img src="../../assets/pdok.png" alt="logo">
+
+    </a>
+    OGC API Leermodule
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PDOK/leermodule-ogc-api/" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Achtergrondinformatie
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Achtergrondinformatie
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat is geo-informatie?
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat is geo-informatie?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#de-kracht-van-geo-informatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        De kracht van geo-informatie
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="De kracht van geo-informatie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stedelijke-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stedelijke planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leefomgeving-en-milieu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leefomgeving en milieu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logistiek-en-dienstverlening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logistiek en dienstverlening
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hulpdiensten-en-risicobeheer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hulpdiensten en risicobeheer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basisregistraties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basisregistraties
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basisregistraties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kenmerken-van-een-basisregistratie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kenmerken van een basisregistratie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waarom-is-dit-belangrijk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Waarom is dit belangrijk?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hoe-wordt-geodata-opgeslagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hoe wordt geodata opgeslagen?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raster-of-vectordata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raster- of vectordata?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wat-zijn-coordinaatreferentiesystemen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wat zijn coördinaatreferentiesystemen?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Wat%20doet%20het%20Kadaster%20-%20PDOK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat doet het Kadaster / PDOK?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Wat%20zijn%20OGC%20APIs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat zijn OGC API's?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Het%20belang%20van%20standaarden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Het belang van standaarden
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OGC API - Tiles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OGC API - Tiles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Verken%20OGC%20API%20-%20Tiles%20in%20de%20browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verken OGC API - Tiles in de browser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Analyseer%20een%20voorbeeldkaart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyseer een voorbeeldkaart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Casus%20-%20Maak%20een%20kaart%20met%20OGC%20API%20-%20Tiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casus - Maak een kaart met OGC API - Tiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OGC API - Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OGC API - Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Verken%20OGC%20API%20-%20Features%20in%20de%20browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verken OGC API - Features in de browser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Bevraag%20OGC%20API%20-%20Features%20met%20curl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bevraag OGC API - Features met curl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Casus%20-%20Analyseer%20data%20met%20OGC%20API%20-%20Features%20met%20Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casus - Analyseer data met OGC API - Features met Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Afronding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Afronding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referenties
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Referenties
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../referenties/features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verwijzingen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#de-kracht-van-geo-informatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        De kracht van geo-informatie
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="De kracht van geo-informatie">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stedelijke-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stedelijke planning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#leefomgeving-en-milieu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leefomgeving en milieu
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logistiek-en-dienstverlening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logistiek en dienstverlening
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hulpdiensten-en-risicobeheer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hulpdiensten en risicobeheer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basisregistraties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basisregistraties
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Basisregistraties">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kenmerken-van-een-basisregistratie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kenmerken van een basisregistratie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waarom-is-dit-belangrijk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Waarom is dit belangrijk?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hoe-wordt-geodata-opgeslagen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hoe wordt geodata opgeslagen?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#raster-of-vectordata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Raster- of vectordata?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wat-zijn-coordinaatreferentiesystemen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wat zijn coördinaatreferentiesystemen?
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="wat-is-geo-informatie">Wat is geo-informatie?</h1>
+<p>Wat is geo-informatie? En hoe wordt geo-informatie precies opgeslagen? Hoe worden coördinaten precies opgeslagen? Dit behandelen we allemaal op deze pagina.</p>
+<h2 id="de-kracht-van-geo-informatie">De kracht van geo-informatie</h2>
+<p>Wat kun je precies met geo-informatie, ook wel ruimtelijke informatie genoemd? Geodata is overal om ons heen. Er wordt ook wel gezegd dat 80% van alle data over een plek op aarde gaat.</p>
+<p>Data met geolocatie wordt op veel terreinen toegepast. Enkele voorbeelden:</p>
+<h3 id="stedelijke-planning">Stedelijke planning</h3>
+<p>Gemeenten gebruiken geodata bij het plannen van nieuwe woonwijken. Hierbij spelen factoren zoals bodemgesteldheid, nabijheid van voorzieningen, verkeersstromen, waterafvoer en eigendom van percelen een belangrijke rol. Voor deze analyses worden onder andere topografische kaarten (wegen, gebouwen), kadastrale gegevens (perceelgrenzen) en 3D-modellen (hoogte-informatie) gebruikt.</p>
+<h3 id="leefomgeving-en-milieu">Leefomgeving en milieu</h3>
+<p>Luchtkwaliteit en het voorkomen van geluidsoverlast zijn cruciale aspecten van de stedelijke leefomgeving. Analyses helpen probleemlocaties te signaleren en maatregelen te treffen. De geolocatie van sensoren in relatie tot landschap, bebouwing en infrastructuur is hierbij essentieel.</p>
+<h3 id="logistiek-en-dienstverlening">Logistiek en dienstverlening</h3>
+<p>Voor de distributie van pakketten of het ophalen van huisvuil is het optimaal plannen van routes belangrijk om brandstof, tijd en kosten te besparen. Hiervoor zijn gegevens nodig zoals het wegennet (wegen, verkeersintensiteit), realtime verkeersinformatie en de geolocatie van ophaal- en bezorgpunten.</p>
+<h3 id="hulpdiensten-en-risicobeheer">Hulpdiensten en risicobeheer</h3>
+<p>Geoinformatie is onmisbaar voor hulpdiensten, bijvoorbeeld om risicogebieden en bijzondere locaties in kaart te brengen. Hoogtekaarten zijn belangrijk voor het inschatten van overstromingsrisico’s, en basisregistraties geven inzicht in locaties van scholen of congrescentra. Daarnaast biedt PDOK (Inspire) datasets met specifieke risicogebieden.</p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Welke andere toepassingen van geo-informatie ken jij? Schrijf een aantal voorbeelden op. </p>
+</div>
+<h2 id="basisregistraties">Basisregistraties</h2>
+<p>Veel van de datasets bij PDOK zijn een basisregistratie. Wat is een basisregistratie precies?</p>
+<p>Een basisregistratie is een officiële, landelijke registratie waarin gegevens worden vastgelegd die door veel overheidsorganisaties gebruikt worden. Zie het als een gezamenlijke set van centrale gegevens: één plek waar betrouwbare, actuele en uniforme gegevens staan, zodat iedereen dezelfde informatie gebruikt.</p>
+<h3 id="kenmerken-van-een-basisregistratie">Kenmerken van een basisregistratie</h3>
+<ul>
+<li><strong>Authentieke gegevens:</strong> De informatie is juridisch vastgesteld en mag niet zomaar worden aangepast.</li>
+<li><strong>Uniform gebruik:</strong> Overheden en organisaties moeten deze gegevens gebruiken in hun processen.</li>
+<li><strong>Actueel en betrouwbaar:</strong> Er gelden strenge regels voor bijhouding en kwaliteit.</li>
+</ul>
+<p>We kennen de volgende basisregistraties zonder geoinformatie:</p>
+<ul>
+<li>BRP – Basisregistratie personen</li>
+<li>HR – Handelsregister</li>
+<li>BRV – Basisregistratie Voertuigen (kentekenregister)</li>
+<li>BRI – Basisregistratie Inkomen</li>
+</ul>
+<p>en de volgende basisregistraties met geodata waarvan PDOK (gedeeltelijk) data uitlevert:</p>
+<ul>
+<li>BRT – Basisregistratie Topografie</li>
+<li>BRK – Basisregistratie Kadaster</li>
+<li>WOZ – Basisregistratie Waarde Onroerende Zaken</li>
+<li>BAG – Basisregistratie Adressen en Gebouwen</li>
+<li>BGT – Basisregistratie Grootschalige Topografie</li>
+<li>BRO – Basisregistratie Ondergrond</li>
+</ul>
+<h3 id="waarom-is-dit-belangrijk">Waarom is dit belangrijk?</h3>
+<p>Stel je voor dat elke overheidsorganisatie zijn eigen adressenlijst zou bijhouden. Dan krijg je fouten, bijvoorbeeld het aanvragen van een stroomaansluitingen bij verhuizingen, met dubbele gegevens en veel verwarring tot gevolg. Door één landelijke basisregistratie te gebruiken, werken alle partijen met dezelfde informatie. Dat bespaart tijd, voorkomt fouten en maakt samenwerking makkelijker.</p>
+<p><a href="https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/stelsel-van-basisregistraties/10-basisregistraties/">Hier vind je meer informatie over het stelsel van basisregistraties.</a></p>
+<h2 id="hoe-wordt-geodata-opgeslagen">Hoe wordt geodata opgeslagen?</h2>
+<p>Geodata kan op verschillende manieren worden opgeslagen in een bestand of database. Op welke manier dat is, heeft ook gevolgen voor wat je precies met de data kunt doen. Dit is zeker bij ruimtelijke data het geval, omdat geometrie op heel veel verschillende manier gerepresenteerd kan worden. Dit is heel erg afhankelijk van de beoogde toepassing van de data.</p>
+<h2 id="raster-of-vectordata">Raster- of vectordata?</h2>
+<p>Er worden ruwweg twee vormen van geodata onderscheiden: vectordata en rasterdata. In het geval van rasterdata wordt de informatie opgeslagen in een afbeelding. Een rasterbestand bestaat uit een vlakdekkend grid. Een rasterbestand is samengesteld uit één of meerdere banden. Elke rastercel ("pixel") in elke band heeft een numerieke waarde. Samen kunnen deze waardes een kleur voorstellen, bijvoorbeeld in een luchtfoto of satellietbeeld. Er is dan een band voor Rood, een band voor Groen en een band voor Blauw (RGB). Maar de waardes in enkelbands rasterbestanden kunnen ook iets anders voorstellen, zoals hoogte of temperatuur. </p>
+<p>Vectordata gebruikt een totaal andere benadering om geodata op te slaan. In het geval van vectordata wordt de informatie opgeslagen in een tabel met een geometrie. De geometrie kan opgeslagen worden als verzameling coördinaten in een attribuut in een tabel (met een eigen datatype <em>geometrie</em>). De geometrie kan een punt, lijn of vlak zijn. </p>
+<p>Rasterdata en vectordata hebben door de specifieke manier waarop data wordt opgeslagen verschillende voor- en nadelen ten opzichte van elkaar. Daardoor kennen raster- en vectordata hun eigen toepassingsgebieden.</p>
+<p>Over het algemeen (er zijn uitzonderingen mogelijk) wordt rasterdata gebruikt voor continu fenomenen, zoals hoogte en temperatuur. Dit soort natuurlijke fenomenen heeft geen harde grenzen en loopt continu door. Dit in tegenstelling tot discrete informatie, zoals gebouwen en administratieve grenzen. Die beginnen en eindigen op posities die wij als mensen hebben aangewezen. Voor discrete fenomenen gebruiken we dan ook vooral vectordata.</p>
+<div class="admonition warning">
+<p class="admonition-title">TO DO</p>
+<p>Afbeelding toevoegen</p>
+</div>
+<p>Voorbeelden van rasterdatasets bij PDOK zijn:</p>
+<ul>
+<li><a href="https://www.pdok.nl/introductie/-/article/actueel-hoogtebestand-nederland-ahn">Algemeen Hoogtebestand Nederland (AHN)</a> voor hoogtedata</li>
+<li><a href="https://www.pdok.nl/introductie/-/article/landelijk-grondgebruik-nederland-lgn-">Landelijk Grondgebruik Nederland</a></li>
+<li><a href="https://www.pdok.nl/introductie/-/article/pdok-luchtfoto-rgb-open-">Luchtfoto RGB</a> en <a href="https://www.pdok.nl/introductie/-/article/pdok-luchtfoto-infrarood-open-">Luchtfoto Infrarood</a></li>
+</ul>
+<p>Voorbeelden van vectordatasets bij PDOK zijn:</p>
+<ul>
+<li>De <a href="https://www.pdok.nl/introductie/-/article/basisregistratie-topografie-achtergrondkaarten-brt-a-">BRT Achtergrondkaart</a></li>
+<li>De <a href="https://www.pdok.nl/introductie/-/article/basisregistratie-adressen-en-gebouwen-ba-1">Basisregistratie Adressen en Gebouwen (BAG)</a> voor onder andere gebouwen</li>
+<li><a href="https://www.pdok.nl/introductie/-/article/cbs-wijken-en-buurten">CBS Wijken en Buurten</a> voor statistische gegevens over buurten, wijken en gemeenten</li>
+</ul>
+<h2 id="wat-zijn-coordinaatreferentiesystemen">Wat zijn coördinaatreferentiesystemen?</h2>
+<div class="admonition warning">
+<p class="admonition-title">TO DO</p>
+</div>
+<p>Geodata is altijd opgeslagen in een bepaald coördinaatreferentiesysteem (CRS). Het coördinaatreferentiesysteem bepaalt hoe de coördinaten worden opgeslagen. Oftewel: hoe de positie op aarde bepaald wordt. De aarde is niet plat hoewel kaarten dat wel zijn. Helaas is de aarde ook niet perfect rond of ovaal.</p>
+<div style="text-align: center;">
+    <img src="../../assets/achtergrondinformatie/geoid-c2.jpg" alt="Geoïde" width=40% />
+</div>
+
+<p>De aarde lijkt meer op een aardappel, met bergen en valleien. We noemen dit een geoïde. Helaas is die geoïde eindeloos complex, wat het lastig maakt om de exacte vorm in een computer op te slaan. Daarom wordt geprobeerd om de vorm van de geoïde te benaderen met een ellipsoïde (3D ovaal). Dat leidt echter wel tot afwijkingen: de ene plek zal meer afwijken van de ellipsoïde dan de andere plek. Maar voor veel toepassingen op wereldwijde schaal is enige afwijking niet zo erg.</p>
+<div style="text-align: center;">
+    <img src="../../assets/achtergrondinformatie/geoid1_lg.png" alt="Geoïde" width=60% />
+</div>
+
+<p>Voor veel toepassingen is nauwkeurigheid wel belangrijk. Je hebt dan een ellipsoïde nodig die goed aansluit op het stukje aarde waarin je geïnteresseerd bent. Op andere plekken op de aarde zal die ellipsoïde totaal niet aansluiten. We noemen dat ook wel een lokaal coördinatenstelsel. Het Rijksdriehoeksstelsel, ook wel "RD Amersfoort" genoemd, is zo'n lokaal coördinatenstelsel. RD Amersfoort biedt hoge nauwkeurigheid in Nederland. Buiten Nederland is het echter nutteloos.</p>
+<p>We zijn er nog niet helemaal. Wat als je zo'n ellipsoïde op een plat vlak probeert te projecteren? Stel je voor dat je een mandarijn pelt en de schil in één stuk hebt. Als je die op een plat vlak legt, ontstaan er gaten. Kaartprojecties zijn manieren om de aardbol zodanig te vervormen en uit te rekken, dat die gaten worden opgevuld. Daar zijn veel verschillende manieren voor.</p>
+<p><img alt="alt text" src="../../assets/achtergrondinformatie/Projection_conique.jpg" width="250" /><img alt="alt text" src="../../assets/achtergrondinformatie/Projection_cylindrique.jpg" width="250" /><img alt="alt text" src="../../assets/achtergrondinformatie/Projection_azimutale_stereographique.jpg" width="250" /></p>
+<p>Over het algemeen onderscheiden we drie soorten kaartprojecties:</p>
+<ul>
+<li>Hoekgetrouw</li>
+<li>Oppervlaktegetrouw</li>
+<li>Afstandsgetrouw</li>
+</ul>
+<p>Vaak gaan projecties en coördinaatstelsels hand in hand. Ze zijn echter wel twee verschillende dingen. Coördinatenstelsels zijn vooral belangrijk voor de correcte <strong>opslag</strong> van geodata. Projecties zijn vooral belangrijk voor de correcte <strong>visualisatie</strong> van geodata.</p>
+<p>Dit zijn de meest relevante coördinaatreferentiesystemen:</p>
+<ul>
+<li><strong>WGS84</strong> is vooral geschikt voor wereldwijde datasets. Het is ook wel bekend als 'lat-long' en is het coördinaatreferentiesysteem dat voor GPS wordt gebruikt. Het is waarschijnlijk het meest bekende en meest gebruikte CRS.</li>
+<li><strong>ETRS89</strong> is het officiële Europese CRS.</li>
+<li><strong>RD New / Amersfoort</strong> is het officiële Nederlandse coördinaatreferentiesysteem. Het gebruikt meters als eenheid voor de X- en Y-coördinaten.</li>
+</ul>
+<p>En dit zijn de bekendste kaartprojecties:</p>
+<ul>
+<li><strong>UTM</strong></li>
+<li><strong>Web Mercator</strong> ook wel bekend als 'Pseudo-Mercator'</li>
+</ul>
+<p>Zie ook <a href="https://www.nsgi.nl/coordinatenstelsels-en-transformaties/overzicht-coordinatenstelsels">https://www.nsgi.nl/coordinatenstelsels-en-transformaties/overzicht-coordinatenstelsels</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Introductie/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Introductie">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                Introductie
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Wat%20doet%20het%20Kadaster%20-%20PDOK/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Wat doet het Kadaster / PDOK?">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                Wat doet het Kadaster / PDOK?
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.footer", "search.suggest", "search.highlight", "navigation.top", "header.autohide", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

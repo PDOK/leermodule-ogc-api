@@ -1,0 +1,2834 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Een leermodule met achtergrondinformatie en oefeningen om te leren werken met OGC API's van PDOK">
+      
+      
+      
+        <link rel="canonical" href="https://www.acceptatie.pdok.nl/leermodule/tiles/Casus%20-%20Maak%20een%20kaart%20met%20OGC%20API%20-%20Tiles/">
+      
+      
+        <link rel="prev" href="../Analyseer%20een%20voorbeeldkaart/">
+      
+      
+        <link rel="next" href="../Terugblik/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/pdok.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Casus - Maak een kaart met OGC API - Tiles - OGC API Leermodule</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#maak-een-kaart-met-ogc-api-tiles" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OGC API Leermodule" class="md-header__button md-logo" aria-label="OGC API Leermodule" data-md-component="logo">
+      
+  <img src="../../assets/pdok.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OGC API Leermodule
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Casus - Maak een kaart met OGC API - Tiles
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PDOK/leermodule-ogc-api/" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introductie
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../achtergrondinformatie/Introductie/" class="md-tabs__link">
+          
+  
+  
+  Achtergrondinformatie
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Introductie/" class="md-tabs__link">
+          
+  
+  
+  OGC API - Tiles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../features/Introductie/" class="md-tabs__link">
+          
+  
+  
+  OGC API - Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Afronding/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Afronding
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Community
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../referenties/features/" class="md-tabs__link">
+          
+  
+  
+  Referenties
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OGC API Leermodule" class="md-nav__button md-logo" aria-label="OGC API Leermodule" data-md-component="logo">
+      
+  <img src="../../assets/pdok.png" alt="logo">
+
+    </a>
+    OGC API Leermodule
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PDOK/leermodule-ogc-api/" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Achtergrondinformatie
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Achtergrondinformatie
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20is%20geo-informatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat is geo-informatie?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20doet%20het%20Kadaster%20-%20PDOK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat doet het Kadaster / PDOK?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20zijn%20OGC%20APIs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat zijn OGC API's?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Het%20belang%20van%20standaarden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Het belang van standaarden
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OGC API - Tiles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OGC API - Tiles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verken%20OGC%20API%20-%20Tiles%20in%20de%20browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verken OGC API - Tiles in de browser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyseer%20een%20voorbeeldkaart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyseer een voorbeeldkaart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casus - Maak een kaart met OGC API - Tiles
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casus - Maak een kaart met OGC API - Tiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introductie-casus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introductie casus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ontwerp-jouw-webmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ontwerp jouw webmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ontwerp jouw webmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#doelgroep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doelgroep
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doel-en-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doel en scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benodigde-informatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benodigde informatie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geografische-afbakening-en-schaal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geografische afbakening en schaal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maak-jouw-eigen-webmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maak jouw eigen webmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maak jouw eigen webmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zet-een-ontwikkelomgeving-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zet een ontwikkelomgeving op
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maak-een-basiskaart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maak een basiskaart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maak een basiskaart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pas-indexhtml-aan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pas index.html aan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-mainjs-aan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pas main.js aan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vind-geschikte-vector-tiledata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vind geschikte vector tiledata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voeg-de-vector-tiledata-toe-aan-jouw-kaart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voeg de vector tiledata toe aan jouw kaart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Voeg de vector tiledata toe aan jouw kaart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-tiledata-als-losse-kaartlagen-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector tiledata als losse kaartlagen toevoegen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vector tiledata als losse kaartlagen toevoegen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optie-1-kijk-welke-feature-collections-er-zijn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 1: Kijk welke feature collections er zijn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optie-2-bekijk-een-style-json-kijk-welke-kaartlagen-hierin-genoemd-worden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 2: Bekijk een style json, kijk welke kaartlagen hierin genoemd worden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optie-3-open-de-style-in-een-client-zoals-qgis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 3: Open de style in een client zoals QGIS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-tiledata-door-middel-van-een-style-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector tiledata door middel van een style toevoegen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vector tiledata door middel van een style toevoegen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optie-1-gebruik-een-kant-en-klare-bestaande-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 1: Gebruik een kant-en-klare bestaande style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optie-2-pas-een-kant-en-klare-style-aan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 2: Pas een kant-en-klare style aan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optie-3-maak-zelf-een-nieuwe-style-from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 3: Maak zelf een nieuwe style from scratch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optie 3: Maak zelf een nieuwe style from scratch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#punt-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Punt toevoegen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lijn-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lijn toevoegen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlak-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vlak toevoegen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#samenvatting-kaartlagen-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Samenvatting kaartlagen toevoegen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opdracht-voeg-zelf-kaartlagen-toe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opdracht: voeg zelf kaartlagen toe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optioneel-extra-functionaliteit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optioneel: extra functionaliteit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evalueer-het-eindresultaat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evalueer het eindresultaat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusie
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OGC API - Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OGC API - Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Verken%20OGC%20API%20-%20Features%20in%20de%20browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verken OGC API - Features in de browser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Bevraag%20OGC%20API%20-%20Features%20met%20curl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bevraag OGC API - Features met curl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Casus%20-%20Analyseer%20data%20met%20OGC%20API%20-%20Features%20met%20Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casus - Analyseer data met OGC API - Features met Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Afronding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Afronding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referenties
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Referenties
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../referenties/features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verwijzingen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introductie-casus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introductie casus
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ontwerp-jouw-webmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ontwerp jouw webmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ontwerp jouw webmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#doelgroep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doelgroep
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#doel-en-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Doel en scope
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benodigde-informatie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Benodigde informatie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geografische-afbakening-en-schaal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geografische afbakening en schaal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#maak-jouw-eigen-webmap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maak jouw eigen webmap
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maak jouw eigen webmap">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zet-een-ontwikkelomgeving-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zet een ontwikkelomgeving op
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maak-een-basiskaart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Maak een basiskaart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Maak een basiskaart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pas-indexhtml-aan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pas index.html aan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pas-mainjs-aan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pas main.js aan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vind-geschikte-vector-tiledata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vind geschikte vector tiledata
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voeg-de-vector-tiledata-toe-aan-jouw-kaart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voeg de vector tiledata toe aan jouw kaart
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Voeg de vector tiledata toe aan jouw kaart">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vector-tiledata-als-losse-kaartlagen-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector tiledata als losse kaartlagen toevoegen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vector tiledata als losse kaartlagen toevoegen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optie-1-kijk-welke-feature-collections-er-zijn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 1: Kijk welke feature collections er zijn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optie-2-bekijk-een-style-json-kijk-welke-kaartlagen-hierin-genoemd-worden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 2: Bekijk een style json, kijk welke kaartlagen hierin genoemd worden
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optie-3-open-de-style-in-een-client-zoals-qgis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 3: Open de style in een client zoals QGIS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-tiledata-door-middel-van-een-style-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector tiledata door middel van een style toevoegen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vector tiledata door middel van een style toevoegen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optie-1-gebruik-een-kant-en-klare-bestaande-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 1: Gebruik een kant-en-klare bestaande style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optie-2-pas-een-kant-en-klare-style-aan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 2: Pas een kant-en-klare style aan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optie-3-maak-zelf-een-nieuwe-style-from-scratch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optie 3: Maak zelf een nieuwe style from scratch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optie 3: Maak zelf een nieuwe style from scratch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#punt-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Punt toevoegen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lijn-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lijn toevoegen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlak-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vlak toevoegen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#samenvatting-kaartlagen-toevoegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Samenvatting kaartlagen toevoegen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opdracht-voeg-zelf-kaartlagen-toe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opdracht: voeg zelf kaartlagen toe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optioneel-extra-functionaliteit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optioneel: extra functionaliteit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evalueer-het-eindresultaat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Evalueer het eindresultaat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusie
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="maak-een-kaart-met-ogc-api-tiles">Maak een kaart met OGC API – Tiles</h1>
+<p>We gaan zelf een kaart maken met vector tiles met behulp van de library MapLibre. Dit is een JavaScript library voor het maken van interactieve webmaps. Het doel is niet om MapLibre zelf te leren; we gebruiken MapLibre alleen om de werking van OGC API aan te tonen. </p>
+<p>Je maakt deze kaart aan de hand van een casus. Eerst introduceren we deze casus. Hierna maak je je eigen kaart. En tot slot voeg je een OGC API - Tiles toe aan jouw eigen kaart. </p>
+<h2 id="introductie-casus">Introductie casus</h2>
+<p>Hoe is de leefbaarheid in jouw buurt of wijk? Dat gaan we onderzoeken in deze opdracht. Je gaat een kaart maken die inzicht geeft in de kwaliteit van de leefomgeving van jouw buurt. </p>
+<p>Hoe kun je inzicht geven in de leefbaarheid? Dat kan met verschillende kaartlagen. Zijn er bijvoorbeeld voldoende bomen? Zijn er voldoende scholen in de buurt? Je gaat dit in kaart brengen voor de buurt waar jij woont. </p>
+<p>Met geodata kun je inzicht geven in dit soort vraagstukken. PDOK ontsluit allerlei data over de leefomgeving (maar ook andere thema's) middels OGC API's. En specialisten en ontwikkelaars kunnen met behulp van die API's kaarten en viewers maken om beleidsmakers, analisten en inwoners inzicht te geven in de leefomgeving. </p>
+<p>In deze casus nemen we jou stap voor stap mee:</p>
+<ol>
+<li><strong>Maak een ontwerp voor jouw webmap:</strong> voor wie maak je deze webmap? Wat is het doel en welke data is daarvoor nodig en in welke vorm?</li>
+<li><strong>Zet een ontwikkelomgeving op:</strong> zet code klaar om mee te werken.</li>
+<li><strong>Maak een kaartviewer die als basis kan dienen:</strong> begin met een onderlegger. </li>
+<li><strong>Vind geschikte tiledata:</strong> zoek en vind databronnen.</li>
+<li><strong>Voeg de tiledata toe aan jouw kaart:</strong> voeg de kaartlagen toe aan jouw webmap. </li>
+<li><strong>Evalueer het eindresultaat:</strong> komt de webmap overeen met jouw ontwerp?</li>
+</ol>
+<p>Je gaat nu aan de hand van bovenstaande stappen jouw eigen webmap maken met OGC API - Tiles. Stapje voor stapje en met behulp van voorbeelden kom je steeds verder. </p>
+<p>Laten we beginnen! </p>
+<h2 id="ontwerp-jouw-webmap">Ontwerp jouw webmap</h2>
+<p>Een goed informatieproduct is nergens zonder een goed ontwerp. Dat geldt zeker voor een webmap. Het is goed om van tevoren na te denken over het doel van de kaart, wie de doelgroep is en wat die doelgroep precies nodig heeft. Anders wordt het een onbruikbare webmap. </p>
+<p>Laten we een ontwerp maken voor de webmap aan de hand van de volgende vragen:</p>
+<ul>
+<li><strong>Doelgroep:</strong> voor wie is de webmap bedoeld?</li>
+<li><strong>Doel en scope:</strong> welk doel wil de doelgroep bereiken met de webmap?</li>
+<li><strong>Benodigde informatie:</strong> welke data is daarvoor nodig en in welke vorm?</li>
+<li><strong>Geografische afbakening en schaal:</strong> voor welk gebied maak je de webmap en wat is het schaalniveau?</li>
+</ul>
+<p>Maak een kort en bondig <em>ontwerpdocument</em> waarin je deze vragen beantwoord. </p>
+<p>Voor elk aspect doen we een suggestie. Voor deze fictieve casus kun je de suggestie volgen, maar je bent natuurlijk vrij om zelf iets te bedenken. </p>
+<h3 id="doelgroep">Doelgroep</h3>
+<p>Het is belangrijk om te weten wie de doelgroep van de webmap is. Want elke doelgroep heeft weer andere wensen en heeft andere informatie nodig. </p>
+<p>Stel jezelf de vragen: wie is de doelgroep van de kaart? Voor wie moet de kaart inzicht geven? En bestaat die doelgroep uit experts of een breder publiek? Experts zullen waarschijnlijk gedetailleerde informatie nodig hebben. Het is niet erg als er jargon gebruikt wordt. Een breed publiek heeft waarschijnlijk meer behoefte aan meer algemene informatie. Vaktermen moeten dan vermeden worden. </p>
+<div class="admonition warning">
+<p class="admonition-title">Toegankelijkheid</p>
+<p>Hou ook rekening met toegankelijkheid: moet de webmap ook geschikt zijn voor doelgroepen met minder digitale vaardigheden of met visuele beperkingen?</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Normaal gesproken is dit natuurlijk een belangrijke overweging. </p>
+<p>Wij raden aan om voor deze fictieve opdracht de 'geïnteresseerde burger' als doelgroep te nemen. Met deze brede doelgroep voorkom je het risico dat je geen geschikte data kunt vinden, en haal je toch de leerdoelen.</p>
+<p>Natuurlijk mag je zelf ook iets anders kiezen. </p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Noteer de doelgroep in jouw ontwerpdocument.</strong></p>
+<h3 id="doel-en-scope">Doel en scope</h3>
+<p>Het is belangrijk om een doel voor ogen te hebben voor de webmap.</p>
+<p>Stel jezelf de volgende vragen: Welk doel wil de doelgroep bereiken met jouw webmap? Welke vragen worden ermee beantwoord? En wat is de vraag achter de vraag? Met andere woorden: wat wil de gebruiker doen met de informatie in de kaart?</p>
+<p>Stel dat we als doel nemen: <em>inzicht bieden in de leefbaarheid van jouw buurt</em>. Wat versta je precies onder <em>inzicht</em>? En wat versta je precies onder het begrip <em>leefbaarheid</em>? </p>
+<p>Een zekere afbakening is ook handig. Waar is de kaart voor bedoeld en waar is de kaart vooral niet voor bedoeld? Met één kaart kun je helaas geen wereldvrede stichten. Met andere woorden: wat is de scope van deze webmap? </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Normaal gesproken is dit natuurlijk een belangrijke overweging. </p>
+<p>Wij raden aan om voor deze fictieve opdracht 'inzicht bieden in de kwaliteit van de leefomgeving van een buurt' te nemen als doel. Met dit brede doel voorkom je het risico dat je geen geschikte data kunt vinden, en haal je toch de leerdoelen. </p>
+<p>Natuurlijk mag je zelf ook iets anders kiezen.</p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Noteer het doel en de scope in jouw ontwerpdocument.</strong></p>
+<h3 id="benodigde-informatie">Benodigde informatie</h3>
+<p>De doelgroep wil een bepaald doel bereiken met behulp van jouw webmap.</p>
+<p>Wat voor soort informatie is er nodig om de doelgroep te helpen met het bereiken van hun doel? Welke informatie/data is daarvoor nodig? En in welke vorm moet de data worden aangeboden? </p>
+<ul>
+<li><strong>Wat voor informatiebehoefte:</strong> is er behoefte aan operationele informatie, of informatie die vooral wordt gebruikt voor besluiten op tactisch of strategisch niveau?</li>
+<li><strong>Aggregatieniveau:</strong> op welk niveau moet de data geaggregeerd zijn? Is er vooral detail nodig of abstracte informatie (bijvoorbeeld gemiddeldes)?</li>
+<li><strong>Tijdschaal:</strong> op welke tijdschaal is er informatie nodig? Actuele data of bijvoorbeeld gemiddeldes over de afgelopen jaren?</li>
+<li><strong>Visualisatie:</strong> hoe moet de data worden gevisualiseerd? </li>
+</ul>
+<p>Welke informatie benodigd is en in welke vorm bepaalt welke datasets je gebruikt voor je webmap.</p>
+<div class="admonition warning">
+<p class="admonition-title">Toegankelijkheid</p>
+<p>Hou ook rekening met toegankelijkheid bij de visualisatie: moet de webmap ook geschikt zijn voor bijvoorbeeld kleurenblinden? </p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Noteer de benodigde informatie en vorm in jouw ontwerpdocument.</strong></p>
+<h3 id="geografische-afbakening-en-schaal">Geografische afbakening en schaal</h3>
+<p>Op welk schaalniveau wil jouw doelgroep de informatie hebben? Is dit op landelijk niveau? Op gemeentelijk niveau? Of bijvoorbeeld op wijkniveau?</p>
+<p>Het geografische schaalniveau bepaalt ook of de data gedetailleerd of abstract moet zijn. </p>
+<p>En hoe baken je het gebied af? Je kan de kaart maken voor de plek waar jij woont, maar dit mag ook een andere plek in Nederland zijn. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Normaal gesproken is dit natuurlijk een belangrijke overweging. </p>
+<p>Wij raden aan om voor deze fictieve opdracht jouw eigen buurt te gebruiken. </p>
+<p>Natuurlijk mag je zelf ook iets anders kiezen.</p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Noteer de geografische afbakening en de schaal in jouw ontwerpdocument.</strong></p>
+<p>Als het goed is, heb je nu een ontwerp met de volgende aspecten:</p>
+<ul>
+<li><strong>Doelgroep:</strong> voor wie is de webmap bedoeld?</li>
+<li><strong>Doel en scope:</strong> welk doel wil de doelgroep bereiken met de webmap?</li>
+<li><strong>Benodigde informatie:</strong> welke data is daarvoor nodig en in welke vorm?</li>
+<li><strong>Geografische afbakening en schaal:</strong> voor welk gebied maak je de webmap en wat is het schaalniveau?</li>
+</ul>
+<h2 id="maak-jouw-eigen-webmap">Maak jouw eigen webmap</h2>
+<p>Nu het ontwerp gereed is, is het tijd om aan de slag te gaan. Allereerst zet je een ontwikkelomgeving op om in te werken en te testen. Vervolgens maak je op basis van het voorbeeld, dat we beschikbaar hebben gesteld in deze repo, een webmap die als basis dient voor de rest van je project. Tot slot zoek je tiledata die geschikt is voor jouw web map en voeg je deze toe.</p>
+<h3 id="zet-een-ontwikkelomgeving-op">Zet een ontwikkelomgeving op</h3>
+<p>Zet een ontwikkelomgeving op waarin je de webmap kunt ontwikkkelen en testen. </p>
+<p>Als eerste heb je de voorbeeldcode nodig die wij hebben gemaakt en die te vinden is in deze repository. In de casus ga je voortborduren op het voorbeeld, zodat je niet het wiel opnieuw uit hoeft te vinden.</p>
+<p>Als het goed is heb je in het onderdeel <a href="../Analyseer%20een%20voorbeeldkaart/#bekijk-het-voorbeeld-in-een-code-editor">Analyseer een voorbeeldkaart</a> deze GitHub repository al gecloned. Maar mocht je dit nog niet gedaan hebben: hier volgt de uitleg. </p>
+<p>Wij suggereren twee verschillende aanpakken: in een IDE werken of werken met een file manager en een teksteditor. </p>
+<p>Hieronder volgt de uitleg voor Visual Studio Code (VSCode) en de meer klassieke aanpak. Maar uiteraard kun je zelf ook een andere IDE of een andere aanpak gebruiken. </p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">VSCode</label><label for="__tabbed_1_2">Klassieke aanpak met file manager en teksteditor</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ol>
+<li>Open VSCode</li>
+<li>
+<p>Klik op 'Clone Git Repository'</p>
+<p><img alt="Klik op 'Clone Git Repository'" src="../../assets/casus/VSCode_clone-1.png" /></p>
+<p>Gebruik daarbij de volgende URL: <a href="https://github.com/PDOK/leermodule-ogc-api">https://github.com/PDOK/leermodule-ogc-api</a></p>
+<p><img alt="Plak de URL" src="../../assets/casus/VSCode_clone-2.png" /></p>
+</li>
+<li>
+<p>Kies een locatie op jouw schijf om de repository te downloaden en klik op 'Select as Repository Destination'</p>
+</li>
+<li>
+<p>Wacht tot de repository is gedownload</p>
+</li>
+<li>
+<p>Klik op 'Open':</p>
+<p><img alt="Klik op 'Open'" src="../../assets/casus/VSCode_clone-3.png" />    </p>
+</li>
+<li>
+<p>Klik op 'Yes, I trust the authors':</p>
+<p><img alt="Klik op 'Yes, I trust the authors'" src="../../assets/casus/VSCode_clone-4.png" /> </p>
+</li>
+<li>
+<p>Bekijk de bestanden in de Explorer (linkertabblad)</p>
+<p>De voorbeeldcode bevindt zich in <code>docs/voorbeelden/tiles</code></p>
+</li>
+<li>
+<p>Maak in de repository een nieuwe folder aan, en zet daarin een kopie van de voorbeeldcode.</p>
+<p>Op die manier hou je het voorbeeld schoon en kun je daar altijd op teruggrijpen.  </p>
+</li>
+<li>
+<p>Zet een lokale test web server op in de folder die je zojuist hebt gemaakt:</p>
+<p>Open een Terminal (View -&gt; Terminal) en voer uit:</p>
+<div class="highlight"><pre><span></span><code>cd %jouwfolder
+python -m http.server
+</code></pre></div>
+<p>Vervang <code>%jouwfolder</code> door de locatie van de folder waar jij de voorbeeldcode naartoe hebt gekopieerd</p>
+</li>
+<li>
+<p>Ga in je webbrowser naar <code>localhost:8000</code> om het voorbeeld te bekijken.</p>
+</li>
+</ol>
+</div>
+<div class="tabbed-block">
+<ol>
+<li>Ga naar de repository op GitHub: <a href="https://github.com/PDOK/leermodule-ogc-api">https://github.com/PDOK/leermodule-ogc-api</a></li>
+<li>
+<p>Klik op 'Code' en vervolgens op Download ZIP</p>
+<p><img alt="alt text" src="../../assets/casus/Git-clone.png" /></p>
+</li>
+<li>
+<p>Pak de zip uit op jouw schijf</p>
+</li>
+<li>
+<p>Bekijk de bestanden in een File explorer </p>
+<p>De voorbeeldcode bevindt zich in de folder <code>docs/voorbeelden/tiles</code></p>
+</li>
+<li>
+<p>Maak in de repository een nieuwe folder aan, en zet daarin een kopie van de voorbeeldcode.</p>
+<p>Op die manier hou je het voorbeeld schoon en kun je daar altijd op teruggrijpen.  </p>
+</li>
+<li>
+<p>Open een commandline</p>
+</li>
+<li>
+<p>Zet een lokale test web server op in de folder die je zojuist hebt gemaakt:</p>
+<div class="highlight"><pre><span></span><code>cd %jouwfolder
+python -m http.server
+</code></pre></div>
+<p>Vervang <code>%jouwfolder</code> door de locatie van de folder waar jij de voorbeeldcode naartoe hebt gekopieerd</p>
+</li>
+<li>
+<p>Ga in je webbrowser naar localhost:8000 om het voorbeeld te bekijken.</p>
+</li>
+</ol>
+<p>Je kunt de code vervolgens bewerken in een teksteditor zoals Notepad++ of Sublime Text. </p>
+</div>
+</div>
+</div>
+<h3 id="maak-een-basiskaart">Maak een basiskaart</h3>
+<p>In deze stap maak je op basis van het voorbeeld een webmap die als basis dient voor de rest van het project. </p>
+<p>Voordat we echt aan de slag gaan met data, moet er een goede basis liggen. In <code>index.html</code> en <code>main.js</code> ga je zelf de volgende zaken aanpassen op basis van jouw ontwerp:</p>
+<ul>
+<li>Titel van de webmap</li>
+<li>Achtergrondkaart en bijbehorende stijl</li>
+<li>Geografisch:<ul>
+<li>Initieel zoomniveau</li>
+<li>Initieel center</li>
+<li>De 'bounds' van de kaart</li>
+</ul>
+</li>
+</ul>
+<h4 id="pas-indexhtml-aan">Pas index.html aan</h4>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Open <code>index.html</code></strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Pas de titel aan:</strong></p>
+<pre><code>&lt;title&gt;Jouw titel&lt;/title&gt;
+</code></pre>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Vergeet je wijzigingen niet op te slaan</strong></p>
+<h4 id="pas-mainjs-aan">Pas main.js aan</h4>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Open <code>main.js</code></strong></p>
+<pre><code>const map = new maplibregl.Map({
+container: 'map', // container id
+style: 'https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1/styles/standaard__webmercatorquad?f=json', // style URL
+center: [5.44, 52.05], // starting position [lng, lat]
+zoom: 7, // starting zoomlevel
+minZoom: 6, // minimum zoomlevel zoom out
+maxZoom: 14 // maximum zoomlevel zoom in
+</code></pre>
+<p>In het voorbeeld hebben we gekozen voor de BRT Achtergrondkaart met de standaard stijl in WebMercator. We raden sterk aan om in jouw eigen web map ook de WebMercator BRT Achtergrondkaart te gebruiken. Wel zou je een andere stijl dan de standaard stijl kunnen gebruiken:</p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Ga naar <a href="https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1/styles">https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1/styles</a></strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Kies met behulp van de voorbeeldweergave een WebMercatorQuad style</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Plak de URL in jouw code</strong></p>
+<p>Standaard krijg je heel Nederland te zien wanneer je de kaart opent. Het is handiger als de kaart meteen is ingezoomd op jouw eigen interessegebied. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Ga naar <a href="https://vibhorsingh.com/boundingbox/">https://vibhorsingh.com/boundingbox/</a></strong></p>
+<p><strong>Zoom in naar jouw interessegebied</strong></p>
+<p><strong>Gebruik het Center in jouw <code>main.js</code>:</strong></p>
+<p><img alt="center kopiëren" src="../../assets/casus/boundingbox.png" /></p>
+<pre><code>center: [5.44, 52.05]
+</code></pre>
+<p>Wellicht wil je ook dat gebruikers alleen jouw interessegebied kunnen bekijken en de kaart niet daar buiten kunnen verplaatsen. Je kunt dit bereiken door 'maxBounds' in te stellen. </p>
+<p>In combinatie met de 'maxBounds' is het ook handig om het initiële, maximale en minimale zoomniveau te beperken. Laten we dat eerst doen.</p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Open jouw eigen webmap in een webbrowser</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Open het netwerk-tabblad in de developer tools</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Zoom in naar het gewenste:</strong></p>
+<ul>
+<li><strong>Initiële zoomniveau</strong></li>
+<li><strong>Zoomniveau dat de gebruiker maximaal mag uitzoomen</strong></li>
+<li><strong>Zoomniveau dat de gebruiker maximaal mag inzoom</strong></li>
+</ul>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Noteer/kopieer hierbij de zoomlevels die je ziet in de URL's van de tegelrequests:</strong></p>
+<p><img alt="Kopieer het zoomlevel" src="../../assets/casus/url-request.png" /></p>
+<p>Voeg deze zoomlevels toe in je code:</p>
+<pre><code>zoom: 7, // starting zoomlevel
+minZoom: 6, // minimum zoomlevel zoom out
+maxZoom: 14 // maximum zoomlevel zoom in
+</code></pre>
+<p>Je hebt nu de zoomlevels afgedwongen voor de gebruiker. Laten we nu het <code>maxBounds</code> opzoeken. De <code>maxBounds</code> zijn coördinaten die als het ware de begrenzing van het kaartvenster vormen. Om die coördinaten te bepalen kunnen we weer de Bounding box online tool gebruiken. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Kijk nogmaals op <a href="https://vibhorsingh.com/boundingbox/">https://vibhorsingh.com/boundingbox/</a></strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Zoom zo ver mogelijk uit op jouw interessegebied, zodat het nét in het kaartvenster past</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Kopieer de coördinaten achter 'Map':</strong></p>
+<p><img alt="bounds kopiëren" src="../../assets/casus/bounds.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Let op dat de <code>maxBounds</code>, <code>maxZoom</code> en <code>minZoom</code> in overeenstemming met elkaar moeten zijn. Wanneer de ingestelde <code>maxBounds</code> zich buiten het gebied bevinden dat je initieel ziet, zal het niet goed werken. Dit vraagt wat trial-and-error. </p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Voeg de volgende code toe aan jouw <code>main.js</code>:</strong></p>
+<pre><code>maxBounds: [[5.08530, 52.07246], [5.16769, 52.10060]] //vervang de coördinaten door jouw eigen coördinaten.
+</code></pre>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Test jouw web map: Werkt het goed en is jouw interessegebied volledig zichtbaar?</strong></p>
+<p>Als het goed is, heeft jouw kaart nu een goed initieel zoomlevel, minimum zoomlevel, maximum zoomlevel en is de view beperkt tot jouw interessegebied. </p>
+<div class="admonition info">
+<p class="admonition-title">Zoomlevel</p>
+<p>Wellicht is het je opgevallen dat je op <a href="https://vibhorsingh.com/boundingbox/">https://vibhorsingh.com/boundingbox/</a> ook het zoomlevel kunt zien. Toch gebruiken we het netwerktabblad in onze eigen webmap om de zoomlevels te achterhalen. Er is namelijk een verschil tussen het zoomlevel in de tool en het zoomlevel in onze eigen webmap. </p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Waar wordt het verschil tussen het zoomlevel in <a href="https://vibhorsingh.com/boundingbox/">https://vibhorsingh.com/boundingbox/</a> en het zoomlevel in je eigen webmap door veroorzaakt?</p>
+</div>
+<details class="success">
+<summary>Antwoord</summary>
+<p>De boundingbox tool gebruikt 'XYZ' tiles van Mapbox. Die gebruiken een ander tiling scheme: de tegelgrootte is bijvoorbeeld 512x512 pixels ipv 256x256 pixels. </p>
+</details>
+<h3 id="vind-geschikte-vector-tiledata">Vind geschikte vector tiledata</h3>
+<p>De basis staat! Nu is het tijd om kaartlagen toe te voegen. Als het goed is, heb je in de ontwerpfase geïdentificeerd welke informatie je wilt tonen. Nu ga je hier geschikte databronnen voor zoeken. </p>
+<div class="admonition info">
+<p class="admonition-title">(Vector) tiles?</p>
+<p>We richten ons in dit onderdeel specifiek op vector tiles. Met OGC API - Tiles kunnen in principe ook raster tiles beschikbaar worden gesteld: bijvoorbeeld een luchtfoto. Maar we behandelen nu alleen vector tiles. </p>
+</div>
+<p>Er zijn veel verschillende plekken waar je geodatasets kunt vinden. We beperken ons voor nu tot het <a href="https://www.nationaalgeoregister.nl/">Nationaal Georegister</a> en <a href="https://www.pdok.nl/">PDOK.nl</a>. </p>
+<div class="admonition info">
+<p class="admonition-title">Nationaal Georegister</p>
+<p>Het Nationaal Georegister (NGR) is een vindplek voor geodatasets. Organisaties kunnen hun data kenbaar maken via het NGR. De data wordt niet gehost op het NGR, er wordt slechts een verwijzing opgenomen naar de databron. Daarnaast vind je voor elke dataset een beschrijving en gegevens over de contactpersoon, actualiteit en nog veel meer. Het NGR is dus een metadataregister: het bevat data over data. </p>
+<p>PDOK daarentegen is een databron: op het PDOK-platform hosten organisaties hun data. Data van PDOK is vindbaar op <a href="https://www.pdok.nl/datasets">de website van PDOK</a>, maar ook op het NGR. </p>
+</div>
+<p>Er zijn veel verschillende soorten geodatasets. Je kunt data downloaden in verschillende bestandsformaten, zoals Geopackage, maar ook via verschillende soorten web services en API's. Voor dit onderdeel van de leermodule beperken we ons tot de <strong>vector tiles van PDOK</strong>. </p>
+<p>Vector tiles is dan ook een zeer geschikte vorm van data voor ontsluiting via een webmap. </p>
+<p>We gaan nu naar het Nationaal Georegister en stellen daar filters in zodat we alleen vector tiles van PDOK te zien krijgen:</p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Ga naar <a href="https://www.nationaalgeoregister.nl/">https://www.nationaalgeoregister.nl/</a></strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Laat de zoekbalk leeg en klik op 'Zoeken'</strong></p>
+<p>We krijgen nu alle datasets op het NGR te zien (hoeveel zijn het er?) maar we kunnen nu wel de zoekopdracht verder verfijnen met de filters aan de linkerkant. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Vink bij Organisaties alleen 'Beheer PDOK' aan</strong></p>
+<p><img alt="vink Beheer PDOK aan op NGR" src="../../assets/casus/ngr_pdok.png" /></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Vink nu bij Brontype alleen 'service' aan</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In het NGR wordt onderscheid gemaakt tussen Datasets en Services. Een Dataset wordt ontsloten via 1 of meerdere services. Een Dataset record gaat over de dataset zelf en bevat voor inhoudelijke informatie over die dataset. Een Service record gaat over de verschillende ontsluitingen van een dataset, zoals WFS, WMS of Atom. </p>
+<p>Bijvoorbeeld: de dataset BGT heeft meerdere services: download API, OGC API - Tiles, OGC API - Features en WMTS. </p>
+<p>En in dit geval zijn we op zoek naar alle OGC API - Tiles ontsluitingen. </p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Vink nu bij Online Bronnen alleen 'OGC:API tiles' aan</strong></p>
+<p>(waarschijnlijk moet je op 'meer' klikken voordat je deze te zien krijgt)</p>
+<p>Nu krijg je alle OGC API - Tiles van PDOK te zien:</p>
+<p><img alt="Alle datasets met OGC API - Tiles op NGR" src="../../assets/casus/ngr_tiles_resultaten_blur.png" /></p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Hoeveel OGC API - Tiles services krijg je nu te zien?</p>
+</div>
+<details class="success">
+<summary>Antwoord</summary>
+<p>Momenteel (februari 2026) zijn er 7 datasets met een OGC API - Tiles:</p>
+<p><img alt="het aantal datasets met een ogc api - tiles" src="../../assets/casus/aantal_ogc_api-tiles.png" /></p>
+</details>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Alle datasets van PDOK zijn ook vindbaar via <a href="https://www.pdok.nl/datasets">pdok.nl/datasets</a>. De API's van PDOK (onder andere download API's en OGC API's) zijn bovendien vindbaar via <a href="https://api.pdok.nl/">api.pdok.nl</a>. Echter, het Nationaal Georegister heeft betere mogelijkheden om het aanbod te doorzoeken (bijvoorbeeld met de filters die je zojuist hebt gebruikt)</p>
+</div>
+<p>Nu je weet hoe je op NGR alle beschikbare OGC API - Tiles kunt vinden, is het tijd om te onderzoeken welke tilesets geschikt zijn voor jouw casus. </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Het aanbod vector tiles is op dit moment (februari 2026) nog wat beperkt. Wellicht heb je daar last van voor het uitvoeren van jouw casus. We hopen het aanbod spoedig uit te breiden!</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Welke OGC API - Tiles herken je al uit de eerdere oefeningen? </p>
+</div>
+<p>Ga op ontdekkingstocht in het beschikbare aanbod. Doe dit aan de hand van jouw ontwerp. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Verken de verschillende datasets op NGR en onderzoek de geschiktheid voor jouw casus:</strong></p>
+<ul>
+<li><strong>Lees de beschrijvingen</strong></li>
+<li><strong>Bekijk de landing pages: welke collecties zijn er? Wat bevatten die collecties? Welke tilesets zijn er beschikbaar?</strong></li>
+</ul>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Kijk nog eens naar jouw ontwerp:</strong></p>
+<ul>
+<li><strong>Is de dataset geschikt voor jouw doelgroep?</strong></li>
+<li><strong>Bevat de dataset informatie die relevant is voor jouw doel?</strong></li>
+<li><strong>Bevat de dataset informatie in een geschikte vorm?</strong></li>
+<li><strong>Is de geografische afbakening en schaal geschikt voor jouw doel?</strong></li>
+</ul>
+<p>Voer vervolgens de volgende stappen uit (we leggen hierna uit hoe je dit precies doet aan de hand van een voorbeeld). </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Zoek de URL van de Tile Set of de URL van de Style op.</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Voeg de Tile Set toe aan jouw web map.</strong></p>
+<p>We laten nu zien hoe je één kaartlaag toevoegt. We doen dit met de 'BRT TOP10NL OGC API (Vector) Tiles' service. </p>
+<p>Daarna is het aan jou om dit zelf te doen met andere kaartlagen. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Ga weer terug naar NGR, naar de OGC API - Tiles resultaten:</strong></p>
+<p><img alt="Alle datasets met OGC API - Tiles op NGR" src="../../assets/casus/ngr_tiles_resultaten.png" /></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Zoek en klik op 'BRT TOP10NL OGC API (Vector) Tiles'</strong></p>
+<p><img alt="OGC API - Tiles van de BRT TOP10NL in het Nationaal Georegister" src="../../assets/casus/ngr_brt_tiles.png" /></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Lees de beschrijving en bekijk de gerelateerde dataset BRT TOP10NL (dit is het het bijbehorende dataset record)</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik onder 'Downloads, views en links' op de API URL</strong></p>
+<p>Je gaat nu naar de inmiddels welbekende landing page!</p>
+<h3 id="voeg-de-vector-tiledata-toe-aan-jouw-kaart">Voeg de vector tiledata toe aan jouw kaart</h3>
+<p>Je kunt vector tiledata op twee manieren toevoegen aan jouw webmap: 1) voeg losse kaartlagen toe of 2) maak gebruik van een style. </p>
+<p>Beide methodes hebben zo hun voor- en nadelen. </p>
+<p>Wanneer je losse kaartlagen toevoegt, moet je wel weten hoe deze kaartlagen precies heten. We lichten dit verderop toe. Daarnaast is het toevoegen van heel veel kaartlagen is niet erg efficiënt. </p>
+<p>Je kunt ook gebruik maken van een style. Je kunt gebruik maken van een styling die door PDOK wordt aangeboden, een bestaande style aanpassen of helemaal zelf een style maken. Je kunt echter maar van één style tegelijk gebruik maken. </p>
+<p>We demonstreren beide methodes. </p>
+<h4 id="vector-tiledata-als-losse-kaartlagen-toevoegen">Vector tiledata als losse kaartlagen toevoegen</h4>
+<p>Ga op de landing page naar Tiles</p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik in het dropdownmenu bij 'Tile Matrix Set' op 'WebMercatorQuad'</strong></p>
+<div class="admonition info">
+<p class="admonition-title">Gebruik altijd één en dezelfde Tile Matrix Set in MapLibre</p>
+<p>Je kunt niet meerdere verschillende CRS'en met elkaar combineren, namelijk. </p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op 'Bekijk metadata'</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op 'JSON'</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Kopieer de URL</strong></p>
+<p>Je hebt nu de URL van de tileset die je kunt gebruiken in je code. </p>
+<p>Door de volgende code toe te voegen aan <code>main.js</code>, kun je de <code>gebouw_vlak</code> layer uit de BRT TOP10NL toevoegen aan je webmap.</p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Voeg onderstaande code toe aan main.js:</strong></p>
+<pre><code>map.on('load', () =&gt; {
+    map.addSource('top10nl', {
+        type: 'vector',
+        url:
+            'https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/WebMercatorQuad?f=tilejson'
+    });
+    map.addLayer({
+        'id': 'gebouw_vlak',
+        'type': 'fill',
+        'source': 'top10nl',
+        'source-layer': 'gebouw_vlak',
+        'paint': {
+            'fill-color': '#ff0000ff'
+        }
+    });
+});
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Zoomlevel</p>
+<p>Let op in welke zoomlevels de tileset beschikbaar is. Dit kun je vinden in de metadata, bijvoorbeeld: <a href="https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/WebMercatorQuad">https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/WebMercatorQuad</a></p>
+<p>Wellicht moet je dus inzoomen voordat de zojuist toegevoegde kaartlaag zichtbaar wordt. </p>
+</div>
+<p>Wat doet de code in het voorbeeld precies? </p>
+<p>Wanneer de kaart is ingeladen, wordt er allereerst een bron toegevoegd. Hiervoor wordt de <a href="https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/WebMercatorQuad">WebMercatorQuad tileset</a> van de BRT TOP10NL gebruikt. </p>
+<p>Vervolgens wordt de kaartlaag <code>gebouw_vlak</code> uit deze <code>source</code> (<code>brt</code>) toegevoegd. Het type kaartlaag is <code>fill</code> (een opgevulde polygon). Deze krijgt de zelfgekozen id <code>gebouw_vlak</code> maar heet in de <code>source</code> ook <code>gebouw_vlak</code>. </p>
+<p>Tot slot wordt de kaartlaag opgemaakt met een <code>fill-color</code> (opvulkleur). </p>
+<p>We gebruiken dus de kaartlaag <code>gebouw_vlak</code> uit deze tileset. Hoe weet je nou welke kaartlagen er in de tileset zitten en hoe die kaartlagen precies heten?</p>
+<p>Je kunt hier op drie verschillende manieren achterkomen: </p>
+<ol>
+<li>Kijk welke feature collections er zijn en hoe die heten (mits deze dataset is voorzien van OGC API - Features).</li>
+<li>Bekijk een style json, kijk welke kaartlagen hierin genoemd worden</li>
+<li>Open de style in een client zoals QGIS</li>
+</ol>
+<h5 id="optie-1-kijk-welke-feature-collections-er-zijn">Optie 1: Kijk welke feature collections er zijn</h5>
+<p>Via de landing page kun je zien of de dataset is voorzien van een OGC API - Features. Als dit het geval is, zijn er collections. De namen van de collections komen als het goed is overeen met de namen van layers in de tiles. Deze namen kun je vervolgens gebruiken om een source-layer aan te roepen in je code. </p>
+<p>Deze optie werkt alleen als er een OGC API - Features is voor de dataset, en wanneer de namen van de kaartlagen overeen komen. </p>
+<h5 id="optie-2-bekijk-een-style-json-kijk-welke-kaartlagen-hierin-genoemd-worden">Optie 2: Bekijk een style json, kijk welke kaartlagen hierin genoemd worden</h5>
+<p>Via de landing page kun je via de pagina Styles en vervolgens de JSON weergave van een specifieke style bekijken welke kaartlagen er gebruikt worden door de style uit dezelfde <code>source</code>. </p>
+<p>Bijvoorbeeld in <a href="https://api.pdok.nl/brt/top10nl/ogc/v1/styles/brt_top10nl__webmercatorquad?f=json">https://api.pdok.nl/brt/top10nl/ogc/v1/styles/brt_top10nl__webmercatorquad?f=json</a>. De namen van de kaartlagen vind je onder <code>"layers": []</code> . Deze namen kun je vervolgens gebruiken om een source-layer aan te roepen in jouw code.</p>
+<h5 id="optie-3-open-de-style-in-een-client-zoals-qgis">Optie 3: Open de style in een client zoals QGIS</h5>
+<p>In een GIS-client, zoals QGIS, kun je ook tiles en styles inladen. Je kunt dan in de UI bekijken welke kaartlagen in de style in de source zitten. Die namen kun je vervolgens in jouw eigen code aanroepen.</p>
+<h4 id="vector-tiledata-door-middel-van-een-style-toevoegen">Vector tiledata door middel van een style toevoegen</h4>
+<p>Een alternatief voor het toevoegen van losse kaartlagen is om gebruik te maken van een style. In <code>main.js</code> wordt als volgt een style aangeroepen:</p>
+<pre><code>style: 'https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1/styles/standaard__webmercatorquad?f=json', // style URL
+</code></pre>
+<p>Je kunt deze URL vervangen door een andere kant-en-klare style van PDOK, een andere style ergens op internet of een eigen lokaal stylebestand. Je kunt echter maar van één style tegelijk gebruik maken. Een style bevat één of meerdere sources en kan heel veel layers bevatten.</p>
+<p>Je hebt drie opties voor de styling:</p>
+<ol>
+<li>Gebruik een kant-en-klare bestaande style</li>
+<li>Pas een kant-en-klare style aan</li>
+<li>Maak zelf een nieuwe style <em>from scratch</em></li>
+</ol>
+<h5 id="optie-1-gebruik-een-kant-en-klare-bestaande-style">Optie 1: Gebruik een kant-en-klare bestaande style</h5>
+<p>Je kunt één van de kant-en-klare stijlen die door PDOK worden aangeboden gebruiken. Je kunt dit doen door naar de Styles pagina op de landing page te gaan, met het dropdownmenu een style te kiezen en de URL te kopiëren van een JSON-weergave van een stijl. Plak de URL in jouw <code>main.js</code> bij <code>style</code>.</p>
+<h5 id="optie-2-pas-een-kant-en-klare-style-aan">Optie 2: Pas een kant-en-klare style aan</h5>
+<p>Je kunt de inhoud van één van de bestaande PDOK styles (zie hierboven) kopiëren en zelf aanpassen. Immers, beter goed gejat dan slecht bedacht! Pas bijvoorbeeld de kleuren aan of laat kaartlagen die je niet interessant vind weg. Vervolgens host je dit JSON-bestand zelf en verwijs je hiernaar in je <code>main.js</code>:</p>
+<pre><code>style: './jouwstyle.json', // style URL
+</code></pre>
+<p>We hebben een simpele voorbeeldstyle gemaakt op basis van de TOP10NL OGC API - Tiles. Deze vind je in <a href="../../voorbeelden/tiles/style_voorbeeld.json">style_voorbeeld.json</a> en hieronder:</p>
+<details class="tip">
+<summary>Style voorbeeld</summary>
+<pre><code>{
+  "version": 8,
+  "metadata": {
+    "ol:webfonts": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{font-family}/{fontweight}{-fontstyle}.css",
+    "gokoala:title-items": "id"
+  },
+  "name": "",
+  "center": [
+    5.3878,
+    52.1561
+  ],
+  "pitch": 0,
+  "sources": {
+    "top10nl": {
+      "type": "vector",
+      "tiles": [
+        "https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/WebMercatorQuad/{z}/{y}/{x}?f=mvt"
+      ],
+      "minzoom": 14,
+      "maxzoom": 17
+    }
+  },
+  "sprite": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/standaardsprites/sprite@1",
+  "glyphs": "https://api.pdok.nl/brt/top10nl/ogc/v1/resources/fonts/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "functioneel_gebied_vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "functioneel_gebied_vlak",
+      "paint": {
+        "fill-color": "#ffffff",
+        "fill-opacity": 0,
+        "fill-outline-color": "#38A800"
+      }
+    },
+    {
+      "id": "grasland_terrein_vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "terrein_vlak",
+      "filter": ["in", "visualisatiecode", 14130, 14132, 14133],
+      "paint": {
+        "fill-color": "#C3DBB5"
+      }
+    },
+    {
+      "id": "waterdeel_vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_vlak",
+      "paint": {
+        "fill-color": "#80BDE3"
+      }
+    },
+    {
+      "id": "waterdeel_lijn",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "waterdeel_lijn",
+      "paint": {
+        "fill-color": "#80BDE3"
+      }
+    },
+    {
+      "id": "gebouw_vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "gebouw_vlak",
+      "paint": {
+        "fill-color": "#8f8f8fff",
+        "fill-outline-color": "#9c9c9cff"
+      }
+    },
+    {
+      "id": "hoofdweg wegdeel_vlak",
+      "type": "fill",
+      "source": "top10nl",
+      "source-layer": "wegdeel_vlak",
+      "filter": [
+        "in",
+        "visualisatiecode",
+        10302,
+        10300,
+        10301,
+        10310,
+        10311,
+        10312
+      ],
+      "paint": {
+        "fill-color": "#E60000"
+      }
+    }
+  ]
+}
+</code></pre>
+</details>
+<div class="admonition info">
+<p class="admonition-title">Zoomlevel</p>
+<p>Let bij het gebruiken van deze voorbeeldstyle weer op het minimale en maximale zoomlevel van deze tileset. Deze vind je ook hier: <a href="https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/WebMercatorQuad">https://api.pdok.nl/brt/top10nl/ogc/v1/tiles/WebMercatorQuad</a></p>
+<p>Pas het initiële zoomlevel van jouw webmap aan, wanneer je niks ziet. </p>
+</div>
+<h5 id="optie-3-maak-zelf-een-nieuwe-style-from-scratch">Optie 3: Maak zelf een nieuwe style <em>from scratch</em></h5>
+<p>Je kunt ook helemaal uit het niets zelf een nieuwe style maken. Dit bestand host je vervolgens zelf en in <code>main.js</code> verwijs je hiernaar. </p>
+<p>Je kunt hiervoor de documentatie van de MapLibre style spec gebruiken: <a href="https://maplibre.org/maplibre-style-spec/">https://maplibre.org/maplibre-style-spec/</a></p>
+<p>En je kunt natuurlijk slim gebruik maken van voorbeelden, om te leren hoe dit moet. </p>
+<p>Hoe kun je punten, lijnen en vlakken toevoegen en opmaken? We geven drie korte voorbeelden:</p>
+<h6 id="punt-toevoegen">Punt toevoegen</h6>
+<p>Om een puntenkaartlaag te visualiseren kun je in de MapLibre style spec <code>symbol</code> of <code>circle</code> gebruiken. In een style json kun je deze als volgt toevoegen en opmaken:</p>
+<pre><code>"layers": [
+    {
+        "id": "windmolen", // vervang door een zelfgekozen naam
+        "type": "symbol",
+        "source": "top10nl", // vervang door de naam van jouw bron
+        "source-layer": "windmolen", // vervang door de naam van een bestaande kaartlaag
+        "layout": {
+            "icon-image": "windmolen" // vervang door de naam van een bestaande afbeelding in "sprite"
+        }
+    }
+]
+</code></pre>
+<p>Of een circle:</p>
+<pre><code>"layers": [
+    {
+        "id": "functioneel_gebied_punt", // vervang door een zelfgekozen naam
+        "type": "circle",
+        "source": "top10nl", // vervang door de naam van jouw bron
+        "source-layer": "functioneel_gebied_punt", // vervang door de naam van een bestaande kaartlaag
+        "paint": {
+            "circle-radius": 3.3, // straal van de cirkel
+            "circle-stroke-color": "#38A800" // kleur van de cirkel
+        }
+    }
+]
+</code></pre>
+<p>Je kunt symbol ook voor tekstlabels gebruiken. Bijvoorbeeld zo:</p>
+<pre><code>"layers": [
+    {
+        "id": "hoogte_punt", // vervang door een zelfgekozen naam
+        "type": "symbol",
+        "source": "top10nl", // vervang door de naam van jouw bron
+        "source-layer": "hoogte_punt", // vervang door de naam van een bestaande kaartlaag
+        "layout": {
+            "text-field": "{hoogte}",  // vervang door de tekst die je wilt tonen of een attribuut dat de tekst bevat
+            "text-size": 10.4, // tekstgrootte
+            "text-font": [ // lettertypes die gebruikt mogen worden (als er een lettertype niet aanwezig is, wordt teruggevallen op het lettertype eronder)
+                "Liberation Sans Bold Italic",
+                "system-ui",
+                "Roboto",
+                "Arial",
+                "Noto Sans",
+                "Liberation Sans",
+                "sans-serif",
+                "Noto Color Emoji"
+            ]
+        },
+        "paint": {
+            "text-color": "#0000FF" // tekstkleur
+        }
+    }
+]
+</code></pre>
+<h6 id="lijn-toevoegen">Lijn toevoegen</h6>
+<p>Een lijn heet in de MapLibre style spec simpelweg <code>line</code>. In een style json kun je deze als volgt toevoegen en opmaken:</p>
+<pre><code>"layers": [
+    {
+        "id": "waterdeel_lijn", // vervang door een zelfgekozen naam
+        "type": "fill",
+        "source": "top10nl", // vervang door de naam van jouw bron
+        "source-layer": "waterdeel_lijn", // vervang door de naam van een bestaande kaartlaag
+        "paint": {
+            "fill-color": "#80BDE3"
+        }
+    }
+]
+</code></pre>
+<h6 id="vlak-toevoegen">Vlak toevoegen</h6>
+<p>Een vlak heet in de MapLibre style spec <code>fill</code>. In een style json kun je deze als volgt toevoegen en opmaken:</p>
+<pre><code>"layers": [
+    {
+        "id": "gebouw_vlak", // vervang door een zelfgekozen naam
+        "type": "fill",
+        "source": "top10nl", // vervang door de naam van jouw bron
+        "source-layer": "gebouw_vlak", // vervang door de naam van een bestaande kaartlaag
+        "paint": {
+            "fill-color": "#8f8f8fff",
+            "fill-outline-color": "#9c9c9cff"
+        }
+    }
+]
+</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Vlak toevoegen</p>
+<p>Wil je alleen de omlijning van een vlak tonen, en niet de binnenkant van het vlak inkleuren (dus een transparante invulling)? Dan kun je het vlak het beste als <code>line</code> visualiseren. </p>
+</div>
+<p>Hieronder vatten we samen welk <code>type</code> je nodigt hebt voor de geometrietypen:</p>
+<table>
+<thead>
+<tr>
+<th>Geometrietype</th>
+<th>MapLibre style spec naam</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Point</td>
+<td>met een symbool: <code>symbol</code>. Als een simpele cirkel: <code>circle</code></td>
+</tr>
+<tr>
+<td>LineString</td>
+<td><code>line</code></td>
+</tr>
+<tr>
+<td>Polygon</td>
+<td>Transparante vulling: <code>line</code>. Gekleurde vulling: <code>fill</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="samenvatting-kaartlagen-toevoegen">Samenvatting kaartlagen toevoegen</h4>
+<p>Je hebt nu gezien dat je kaartlagen kunt toevoegen op twee manieren: 1) voeg losse kaartlagen toe in <code>main.js</code> en 2) voeg kaartlagen toe via een style. In onderstaande tabel vatten we het nog eens samen:</p>
+<table>
+<thead>
+<tr>
+<th>Methode</th>
+<th>Optie</th>
+<th>Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Losse kaartlagen toevoegen</td>
+<td></td>
+<td>Voeg in <code>main.js</code> een source toe en kaartlagen. Je kunt dit bovenop een bestaande style doen</td>
+</tr>
+<tr>
+<td>Voeg kaartlagen toe via een style</td>
+<td>Kant-en-klare style</td>
+<td>Gebruik de URL van een bestaande style</td>
+</tr>
+<tr>
+<td></td>
+<td>Pas een bestaande style aan</td>
+<td>Kopieer een bestaande style, pas deze aan, host deze zelf en verwijs hiernaar in <code>main.js</code></td>
+</tr>
+<tr>
+<td></td>
+<td>Maak een nieuwe style</td>
+<td>Maak een nieuwe style, host deze zelf en verwijs hiernaar in <code>main.js</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Wat zijn de voor- en nadelen van de verschillende methodes om kaartlagen toe te voegen? Wat vind jij de beste methode en waarom? </p>
+</div>
+<h4 id="opdracht-voeg-zelf-kaartlagen-toe">Opdracht: voeg zelf kaartlagen toe</h4>
+<p>Je hebt nu gezien dat je kaartlagen op meerdere manieren kunt toevoegen en stylen. We hebben dit aan de hand van voorbeelden voor gedaan.  </p>
+<p>Het is nu aan jou om verschillende extra kaartlagen toe te voegen. Je mag zelf bepalen op welke manier je dit doet, maar:</p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Voeg minimaal 4 extra kaartlagen toe</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Waarvan minimaal:</strong></p>
+<ul>
+<li><strong>1 kaartlaag met punten (van het type <code>symbol</code> of <code>circle</code>)</strong></li>
+<li><strong>1 kaartlaag met lijnen (van het type <code>line</code>)</strong></li>
+<li><strong>1 kaartlaag met polygonen (van het type <code>fill</code>)</strong></li>
+</ul>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Gebruik minimaal 3 verschillende kleuren</strong></p>
+<p>Grijp terug op je ontwerp om te bepalen welke kaartlagen je het beste kunt toevoegen. </p>
+<h3 id="optioneel-extra-functionaliteit">Optioneel: extra functionaliteit</h3>
+<div class="admonition info">
+<p class="admonition-title">Dit onderdeel is optioneel</p>
+</div>
+<p>Voeg extra functionaliteit aan de webmap toe. Kijk hiervoor in de officiële documentatie van MapLibre:</p>
+<ul>
+<li><a href="https://maplibre.org/maplibre-gl-js/docs/API/">MapLibre GL JS API</a></li>
+<li><a href="https://maplibre.org/maplibre-gl-js/docs/examples/">MapLibre GL JS voorbeelden</a></li>
+<li><a href="https://maplibre.org/maplibre-gl-js/docs/plugins/">Plugins voor MapLibre GL JS</a></li>
+</ul>
+<p>Je kunt denken aan extra functionaliteit zoals:</p>
+<ul>
+<li><a href="https://github.com/watergis/maplibre-gl-legend">Een legenda, zodat het voor de gebruiker duidelijk is wat de kleuren betekenen</a>;</li>
+<li><a href="https://maplibre.org/maplibre-gl-js/docs/examples/attach-a-popup-to-a-marker-instance/">Pop-ups met extra informatie over de objecten in de kaart</a>;</li>
+<li><a href="https://github.com/korywka/mapbox-controls">Controls, zoals knoppen om in te zoomen</a>.</li>
+</ul>
+<h2 id="evalueer-het-eindresultaat">Evalueer het eindresultaat</h2>
+<p>Pak het ontwerp van jouw webmap er weer bij. En vergelijk het ontwerp met het eindresultaat aan de hand van de volgende criteria:</p>
+<ul>
+<li><strong>Doelgroep:</strong> is jouw webmap geschikt voor de doelgroep die je voor ogen had?</li>
+<li><strong>Doel en scope:</strong> is de doelgroep in staat om het doel dat je voor ogen had te bereiken?</li>
+<li><strong>Benodigde informatie:</strong> bevat jouw webmap de informatie die nodig is om het doel te bereiken in een geschikte vorm?</li>
+<li><strong>Geografische afbakening en schaal:</strong> is de data in jouw webmap geschikt voor het beoogde schaalniveau?</li>
+</ul>
+<p>Samenvattend: stelt jouw webmap de doelgroep in staat om hun vragen te beantwoorden? Biedt het meerwaarde voor de gebruiker? </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Evalueer jouw eindproduct.</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Pas jouw eindproduct zonodig aan.</strong></p>
+<h2 id="conclusie">Conclusie</h2>
+<p>Je hebt als het goed is een prachtige webmap met vector tiles gemaakt. Gefeliciteerd! Laten we eens nagaan wat we allemaal gedaan hebben:</p>
+<table>
+<thead>
+<tr>
+<th>Onderdeel</th>
+<th>Beschrijving</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Maak een ontwerp voor jouw webmap</td>
+<td>Aan de hand van doelgroep, doel, benodigde informatie en geografische afbakening.</td>
+</tr>
+<tr>
+<td>Zet een ontwikkelomgeving op</td>
+<td>Code kopiëren en klaarzetten.</td>
+</tr>
+<tr>
+<td>Maak een basiskaart</td>
+<td>De onderlegger (<code>index.html</code> en <code>main.js</code>) voor de rest van het product.</td>
+</tr>
+<tr>
+<td>Vind geschikte vector tiledata</td>
+<td>Geschikte datasets vinden via het Nationaal Georegister.</td>
+</tr>
+<tr>
+<td>Voeg de vector tiledata toe aan jouw kaart</td>
+<td>Toevoegen losse kaartlagen en maken van een style.</td>
+</tr>
+<tr>
+<td>Evalueer het eindresultaat</td>
+<td>Voldeed het eindproduct aan het ontwerp?</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Analyseer%20een%20voorbeeldkaart/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Analyseer een voorbeeldkaart">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                Analyseer een voorbeeldkaart
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Terugblik/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Terugblik">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                Terugblik
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.footer", "search.suggest", "search.highlight", "navigation.top", "header.autohide", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,137 @@
+
+/* -----------------------------------------------------------
+   Material for MkDocs – Custom Color Palette
+   Seed brand color: #1a1e4f (indigo/navy)
+   Link color kept:  #5d6cc0
+   ----------------------------------------------------------- */
+
+/* ===== Light Theme ===== */
+[data-md-color-scheme="default"] {
+  /* Brand / Primary */
+  --md-primary-fg-color:        #1a1e4f; /* seed */
+  --md-primary-fg-color--light: #696e95; /* from your CSS */
+  --md-primary-fg-color--dark:  #0d0e28; /* from your CSS */
+
+  /* Accent / Secondary / Tertiary */
+  --md-accent-fg-color:         #5d6cc0; /* your link blue */
+  --md-secondary-fg-color:      #5d6cc0; /* align secondary with links */
+  --md-tertiary-fg-color:       #b05da7; /* magenta accent */
+
+  /* Links */
+  --md-typeset-a-color:         #5d6cc0;
+
+  /* Content foreground/background */
+  --md-default-fg-color:        #111318; /* near-black (cool) */
+  --md-default-fg-color--light: #2b2f3a;
+  --md-default-fg-color--lighter:#3c4150;
+  --md-default-fg-color--lightest:#596078;
+
+  --md-default-bg-color:        #ffffff;
+  --md-default-bg-color--light: #f6f7fb; /* subtle tinted surface */
+  --md-default-bg-color--lighter:#eef0f7;
+  --md-default-bg-color--lightest:#e6e9f5;
+
+  /* Surfaces */
+  --md-code-bg-color:           #f6f7fb;
+  --md-admonition-bg-color:     #f6f7fb;
+
+  /* Outline / Dividers */
+  --md-typeset-color:           var(--md-default-fg-color);
+  --md-typeset-table-color:     #d6dae6;
+  --md-accent-bg-color:         #eef0f7;
+  --md-outline-color:           #c6ccda;
+
+  /* Success / Warning / Error (MD3-ish) */
+  --md-success-fg-color:        #0f7b6c;
+  --md-success-bg-color:        #e0f2ee;
+
+  --md-warning-fg-color:        #8a5f00;
+  --md-warning-bg-color:        #fff4dc;
+
+  --md-error-fg-color:          #ba1a1a;
+  --md-error-bg-color:          #ffe3e3;
+
+  /* Navigation / Header (primary container feel) */
+  --md-header-bg-color:         #111430; /* darker primary */
+  --md-header-fg-color:         #ffffff;
+  --md-nav-bg-color:            #ffffff;
+  --md-nav-fg-color:            #1a1e4f;
+}
+
+/* ===== Dark Theme (slate) ===== */
+[data-md-color-scheme="slate"] {
+  /* Base surfaces (cool dark) */
+  --md-default-bg-color:        #0f111a;
+  --md-default-bg-color--light: #151829;
+  --md-default-bg-color--lighter:#1b1f33;
+  --md-default-bg-color--lightest:#232743;
+
+  --md-default-fg-color:        #e6e9f5; /* light text */
+  --md-default-fg-color--light: #cfd5e8;
+  --md-default-fg-color--lighter:#b5bdd6;
+  --md-default-fg-color--lightest:#9aa4c2;
+
+  /* Primary / Secondary / Tertiary adjusted for dark */
+  --md-primary-fg-color:        #aab0ff; /* readable on dark */
+  --md-primary-fg-color--light: #c5c9ff;
+  --md-primary-fg-color--dark:  #8187e6;
+
+  --md-accent-fg-color:         #a8b6ff; /* lighter accent for contrast */
+  --md-secondary-fg-color:      #a8b6ff;
+  --md-tertiary-fg-color:       #f0b3e7; /* lighter magenta accent */
+
+  /* Links */
+  --md-typeset-a-color:         #a8b6ff;
+
+  /* Code / Admonitions */
+  --md-code-bg-color:           #151829;
+  --md-admonition-bg-color:     #151829;
+
+  /* Outline / Dividers */
+  --md-typeset-table-color:     #2a2f4a;
+  --md-outline-color:           #3a4162;
+
+  /* Status colors tuned for dark */
+  --md-success-fg-color:        #3bd2bb;
+  --md-success-bg-color:        #12242a;
+
+  --md-warning-fg-color:        #ffd27a;
+  --md-warning-bg-color:        #2b230f;
+
+  --md-error-fg-color:          #ffb3b3;
+  --md-error-bg-color:          #2a1212;
+
+  /* Navigation / Header */
+  --md-header-bg-color:         #0d1024;
+  --md-header-fg-color:         #ffffff;
+  --md-nav-bg-color:            #0f111a;
+  --md-nav-fg-color:            #e6e9f5;
+}
+
+/* ===== Your existing tweaks ===== */
+
+/* First element of left column TOC italic (category README) */
+nav[data-md-level="0"] > .md-nav__list > .md-nav__item:first-child a,
+nav[data-md-level="1"] > .md-nav__list > .md-nav__item:first-child a {
+  font-style: italic;
+}
+
+/* ====== Filmpjes embedden ===== */
+
+.video-wrapper {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+}
+.video-wrapper > iframe {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

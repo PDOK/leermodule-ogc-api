@@ -1,0 +1,1872 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Een leermodule met achtergrondinformatie en oefeningen om te leren werken met OGC API's van PDOK">
+      
+      
+      
+        <link rel="canonical" href="https://www.acceptatie.pdok.nl/leermodule/features/Bevraag%20OGC%20API%20-%20Features%20met%20curl/">
+      
+      
+        <link rel="prev" href="../Verken%20OGC%20API%20-%20Features%20in%20de%20browser/">
+      
+      
+        <link rel="next" href="../Casus%20-%20Analyseer%20data%20met%20OGC%20API%20-%20Features%20met%20Python/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/pdok.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Bevraag OGC API - Features met curl - OGC API Leermodule</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bevraag-ogc-api-features-met-curl" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OGC API Leermodule" class="md-header__button md-logo" aria-label="OGC API Leermodule" data-md-component="logo">
+      
+  <img src="../../assets/pdok.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OGC API Leermodule
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bevraag OGC API - Features met curl
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PDOK/leermodule-ogc-api/" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introductie
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../achtergrondinformatie/Introductie/" class="md-tabs__link">
+          
+  
+  
+  Achtergrondinformatie
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tiles/Introductie/" class="md-tabs__link">
+          
+  
+  
+  OGC API - Tiles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Introductie/" class="md-tabs__link">
+          
+  
+  
+  OGC API - Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Afronding/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Afronding
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Community
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../referenties/features/" class="md-tabs__link">
+          
+  
+  
+  Referenties
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OGC API Leermodule" class="md-nav__button md-logo" aria-label="OGC API Leermodule" data-md-component="logo">
+      
+  <img src="../../assets/pdok.png" alt="logo">
+
+    </a>
+    OGC API Leermodule
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PDOK/leermodule-ogc-api/" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Achtergrondinformatie
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Achtergrondinformatie
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20is%20geo-informatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat is geo-informatie?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20doet%20het%20Kadaster%20-%20PDOK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat doet het Kadaster / PDOK?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20zijn%20OGC%20APIs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat zijn OGC API's?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Het%20belang%20van%20standaarden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Het belang van standaarden
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OGC API - Tiles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OGC API - Tiles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Verken%20OGC%20API%20-%20Tiles%20in%20de%20browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verken OGC API - Tiles in de browser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Analyseer%20een%20voorbeeldkaart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyseer een voorbeeldkaart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Casus%20-%20Maak%20een%20kaart%20met%20OGC%20API%20-%20Tiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casus - Maak een kaart met OGC API - Tiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OGC API - Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OGC API - Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verken%20OGC%20API%20-%20Features%20in%20de%20browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verken OGC API - Features in de browser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bevraag OGC API - Features met curl
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bevraag OGC API - Features met curl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#voorbereiding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voorbereiding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openapi-specification-opvragen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAPI specification opvragen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vraag-collecties-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag collecties op
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vraag collecties op">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#welke-collecties-zijn-er-allemaal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welke collecties zijn er allemaal?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informatie-over-een-specifieke-collectie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informatie over één specifieke collectie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bekijk-het-schema-van-een-collectie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bekijk het schema van een collectie
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vraag-items-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag items op
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vraag items op">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vraag-de-items-van-een-collectie-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag de items van een collectie op
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vraag-een-specifiek-item-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag één specifiek item op
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vraag-items-op-binnen-een-bounding-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag items op binnen een bounding box
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vraag-items-op-in-een-bepaald-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag items op in een bepaald CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samenvatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Samenvatting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Casus%20-%20Analyseer%20data%20met%20OGC%20API%20-%20Features%20met%20Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casus - Analyseer data met OGC API - Features met Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Afronding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Afronding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referenties
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Referenties
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../referenties/features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verwijzingen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#voorbereiding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voorbereiding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openapi-specification-opvragen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAPI specification opvragen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vraag-collecties-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag collecties op
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vraag collecties op">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#welke-collecties-zijn-er-allemaal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welke collecties zijn er allemaal?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#informatie-over-een-specifieke-collectie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informatie over één specifieke collectie
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bekijk-het-schema-van-een-collectie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bekijk het schema van een collectie
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vraag-items-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag items op
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vraag items op">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vraag-de-items-van-een-collectie-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag de items van een collectie op
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vraag-een-specifiek-item-op" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag één specifiek item op
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vraag-items-op-binnen-een-bounding-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag items op binnen een bounding box
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vraag-items-op-in-een-bepaald-crs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vraag items op in een bepaald CRS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samenvatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Samenvatting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="bevraag-ogc-api-features-met-curl">Bevraag OGC API - Features met curl</h1>
+<p>We hebben eerder gezien hoe je de API-documentatie in de browser kunt bekijken. Nu is het tijd om echt aan de slag te gaan met de API. 
+In de commandline kun je met behulp van de tool <code>cURL</code> data opvragen en versturen. Je kunt dit ook gebruiken om API's om data op te vragen en die data vervolgens terug te krijgen. Zo ook de OGC API's van PDOK. Je krijgt het resultaat terug als JSON-bestand. 
+Ontwikkelaars gebruiken dit principe om API's te implementeren in hun eigen applicaties. </p>
+<p>In dit deel stel je met behulp van de OpenAPI specification GET requests samen om de OGC API - Features van de Basisregistratie Grootschalige Topografie (BGT) te bevragen. Die requests vuur je vervolgens met <code>curl</code> af. Het resultaat ontvang je als <code>json</code>. </p>
+<h2 id="voorbereiding">Voorbereiding</h2>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Open een commandline / terminal venster.</strong> </p>
+<div class="admonition warning">
+<p class="admonition-title">Waarschuwing</p>
+<p>Gebruik niet de PowerShell terminal. Die heeft een ingebouwde eigen versie van <code>curl</code> met veel minder mogelijkheden. De voorbeelden zullen daar niet in werken. </p>
+</div>
+<p>Met de OpenAPI specification pagina kun je heel makkelijk commando's voor <code>curl</code> samenstellen. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Ga naar de OpenAPI specification van de BGT.</strong></p>
+<p>Weet je niet meer waar je die kunt vinden? Kijk dan even in één van de vorige onderdelen. </p>
+<p><img alt="BGT OpenAPI specification" src="../../assets/features/bgt_openapi_specification.png" /></p>
+<h2 id="openapi-specification-opvragen">OpenAPI specification opvragen</h2>
+<p>Laten we beginnen met een simpele vraag. We vragen eerst de <code>OpenAPI specification</code> zelf op. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klap</strong> 'GET <code>/api</code> This document' <strong>open</strong>:</p>
+<p><img alt="GET /api This document" src="../../assets/get-api.png" /></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op <em>Try it out</em></strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op <em>Execute</em></strong></p>
+<p>Je krijgt nu het <code>curl</code> commando dat is afgevuurd en het resultaat (response) te zien:</p>
+<p><img alt="curl get api specification" src="../../assets/features/get-api-response.png" /></p>
+<p>Er is één parameter meegegeven: geef het resultaat als json. En we krijgen de specificatie inderdaad netjes te zien als json-document. </p>
+<p>We kunnen het <code>curl</code> commando kopiëren en zelf uitvoeren in de commandline. </p>
+<div class="admonition warning">
+<p class="admonition-title">Waarschuwing</p>
+<p>Pas voor de Windows commandline (<code>cmd.exe</code>) de kant-en-klare <code>curl</code> commando's aan: zet alles op één regel en verander de 'enkele quotes' in "dubbele quotes". Anders zullen de voorbeelden niet werken. </p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Kopieer het</strong> <code>curl</code> <strong>commando en plak het in de commandline</strong></p>
+<p>Voor Windows:</p>
+<div class="highlight"><pre><span></span><code>curl -X &quot;GET&quot; &quot;https://api.pdok.nl/lv/bgt/ogc/v1/api?f=json&quot; -H &quot;accept: */*&quot;
+</code></pre></div>
+<p><img alt="curl commando in cmd" src="../../assets/features/curl-get-api.png" /></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Druk op Enter en bekijk het resultaat:</strong></p>
+<p><img alt="resultaat in cmd" src="../../assets/features/curl-get-api-response.png" /></p>
+<h2 id="vraag-collecties-op">Vraag collecties op</h2>
+<p>We gaan met behulp van <code>curl</code> informatie over collecties opvragen. </p>
+<h3 id="welke-collecties-zijn-er-allemaal">Welke collecties zijn er allemaal?</h3>
+<p>Stel dat je wilt weten welke collecties er allemaal zijn. Je kunt dan de <code>GET /collections</code> call gebruiken. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klap</strong> 'GET <code>/collections</code>' <strong>open, klik op <em>Try it out</em> en klik op <em>Execute</em>.</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Kopieer het commando en voer het uit in de commandline.</strong> </p>
+<p>Voor Windows:</p>
+<div class="highlight"><pre><span></span><code>curl -X &quot;GET&quot; &quot;https://api.pdok.nl/lv/bgt/ogc/v1/collections?f=json&quot; -H &quot;accept: */*&quot;
+</code></pre></div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Bekijk het resultaat.</strong> </p>
+<p>Je krijgt een overzicht te zien van alle collecties in deze OGC API - Features. </p>
+<p>Response body:
+<div class="highlight"><pre><span></span><code>{
+  &quot;links&quot;: [
+    ...
+  ],
+  &quot;collections&quot;: [
+    ...
+  ]
+}
+</code></pre></div></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Je kunt de URL's ook in je browser plakken en de <code>json</code> in je browser bekijken. Browsers maken <code>json</code> meestal wat beter leesbaar.</p>
+</div>
+<h3 id="informatie-over-een-specifieke-collectie">Informatie over één specifieke collectie</h3>
+<p>Je kunt ook de informatie van een specifieke collectie opvragen. Laten we als voorbeeld de <a href="https://api.pdok.nl/lv/bgt/ogc/v1/collections/spoor">'spoor' collectie</a> nemen. </p>
+<p><img alt="een spoorlijn" src="../../assets/features/spoorcollectie.jpg" /></p>
+<p>Voor Windows:</p>
+<div class="highlight"><pre><span></span><code>curl -X &quot;GET&quot; &quot;https://api.pdok.nl/lv/bgt/ogc/v1/collections/spoor?f=json&quot; -H &quot;accept: */*&quot;
+</code></pre></div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Voer dit uit en bekijk het resultaat.</strong></p>
+<p>Response body:
+<div class="highlight"><pre><span></span><code>{
+ &quot;id&quot;: &quot;spoor&quot;,
+ &quot;title&quot;: &quot;Spoor (SPR)&quot;,
+ &quot;description&quot;: &quot;De as van het spoor, dat wil zeggen het midden van twee stalen staven op een onderling vaste afstand, waarover trein, tram, of sneltram rijdt.&quot;,
+ &quot;keywords&quot;: [
+  ...
+    ],
+ &quot;extent&quot;: {
+    ...
+    }
+ ...
+}
+</code></pre></div></p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Wat voor informatie geeft dit? </p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">CRS</p>
+<p>Het zal je opgevallen zijn dat er ook informatie tussen staat over het 'CRS'. Dit is het Coordinate Reference System. Er bestaan veel verschillende CRS'en. Kort gezegd bepaalt het CRS hoe de geografische coördinaten worden opgeslagen en hoe de data op de aardbol wordt geprojecteerd (zie ook <a href="../../achtergrondinformatie/Wat%20is%20geo-informatie/">Achtergrondinformatie</a>). PDOK biedt zijn data in verschillende CRS'en aan. </p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>In welke CRS'en wordt de spoorcollectie aangeboden? Hoe heten die CRS'en? </p>
+</div>
+<details class="tip">
+<summary>Hint</summary>
+<p>Klik in <a href="https://api.pdok.nl/lv/bgt/ogc/v1/collections/spoor?f=json">https://api.pdok.nl/lv/bgt/ogc/v1/collections/spoor?f=json</a> in het <code>crs</code> object op de code van een CRS. Je krijgt dan een XML-document te zien op opengis.net. Daarin vind je ook de naam. </p>
+</details>
+<h3 id="bekijk-het-schema-van-een-collectie">Bekijk het schema van een collectie</h3>
+<p>Soms wil je weten welke kolommen een dataset heeft, en wat die kolommen precies betekenen en welk datatype ze zijn. Dit kun je bekijken in het schema. Ook OGC API - Features ondersteunt dit. </p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Hoe kun je het schema bekijken? </p>
+</div>
+<details class="success">
+<summary>Bekijk het antwoord</summary>
+<p>Voor Windows:</p>
+<div class="highlight"><pre><span></span><code>curl -X &quot;GET&quot; &quot;https://api.pdok.nl/lv/bgt/ogc/v1/collections/spoor/schema?f=json&quot; -H &quot;accept: */*&quot;
+</code></pre></div>
+<p>Response body:</p>
+<pre><code>{
+"$schema": "https://json-schema.org/draft/2020-12/schema",
+"$id": "https://api.pdok.nl/lv/bgt/ogc/v1/collections/spoor/schema",
+"title": "Spoor (SPR)",
+"description": "De as van het spoor, dat wil zeggen het midden van twee stalen staven op een onderling vaste afstand, waarover trein, tram, of sneltram rijdt.",
+"type": "object",
+"required": [
+"id",
+"version"
+],
+"properties": {
+    "id"
+    ...
+}
+</code></pre>
+</details>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Voer dit uit en bekijk het resultaat.</strong></p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>In welke attributen vind je een datum/tijd? </p>
+</div>
+<h2 id="vraag-items-op">Vraag items op</h2>
+<p>Laten we ook eens ín de collecties kijken. </p>
+<h3 id="vraag-de-items-van-een-collectie-op">Vraag de items van een collectie op</h3>
+<p>Door <code>items</code> toe te voegen aan de call voor een specifieke collectie, kunnen we de items zelf opvragen. </p>
+<p>Voor Windows:
+<div class="highlight"><pre><span></span><code>curl -X &quot;GET&quot; &quot;https://api.pdok.nl/lv/bgt/ogc/v1/collections/spoor/items?f=json&quot; -H &quot;accept: */*&quot;
+</code></pre></div></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Voer dit uit en bekijk het resultaat.</strong></p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Hoeveel items heb je gekregen? </p>
+</div>
+<p>Er is standaard een limiet op het aantal items. We kunnen ook zelf expliciet een limiet opgeven, die iets ruimer is.</p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Hoe kun je een limiet instellen op het aantal items? Zoek het antwoord op in de OpenAPI specification. </p>
+</div>
+<details class="success">
+<summary>Bekijk het antwoord</summary>
+<p>Voor Windows:</p>
+<div class="highlight"><pre><span></span><code>curl -X &quot;GET&quot; &quot;https://api.pdok.nl/lv/bgt/ogc/v1/collections/spoor/items?limit=100&amp;f=json&quot; -H &quot;accept: */*&quot;
+</code></pre></div>
+</details>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Voer dit uit en bekijk het resultaat.</strong></p>
+<h3 id="vraag-een-specifiek-item-op">Vraag één specifiek item op</h3>
+<p>Stel dat je geïnteresseerd bent in één specifiek item, dan kun je die door middel van een filter op het <code>id</code> van dat item opvragen. Je moet dan wel dat specifieke <code>id</code> weten. </p>
+<p>Voor Windows:
+<div class="highlight"><pre><span></span><code>curl -X &quot;GET&quot; &quot;https://api.pdok.nl/lv/bgt/ogc/v1/collections/spoor/items/7022ff26-12e4-5dc8-9a33-56db2da7e607?f=json&quot; -H &quot;accept: */*&quot;
+</code></pre></div></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Voer dit uit en bekijk het resultaat.</strong></p>
+<p>Response body:
+<div class="highlight"><pre><span></span><code>{
+    &quot;type&quot;: &quot;Feature&quot;,
+    &quot;properties&quot;: {
+        ...
+    },
+    &quot;geometry&quot;: {
+        ...
+    }
+... 
+}
+</code></pre></div></p>
+<h3 id="vraag-items-op-binnen-een-bounding-box">Vraag items op binnen een bounding box</h3>
+<p>Laten we het ruimtelijk maken. Met een extra parameter kun je items opvragen binnen een specifiek gebied: een bounding box (ook wel <code>bbox</code>). Je vraagt dit gebied op met het x- en y-coördinaat van de linkeronderhoek, gevolgd door het x- en y-coördinaat van de rechterbovenhoek. Bijvoorbeeld: <code>4.458132,51.922276,4.478388,51.926696</code></p>
+<p><img alt="een bounding box op een kaart met coördinaten" src="../../assets/features/boundingbox.png" /></p>
+<p>Voor Windows:
+<div class="highlight"><pre><span></span><code>curl -X &quot;GET&quot; &quot;https://api.pdok.nl/lv/bgt/ogc/v1/collections/spoor/items?bbox=4.458132,51.922276,4.478388,51.926696&amp;f=json&quot; -H &quot;accept: */*&quot;
+</code></pre></div></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Zoek zelf de coördinaten op van de bounding box van jouw woonplaats met behulp van</strong> <a href="http://bboxfinder.com">http://bboxfinder.com</a></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> En vraag de spoorlijnen op binnen die bbox met behulp van</strong> <code>curl</code>.</p>
+<h3 id="vraag-items-op-in-een-bepaald-crs">Vraag items op in een bepaald CRS</h3>
+<p>Standaard worden de features uitgeleverd in CRS84 coördinaatreferentiesysteem (CRS). Je kunt de features ook in andere CRS'en opvragen. Dit is handig wanneer je de data wilt combineren met datasets met een ander CRS, of voor projectie op een kaart. Met een parameter kun je aangeven in welk CRS je de data wilt terugkrijgen. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Vraag op in welke CRS'en de spoorcollectie beschikbaar is</strong></p>
+<details class="success">
+<summary>Bekijk het antwoord</summary>
+<p>Voor Windows:</p>
+<div class="highlight"><pre><span></span><code>curl -X &quot;GET&quot; &quot;https://api.pdok.nl/lv/bgt/ogc/v1/collections/put?f=json&quot;  -H &quot;accept: */*&quot;
+</code></pre></div>
+<p>Response body:</p>
+<pre><code>...
+"crs": [
+"http://www.opengis.net/def/crs/OGC/1.3/CRS84",
+"http://www.opengis.net/def/crs/EPSG/0/28992",
+"http://www.opengis.net/def/crs/EPSG/0/3857",
+"http://www.opengis.net/def/crs/EPSG/0/4258"
+]
+...
+</code></pre>
+</details>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Vraag de items op in de RD/Amersfoort CRS</strong></p>
+<p>Voeg de parameter toe voor het crs en de URL van RD/Amersfoort toe. Kijk in de API specification als je er niet meteen uitkomt. </p>
+<details class="success">
+<summary>Bekijk het antwoord</summary>
+<p>Voor Windows:</p>
+<div class="highlight"><pre><span></span><code>curl -X &quot;GET&quot; &quot;https://api.pdok.nl/lv/bgt/ogc/v1/collections/spoor/items?crs=http://www.opengis.net/def/crs/EPSG/0/28992&amp;f=json&quot;  -H &quot;accept: */*&quot;
+</code></pre></div>
+<p>Response body:</p>
+<pre><code>...
+{"type":"FeatureCollection",
+...
+"features":[
+    ...
+]
+...
+}
+...
+</code></pre>
+</details>
+<h2 id="samenvatting">Samenvatting</h2>
+<p>Je hebt in de oefeningen hierboven de OpenAPI-specificatie opgevraagd waarmee je zelf API calls kunt samenstellen en voorbeelden van calls en responses kunt bekijken. Daarna heb je informatie over collecties opgevraagd en de items in die collecties opgevraagd. En dat allemaal in de commandline. Je kunt je voorstellen dat je dit soort calls in elk soort applicatie zou kunnen integreren. Hopelijk geeft dit onderdeel een goede basis voor de volgende onderdelen. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Verken%20OGC%20API%20-%20Features%20in%20de%20browser/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Verken OGC API - Features in de browser">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                Verken OGC API - Features in de browser
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Casus%20-%20Analyseer%20data%20met%20OGC%20API%20-%20Features%20met%20Python/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Casus - Analyseer data met OGC API - Features met Python">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                Casus - Analyseer data met OGC API - Features met Python
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.footer", "search.suggest", "search.highlight", "navigation.top", "header.autohide", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

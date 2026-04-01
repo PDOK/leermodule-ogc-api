@@ -1,0 +1,1958 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Een leermodule met achtergrondinformatie en oefeningen om te leren werken met OGC API's van PDOK">
+      
+      
+      
+        <link rel="canonical" href="https://www.acceptatie.pdok.nl/leermodule/tiles/Verken%20OGC%20API%20-%20Tiles%20in%20de%20browser/">
+      
+      
+        <link rel="prev" href="../Introductie/">
+      
+      
+        <link rel="next" href="../Analyseer%20een%20voorbeeldkaart/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/pdok.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Verken OGC API - Tiles in de browser - OGC API Leermodule</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#verken-ogc-api-tiles-in-de-browser" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OGC API Leermodule" class="md-header__button md-logo" aria-label="OGC API Leermodule" data-md-component="logo">
+      
+  <img src="../../assets/pdok.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OGC API Leermodule
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Verken OGC API - Tiles in de browser
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PDOK/leermodule-ogc-api/" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introductie
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../achtergrondinformatie/Introductie/" class="md-tabs__link">
+          
+  
+  
+  Achtergrondinformatie
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Introductie/" class="md-tabs__link">
+          
+  
+  
+  OGC API - Tiles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../features/Introductie/" class="md-tabs__link">
+          
+  
+  
+  OGC API - Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Afronding/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Afronding
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Community
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../referenties/features/" class="md-tabs__link">
+          
+  
+  
+  Referenties
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OGC API Leermodule" class="md-nav__button md-logo" aria-label="OGC API Leermodule" data-md-component="logo">
+      
+  <img src="../../assets/pdok.png" alt="logo">
+
+    </a>
+    OGC API Leermodule
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PDOK/leermodule-ogc-api/" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Achtergrondinformatie
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Achtergrondinformatie
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20is%20geo-informatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat is geo-informatie?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20doet%20het%20Kadaster%20-%20PDOK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat doet het Kadaster / PDOK?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20zijn%20OGC%20APIs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat zijn OGC API's?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Het%20belang%20van%20standaarden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Het belang van standaarden
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OGC API - Tiles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OGC API - Tiles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verken OGC API - Tiles in de browser
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verken OGC API - Tiles in de browser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#apipdoknl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        api.pdok.nl
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#landing-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Landing page
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ogc-api-common-onderdelen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OGC API - Common onderdelen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OGC API - Common onderdelen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openapi-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAPI specification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conformance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conformance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ogc-api-features-onderdelen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OGC API - Features onderdelen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OGC API - Features onderdelen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collections
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ogc-api-tiles-onderdelen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OGC API - Tiles onderdelen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OGC API - Tiles onderdelen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#styles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Styles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tile-matrix-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Matrix Sets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samenvatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Samenvatting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Analyseer%20een%20voorbeeldkaart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyseer een voorbeeldkaart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Casus%20-%20Maak%20een%20kaart%20met%20OGC%20API%20-%20Tiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casus - Maak een kaart met OGC API - Tiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OGC API - Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OGC API - Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Verken%20OGC%20API%20-%20Features%20in%20de%20browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verken OGC API - Features in de browser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Bevraag%20OGC%20API%20-%20Features%20met%20curl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bevraag OGC API - Features met curl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Casus%20-%20Analyseer%20data%20met%20OGC%20API%20-%20Features%20met%20Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casus - Analyseer data met OGC API - Features met Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Afronding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Afronding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referenties
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Referenties
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../referenties/features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verwijzingen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#apipdoknl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        api.pdok.nl
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#landing-page" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Landing page
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ogc-api-common-onderdelen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OGC API - Common onderdelen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OGC API - Common onderdelen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openapi-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenAPI specification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conformance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conformance
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ogc-api-features-onderdelen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OGC API - Features onderdelen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OGC API - Features onderdelen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collections
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ogc-api-tiles-onderdelen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OGC API - Tiles onderdelen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OGC API - Tiles onderdelen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#styles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Styles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tile-matrix-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tile Matrix Sets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samenvatting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Samenvatting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="verken-ogc-api-tiles-in-de-browser">Verken OGC API - Tiles in de browser</h1>
+<p>Laten we eerst in de browser verkennen wat je allemaal met OGC API - Tiles kunt doen. We doen dit met behulp van de landing page van de BGT OGC API. We gaan één voor één de onderdelen af, demonstreren de mogelijkheden en bekijken voorvertoningen van de data. </p>
+<h2 id="apipdoknl">api.pdok.nl</h2>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Ga naar <a href="https://api.pdok.nl">https://api.pdok.nl</a></strong></p>
+<p>Je vind hier een overzicht van alle API’s van PDOK.  </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Scan de hele pagina eens.</strong></p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Zijn dit allemaal OGC API’s of ook andere soorten API’s?</p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Zoek de volgende API op en klik deze aan: <em>Basisregistratie Grootschalige Topografie (OGC API)</em></strong></p>
+<h2 id="landing-page">Landing page</h2>
+<p>Je bent nu op de landing page van de BGT OGC API terecht gekomen. </p>
+<p><img alt="Screenshot van de landing page van de BGT OGC API" src="../../assets/landing_page.png" /></p>
+<p>De BGT (Basisregistratie Grootschalige Topografie) is een landelijke dataset, met objecten in de openbare ruimte die meestal door overheden beheerd worden, zoals wegen, water en groen. We gebruiken de OGC API van deze dataset als voorbeeld. De BGT is op dit moment de meest complete OGC API implementatie bij PDOK, want de BGT heeft alle bouwblokken die we bij PDOK hebben geïmplementeerd. </p>
+<details class="info">
+<summary>Wat is de Basisregistratie Grootschalige Topografie?</summary>
+<p>De Basisregistratie Grootschalige Topografie is een landsdekkende dataset met <em>grootschalige</em> topografie. Dit zijn geografische objecten bedoeld om te gebruiken op een groot schaalniveau: schaal 1:500 tot 1:5000. <em>Grootschalig</em> zegt in dit geval dus niets over de omvang of reikwijdte van de dataset, hoewel het wel een grote dataset is. De BGT bevat onder andere wegen, waterlichamen, groenvlakken en gebouwen. De BGT wordt bijgehouden door onder andere gemeenten, provincies en verschillende rijksoverheden. De BGT wordt onder andere gebruikt om het beheer en onderhoud van de openbare ruimte te ondersteunen. <a href="https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/stelsel-van-basisregistraties/10-basisregistraties/bgt/">Hier vind je meer informatie over de BGT.</a> </p>
+<p>De BGT is een basisregistratie. Dat wil zeggen dat wettelijk is vastgelegd hoe overheden de dataset moeten beheren (o.a. up to date houden) en gebruiken en wat de kwaliteit van de data is. Een basisregistratie heeft altijd één of meerdere bronhouders. Zij beheren de basisregistratie, maken daar afspraken over en zijn de eigenaar van de data. Er zijn nog meer basisregistraties. Een groot deel van de basisregistraties bevatten voornamelijk geodata. Bijvoorbeeld de BAG, de BRT en de BRK. <a href="https://www.digitaleoverheid.nl/overzicht-van-alle-onderwerpen/stelsel-van-basisregistraties/10-basisregistraties/">Hier vind je meer informatie over het stelsel van basisregistraties.</a> </p>
+</details>
+<p>De landing page is een voor mensen leesbare beschrijving en toegangspunt van de API. Voor mensen leesbaar? Jawel, want er is ook een beschrijving die vooral voor machines is gemaakt.  </p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Waar vind je de beschrijving die voor machines is bedoeld?</p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Bekijk de beschrijving voor machines ook eens.</strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> En ga daarna terug naar de HTML-weergave (de leesbare variant)</strong></p>
+<p>Een landing page bevat een beschrijving van de dataset met eventueel verwijzingen naar andere bronnen, de trefwoorden en metadata. </p>
+<p>De BGT wordt beschikbaar gesteld als OGC API – Features en als OGC API – Tiles. Daarom bestaat de landing page uit 6 onderdelen. De landing page bestaat niet altijd uit 6 onderdelen. Een aantal onderdelen is altijd verplicht en zul je dus altijd tegenkomen. Maar een aantal onderdelen zie je alleen wanneer er een OGC API – Features is of een OGC API – Tiles. Is de dataset beschikbaar gesteld als features, dan is er een Collections pagina. Worden er ook tiles beschikbaar gesteld, dan is er ook een Tiles, Styles en Tile Matrix Sets pagina. </p>
+<p>Hieronder een handig overzicht van welke pagina bij welke API hoort. </p>
+<table>
+<thead>
+<tr>
+<th>Pagina</th>
+<th>Toelichting</th>
+<th>Wanneer?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#openapi-specification">OpenAPI specification</a></td>
+<td>Beschrijving van de verschillende API calls die deze API aanbiedt</td>
+<td>Altijd (OGC API - Common)</td>
+</tr>
+<tr>
+<td><a href="#conformance">Conformance</a></td>
+<td>Aan welke OGC standaarden voldoet deze API?</td>
+<td>Altijd (OGC API - Common)</td>
+</tr>
+<tr>
+<td><a href="#collections">Collections</a></td>
+<td>Featuredata</td>
+<td>OGC API – Features</td>
+</tr>
+<tr>
+<td><a href="#tiles">Tiles</a></td>
+<td>Vector tiles (visualisatie)</td>
+<td>OGC API – Tiles</td>
+</tr>
+<tr>
+<td><a href="#styles">Styles</a></td>
+<td>Stijlen (opmaak)</td>
+<td>OGC API – Styles</td>
+</tr>
+<tr>
+<td><a href="#tile-matrix-sets">Tile Matrix Sets</a></td>
+<td>Opbouw van de tegels</td>
+<td>OGC API – Tiles</td>
+</tr>
+</tbody>
+</table>
+<p>Laten we de verschillende pagina’s eens gaan verkennen.</p>
+<h2 id="ogc-api-common-onderdelen">OGC API - Common onderdelen</h2>
+<h3 id="openapi-specification">OpenAPI specification</h3>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op de landing page op 'OpenAPI specification'</strong></p>
+<p><img alt="Screenshot van de OpenAPI specification" src="../../assets/openapispecification.png" /></p>
+<p>Hier zie je de Swagger UI van deze API. Deze toont alle API calls die deze API ondersteunt. Daarmee toont de API specification dus alle mogelijkheden van de API, en hoe je deze mogelijkheden kunt benutten. De Swagger UI geeft voorbeeldrequests en je kunt zelf requests samenstellen. Die kun je direct in de browser testen. Je krijgt direct het antwoord. </p>
+<div class="admonition info">
+<p class="admonition-title">Swagger UI</p>
+<p>Swagger UI is een veelgebruikte manier voor het documenteren van API's op een dusdanige manier dat dit voor mensen leesbaar is. Lees meer op <a href="https://swagger.io/">https://swagger.io/</a></p>
+</div>
+<p>Waarom heet deze pagina 'OpenAPI specification'? Omdat deze API aan de specificatie van de OGC API voldoet, voldoet deze API automatisch ook aan de 'OpenAPI specification'. </p>
+<div class="admonition info">
+<p class="admonition-title">OpenAPI specification</p>
+<p>De OpenAPI specification is een standaard voor het formeel beschrijven van API's op een manier die leesbaar is voor machines. Een OpenAPI specificatiedocument (deze pagina) is een YAML- of JSON-document en de OpenAPI standaard schrijft voor welke informatie dit document moet bevatten. Lees meer op <a href="https://swagger.io/specification/">https://swagger.io/specification/</a></p>
+</div>
+<p>Laten we meteen gebruik maken van de Swagger UI en zelf eens iets testen. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klap</strong> 'GET <code>/api</code> This document' <strong>open</strong>:</p>
+<p><img alt="GET /api This document" src="../../assets/get-api.png" /></p>
+<p>Dit is de API call die je nodig hebt om de OpenAPI specification (deze pagina dus) op te vragen. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op <em>Try it out</em></strong></p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op <em>Execute</em></strong></p>
+<p>Je krijgt nu het <code>curl</code> commando dat is afgevuurd en het resultaat (response) te zien:</p>
+<p><img alt="curl get api specification" src="../../assets/openapispecification_get.png" /></p>
+<p>Er is één parameter meegegeven: geef het resultaat als json. En we krijgen de specificatie inderdaad netjes te zien als json-document. </p>
+<p>Daaronder zie je nog de mogelijke response calls: de codes en wat die codes betekenen. </p>
+<div class="admonition question">
+<p class="admonition-title">Wat is het versienummer van deze specifieke API?</p>
+</div>
+<details class="success">
+<summary>Antwoord</summary>
+<p>Het versienummer van de BGT OGC API is 1.0.0. Dacht je dat het 3.0.0 was? Dit is het versienummer van de gebruikte OpenAPI specification: <code>"OpenAPI"</code>. Het versienummer van deze specifieke API vind je in <code>"info"."version"</code></p>
+</details>
+<p>Je hebt nu in het kort gezien wat je met de OpenAPI specification (de Swagger UI) kunt doen. Developers kunnen hiermee snel werkende API-calls samenstellen die ze in applicaties kunnen gebruiken, om op die manier de API te implementeren. </p>
+<div class="admonition info">
+<p class="admonition-title">OpenAPI specification Swagger UI</p>
+<p>We gaan hier in <a href="../../features/Bevraag%20OGC%20API%20-%20Features%20met%20curl/">één van de volgende onderdelen</a> van deze leermodule nog veel meer gebruik van maken. </p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Ga weer terug naar de landing page (klik bovenaan in de breadcrumb op BGT)</strong></p>
+<h3 id="conformance">Conformance</h3>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op de landing page op 'Conformance'</strong></p>
+<p><img alt="Screenshot van de Conformance pagina" src="../../assets/conformance.png" /></p>
+<p>De Conformance pagina toont welke OGC-standaarden deze API implementeert. We kunnen hier dus precies zien aan welke bouwblokken en versies van de OGC API-standaarden de BGT OGC API voldoet. </p>
+<p>We zien ook dat sommige standaarden nog niet vastgesteld zijn, en nog in concept zijn. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Ga weer terug naar de landing page</strong></p>
+<h2 id="ogc-api-features-onderdelen">OGC API - Features onderdelen</h2>
+<h3 id="collections">Collections</h3>
+<p>We verkennen deze pagina nu niet. We doen dit in het onderdeel <a href="../../features/Introductie/">OGC API - Features</a>. </p>
+<h2 id="ogc-api-tiles-onderdelen">OGC API - Tiles onderdelen</h2>
+<h3 id="tiles">Tiles</h3>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op de landing page op 'Tiles'</strong></p>
+<p>OpenAPI specification en Conformance waren alleen maar beschrijvingen, maar nu gaan we gelukkig echt data bekijken! </p>
+<p><img alt="Screenshot van de Tiles pagina" src="../../assets/tiles/tiles.png" /></p>
+<p>Met OGC API - Tiles kunnen vector tiles beschikbaar gesteld worden, maar ook andere soorten tiles zoals luchtfoto's. We richten ons nu specifiek op <strong>vector tiles</strong>.</p>
+<p>De BGT dataset wordt in meerdere kaartprojecties beschikbaar gesteld als vector tiles. Dat wil zeggen dat de data wordt aangeboden als kaarttegels. Een client haalt de data tegel voor tegel op. Die tegels zijn geoptimaliseerd om compact te zijn en tegelijkertijd een goede weergave van de data te geven. Dit is een efficiënte manier van bekijken van geodata. </p>
+<div class="admonition info">
+<p class="admonition-title"><em>Vector</em> Tiles?</p>
+<p>Van oudsher zijn kaarttegels afbeeldingen. Een Web Map Service (WMS) ontsluit bijvoorbeeld kaarttegels als <code>png</code> of <code>jpeg</code> afbeeldingen. Afbeeldingen laden heel snel in, sneller dan vector-geodata zelf. Een nadeel is echter dat de tegels door de server gerenderd moeten worden. Een gebruiker of ontwikkelaar kan zelf ook geen stijl kiezen. En bij ver inzoomen worden de afbeeldingen pixelig. Bovendien draaien labels niet mee bij draaien of pannen. Vector Tiles lossen dit op: door vectordata te versimpelen en in tegels op te knippen kan deze snel gerenderd worden. Vector Tiles bieden de flexibliteit van vectordata en de snelheid van rastertegels. </p>
+<p>Zie ook <a href="../../achtergrondinformatie/Wat%20is%20geo-informatie/#raster-of-vectordata">Raster of vectordata?</a>.</p>
+</div>
+<p>Op deze pagina vind je de verschillende Tile Matrix Sets. Voor elke projectie is een eigen Tile Matrix Set. Een Tile Matrix Set is een opdeling van de wereld in een grid in een bepaalde kaartprojectie. Kort gezegd bepaalt een kaartprojectie hoe je de aarde, een ellipsoïde, op een plat vlak projecteert. </p>
+<p><img alt="alt text" src="../../assets/achtergrondinformatie/Projection_conique.jpg" width="250" /><img alt="alt text" src="../../assets/achtergrondinformatie/Projection_cylindrique.jpg" width="250" /><img alt="alt text" src="../../assets/achtergrondinformatie/Projection_azimutale_stereographique.jpg" width="250" /></p>
+<div class="admonition info">
+<p class="admonition-title">Coördinaatreferentiesystemen en kaartprojecties</p>
+<p>Kijk voor meer informatie over dit onderwerp bij <a href="../../achtergrondinformatie/Wat%20is%20geo-informatie/#wat-zijn-coordinaatreferentiesystemen">Achtergrondinformatie</a></p>
+</div>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Kijk en klik eens rond op deze pagina</strong></p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Hoe kun je zien in welke Tile Matrix Sets de BGT OGC API wordt aangeboden? En welke drie zijn dit?</p>
+</div>
+<details class="success">
+<summary>Antwoord</summary>
+<p>Via het dropdownmenu. Deze dataset wordt in de volgende drie Tile Matrix Sets aangeboden:</p>
+<ul>
+<li>NetherlandsRDNewQuad</li>
+<li>EuropeanETRS89_LAEAQuad</li>
+<li>WebMercatorQuad</li>
+</ul>
+</details>
+<p><a name="verschil-tussen-tile-matrix-sets"></a>
+Aan de rechterkant zie je een voorbeeldweergave van de gekozen Tile Matrix Set. Er is minimaal verschil te zien tussen de verschillende Sets. Op dit schaalniveau (zoomlevel) is het verschil ook verwaarloosbaar. Maar op kleinere schaalniveaus, dus verder uitgezoomd, maakt de gekozen kaartprojectie wel degelijk veel verschil. De vormen en groottes van landen kunnen heel erg vertekend zijn. <em>(in deze voorbeeldweergave kun je niet in- of uitzoomen)</em></p>
+<p>Wanneer kies je welke kaartprojectie? Oftewel, wanneer heb je welke Tile Matrix Set nodig? Dat wordt bepaald door het doeleinde van jouw applicatie, het geografische gebied dat je wilt tonen en de geldende standaarden. In Nederland is de RD New-projectie de standaard. Gebruik dan de NetherlandsRDNewQuad Tile Matrix Set. Maar sommige software kan alleen overweg met Web Mercator-projectie. Gebruik dan de WebMercatorQuad Tile Matrix Set. </p>
+<p>We richten ons voor nu even op de NetherlandsRDNewQuad Tile Matrix Set van de BGT. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Selecteer de NetherlandsRDNewQuad met het dropdownmenu.</strong></p>
+<p>Wellicht heb je gemerkt dat ook de URL template en Voorbeeld URL verandert als je een andere Tile Matrix Set kiest.</p>
+<p>De URL template is: <code>https://api.pdok.nl/lv/bgt/ogc/v1/tiles/NetherlandsRDNewQuad/{z}/{y}/{x}?f=mvt</code> </p>
+<p>Deze URL kun je gebruiken om de tiles van deze set in te laden in een client.</p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Waar staan <code>{z}</code>, <code>{y}</code> en <code>{x}</code> voor, denk je?</p>
+</div>
+<details class="success">
+<summary>Antwoord</summary>
+<p>Z, Y en X zijn normaal gesproken coördinaten, maar in deze context klopt dat niet helemaal. De combinatie <code>{z}/{y}/{x}</code> duidt een specifieke kaarttegel (tile) aan. <code>{z}</code> staat voor het zoomlevel, <code>{y}</code> en <code>{x}</code> voor de tegel binnen het zoomlevel. <a href="#tile-matrix-sets">Zie verderop voor meer informatie over hoe Tile Matrix Sets precies werken.</a></p>
+</details>
+<p>Een client kan de parameters <code>{z}/{y}/{x}</code> vervangen door de id van de tegels waar de gebruiker naar wil kijken, op basis van de <code>viewport</code>. Een voorbeeld van wat een client dan opvraagt zie je bij <em>Voorbeeld URL</em>  (onder <em>URL template</em>)</p>
+<p>We verdiepen ons nog even verder in de NetherlandsRDNewQuad set van deze dataset. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op 'Bekijk metadata'</strong></p>
+<p>Je komt nu op de pagina terecht die voor de BGT de NetherlandsRDNewQuad Tile Matrix Set beschrijft. Je ziet hier nogmaals de URL template. En je ziet een tabel. </p>
+<p><img alt="NetherlandsRDNewQuad voor de BGT" src="../../assets/tiles/NetherlandsRDNewQuad.png" /></p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>In hoeveel zoomniveaus is de BGT OGC API - Tiles beschikbaar? En welke zoomniveaus zijn dat? </p>
+</div>
+<details class="success">
+<summary>Antwoord</summary>
+<p>De tiles van de BGT OGC API - Tiles zijn alleen beschikbaar in zoomlevel 12. Dit betekent in sommige clients dat je in andere zoomlevels niets te zien krijgt. In andere clients krijg je ook op andere zoomlevels level 12 te zien. Maar dit kan leiden tot rare visuele effecten of traagheid. </p>
+<p>De NetherlandsRDNewQuad Tile Matrix Set zelf ondersteunt wel alle andere zoomniveaus. Maar de BGT OGC API - Tiles heeft er dus maar één. Zoals je eerder hebt gelezen, is de BGT bedoeld voor <em>grootschalige</em> topografie, en dus voor een specifiek schaalniveau. </p>
+</details>
+<p>We hebben nu de voorbeeldweergave bekeken van de kaarttegels in NetherlandsRDNewQuad. Ook heb je geleerd hoe je kunt zien in welke zoomniveaus een dataset beschikbaar wordt gesteld. En bovenal weet je nu welke URL je nodig hebt, als je daadwerkelijk de tiles in een client wilt bekijken of wil implementeren in jouw applicatie. </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg></span> Een dataset kan volgens in één of meerdere Tile Matrix Sets beschikbaar gesteld worden. Een Tile Matrix Set is er voor één projectie. Een API bevat niet per se alle zoomniveaus van een Set.</p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Ga weer terug naar de landing page</strong></p>
+<h3 id="styles">Styles</h3>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op de landing page op 'Styles'</strong></p>
+<p><img alt="Screenshot van de Styles pagina" src="../../assets/tiles/styles.png" /></p>
+<p>Hier vind je de verschillende visualisaties (stijlen) die aangeboden worden voor deze dataset. Een stijl toont de data in kaarttegel op een bepaalde manier. De stijl bepaalt de kleuren, lijndiktes, labels, symbolen, etcetera. Eigenlijk alles wat in de legenda te zien is. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Kijk en klik eens rond op deze pagina</strong></p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Hoe kun je zien in welke Styles de BGT OGC API wordt aangeboden?</p>
+</div>
+<details class="success">
+<summary>Antwoord</summary>
+<p>Dit kun je zien met het dropdownmenu. </p>
+</details>
+<p>Aan de rechterkant zie je een voorbeeldweergave van de gekozen stijl. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Probeer eens wat verschillende stijlen uit en ontdek de verschillen</strong> </p>
+<p>Tussen de verschillende Tile Matrix Sets zie je niet zoveel verschil, <a href="#verschil-tussen-tile-matrix-sets">hadden we al eerder geconcludeerd</a>.</p>
+<p>Een Style is altijd gekoppeld aan één Tile Matrix Set. In het geval van de BGT bieden we twee stijlen aan. Elke stijl bieden we echter aan voor elke Tile Matrix Set, waarmee het totaal aantal stijlen uitkomt op 6. </p>
+<p>Via deze weg worden officiële stijlen aangeboden. Deze zijn gemaakt door de aanbieder van de dataset en zijn via het <code>styles</code> endpoint beschikbaar. Je kunt echter ook zelf stijlen maken en via een client, in combinatie met de dataset, opvragen. Op die manier kun je de Tiles gebruiken zoals jij wilt. De mogelijkheden zijn eindeloos, je kunt bijvoorbeeld labels weg laten, of objecten zoals wegen, gebouwen of water een andere kleur geven of helemaal weglaten. Zie ook <a href="../Analyseer%20een%20voorbeeldkaart/">Analyseer een voorbeeldkaart</a> en <a href="../Casus%20-%20Maak%20een%20kaart%20met%20OGC%20API%20-%20Tiles/">Casus - Maak een kaart met OGC API - Tiles</a>. </p>
+<p>Laten we ons eens richten op de <code>BGT Achtergrondvisualisatie (NetherlandsRDNewQuad)</code> stijl.</p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik deze stijl aan in het dropdownmenu.</strong> </p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Hoe kun je deze stijl in een eigen applicatie implementeren of in een client inladen?</p>
+</div>
+<details class="success">
+<summary>Antwoord</summary>
+<p>Met de URL <code>https://api.pdok.nl/lv/bgt/ogc/v1/styles/bgt_achtergrondvisualisatie__netherlandsrdnewquad</code>. Je bent er dan nog niet helemaal, want een applicatie heeft de JSON-weergave nodig.</p>
+</details>
+<p>Je kunt er zelf <code>f=json</code> achteraan plakken, maar er is nog een manier om de volledige URL te vinden. </p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Hoe kun je via deze pagina doorklikken naar de volledige URL van de JSON-weergave van de BGT Achtergrondvisualisatie (NetherlandsRDNewQuad) stijl?</p>
+</div>
+<details class="success">
+<summary>Antwoord</summary>
+<ol>
+<li>Klik op <strong>Bekijk metadata</strong> 2. Klik op <strong>Bekijk Mapbox Style</strong></li>
+</ol>
+<p>OF: </p>
+<ol>
+<li>Klik op de URL <code>https://api.pdok.nl/lv/bgt/ogc/v1/styles/bgt_achtergrondvisualisatie__netherlandsrdnewquad</code> 2. Klik op <strong>JSON</strong> rechtsboven. </li>
+</ol>
+</details>
+<p>Via de URL <code>https://api.pdok.nl/lv/bgt/ogc/v1/styles/bgt_achtergrondvisualisatie__netherlandsrdnewquad</code> kun je ook de automatisch gegenereerde legenda bekijken. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Bekijk de JSON-weergave van de stijl eens</strong></p>
+<ul>
+<li>In <code>layers</code> worden de kaartlagen binnen deze stijl gedefinieerd. Een kaartlaag is bijvoorbeeld <code>"water waterdeel fill0"</code>. Hier wordt bepaald welke kleuren het water en de omlijning van het water moeten krijgen. </li>
+<li>In <code>sources</code> wordt de bron voor de stijl gedefinieerd: de BGT OGC API - Tiles. Als het goed is, komt deze URL je bekend voor... </li>
+</ul>
+<p>We hebben nu de voorbeeldweergaves bekeken van de verschillende officiële stijlen die aangeboden worden. Ook heb je geleerd welke URL je nodig hebt als je een stijl wilt gebruiken in een client of wilt implementeren in jouw applicatie. </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg></span> Een dataset kan in meerdere stijlen worden aangeboden. Een stijl is gekoppeld aan één Tile Matrix Sets. </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg></span> Is er geen officiële stijl die jou bevalt, dan kun je ook zelf een stijl maken. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Ga weer terug naar de landing page</strong></p>
+<h3 id="tile-matrix-sets">Tile Matrix Sets</h3>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op de landing page op 'Tile Matrix Sets'</strong></p>
+<p><img alt="Screenshot van de Tile Matrix Sets pagina" src="../../assets/tiles/tilematrixsets.png" /></p>
+<p>Hier vind je een beschrijving van de eerder genoemde Tile Matrix Sets. Een Tile Matrix Set is gekoppeld aan één kaartprojectie. Dat is omdat een kaartprojectie een eigen dekkingsgebied met een eigen nulpunt, eenheid en projectie van de aardbol heeft. Eén Tile Matrix is een matrix van tegels. Een Tile Matrix Set is een samenstelling van matrices. Voor elk zoomniveau is er een matrix. Een Tile Matrix Set is er voor één kaartprojectie. </p>
+<p>Zoals je in onderstaande afbeelding kunt zien, heeft elke tegel in de matrix een X- en Y-coördinaat, waarmee de tegel wordt aangeduid. </p>
+<p><img alt="alt text" src="../../assets/tiles/tilematrix.png" /></p>
+<p>Een Tile Matrix Set bestaat uit meerdere Tile Matrices; voor elk zoomlevel één. Het hoogste zoomlevel heeft slechts één tegel. Hoe lager het zoomlevel, des te meer tegels. Op die manier vormt het een piramide. </p>
+<p><img alt="alt text" src="../../assets/tiles/tilematrixset.png" /></p>
+<p>Zoals je kunt zien, zijn er voor de BGT OGC API drie Tile Matrix Sets. Inmiddels komen deze jou wel bekend voor.</p>
+<p>Van elke set worden alle zoomlevels beschreven. Zoals we echter eerder al hadden gezien, wordt niet elk zoomniveau ook daadwerkelijk aangeboden in deze API. </p>
+<p>We richten ons voor nu weer even op de <code>NetherlandsRDNewQuad</code> Tile Matrix Set.</p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Klik op 'NetherlandsRDNewQuad'</strong></p>
+<p>Je krijgt nu een tabel te zien waarin elk zoomniveau beschreven wordt. In totaal zijn er dus 16 zoomlevels in deze Tile Matrix Set. Je ziet dat elke tegel 256x256 cellen groot is. En zoals je kunt zien, heeft het hoogste zoomlevel één tegel. Het laagste zoomlevel heeft veel meer tegels. Daarin kun je dus weer die piramidevorm herkennen. </p>
+<div class="admonition question">
+<p class="admonition-title">Vraag</p>
+<p>Hoeveel kaarttegels heeft zoomlevel 16?</p>
+</div>
+<details class="success">
+<summary>Antwoord</summary>
+<p>4.294.967.296. Dat is namelijk wat je krijgt als je de <code>matrix width</code> (65536) vermenigvuldigt met de <code>matrix height</code> (ook 65536). </p>
+</details>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Bekijk ook eens welke verschillen er bijvoorbeeld zijn met de 'WebMercatorQuad' Tile Matrix Set.</strong></p>
+<p>We hebben dus bij Tile Matrix Sets een formele beschrijving gevonden van de drie Tile Matrix Sets die aangeboden worden voor deze API. Dit geeft wat meer inzicht in hoe vector tiles precies werken. </p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9z"/></svg></span> Een Tile Matrix Set is een piramidevorm bestaande uit zoomlevels en voor elk zoomlevel een matrix. </p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Ga weer terug naar de landing page</strong></p>
+<p>We hebben nu alle pagina's van de landing page van de BGT OGC API bekeken. Laten we even kort terugblikken. </p>
+<h2 id="samenvatting">Samenvatting</h2>
+<p>In dit onderdeel heb je in de browser de landing page (HTML weergave) van een OGC API verkend. We bekeken stuk voor stuk de verschillende pagina's van de landing page. Met deze landing page worden de verschillende bouwblokken van de OGC API geïmplementeerd.</p>
+<p>Hopelijk heb je hiermee een beeld van wat een OGC API allemaal kan en hoe je snel kunt zien wat voor data er in een OGC API zit, specifiek voor OGC API - Tiles. We deden dat aan de hand van de dataset Basisregistratie Grootschalige Topografie. We hebben de volgende onderdelen van de OGC API besproken:</p>
+<table>
+<thead>
+<tr>
+<th>Onderdeel</th>
+<th>Toelichting</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenAPI specification</td>
+<td>Swagger UI die de mogelijkheden van de API toont.</td>
+</tr>
+<tr>
+<td>Conformance</td>
+<td>Overzicht van de standaarden waaraan deze API voldoet.</td>
+</tr>
+<tr>
+<td>Tiles</td>
+<td>URL's van de tilesets van deze API en de verschillende projecties waarin de dataset wordt aangeboden</td>
+</tr>
+<tr>
+<td>Styles</td>
+<td>URL's en voorbeeldweergaves van de stijlen die PDOK beschikbaar stelt.</td>
+</tr>
+<tr>
+<td>Tile Matrix Sets</td>
+<td>Beschrijving van de Tile Matrix Sets: zoomniveaus en pixelgroottes van de tegels.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Introductie/" class="md-footer__link md-footer__link--prev" aria-label="Vorige: Introductie">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Vorige
+              </span>
+              <div class="md-ellipsis">
+                Introductie
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Analyseer%20een%20voorbeeldkaart/" class="md-footer__link md-footer__link--next" aria-label="Volgende: Analyseer een voorbeeldkaart">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Volgende
+              </span>
+              <div class="md-ellipsis">
+                Analyseer een voorbeeldkaart
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.footer", "search.suggest", "search.highlight", "navigation.top", "header.autohide", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
