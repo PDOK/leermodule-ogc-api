@@ -9,7 +9,7 @@ Na het doorlopen van deze module kun je:
 - ruimtelijke relaties beschrijven met CQL2 spatial operators;
 - bepalen welke spatial operators door een OGC API worden ondersteund;
 - ruimtelijke filters combineren met attribuutfilters;
-- spatial operators toepassen op de BAG Woonplaats-collectie. 
+- spatial operators toepassen op de BAG Woonplaats-collectie.
 
 ---
 
@@ -33,7 +33,7 @@ Soms wil je echter een specifiekere ruimtelijke relatie beschrijven:
 - Welke woonplaatsen overlappen een gebied?
 - Welke woonplaatsen liggen volledig buiten een gebied?
 
-Voor deze situaties ondersteunt de BAG OGC API ruimtelijke functies via CQL2. 
+Voor deze situaties ondersteunt de BAG OGC API ruimtelijke functies via CQL2.
 
 ---
 
@@ -47,7 +47,7 @@ Voor de BAG API:
 https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/conformance
 ```
 
-Op de conformance-pagina zijn onder meer de volgende conformance classes aanwezig: 
+Op de conformance-pagina zijn onder meer de volgende conformance classes aanwezig:
 
 ```text
 basic-spatial-functions
@@ -55,7 +55,7 @@ basic-spatial-functions-plus
 spatial-functions
 ```
 
-Deze conformance classes geven aan dat ruimtelijke CQL2-functies ondersteund worden. 
+Deze conformance classes geven aan dat ruimtelijke CQL2-functies ondersteund worden.
 
 ---
 
@@ -377,7 +377,7 @@ Deze query retourneert woonplaatsen die het opgegeven gebied geheel of gedeeltel
 Spatial operators beschrijven een ruimtelijke relatie tussen een object en een geometrie.
 
 | Operator | Betekenis |
-|-----------|-----------|
+| ----------- | ----------- |
 | S_INTERSECTS | raakt of overlapt |
 | S_DISJOINT | volledig gescheiden |
 | S_TOUCHES | raakt de grens |
@@ -387,4 +387,4 @@ Spatial operators beschrijven een ruimtelijke relatie tussen een object en een g
 | S_CROSSES | kruist |
 | S_EQUALS | exact dezelfde geometrie |
 
-Controleer altijd eerst het conformance-endpoint van een OGC API om te bepalen welke spatial operators ondersteund worden. De BAG OGC API publiceert hiervoor de spatial conformance classes `basic-spatial-functions`, `basic-spatial-functions-plus` en `spatial-functions`. 
+Controleer altijd eerst het conformance-endpoint van een OGC API om te bepalen welke spatial operators ondersteund worden. De BAG OGC API publiceert hiervoor de spatial conformance classes `basic-spatial-functions`, `basic-spatial-functions-plus` en `spatial-functions`.
