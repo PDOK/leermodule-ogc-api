@@ -44,7 +44,7 @@ Een eenvoudige query ziet er als volgt uit:
 https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=postcode='2513 AA'
 ```
 
-Deze aanvraag retourneert helaas geen adressen, probeer het nogmaals zonder spatie in de postcode: 
+Deze aanvraag retourneert helaas geen adressen, probeer het nogmaals zonder spatie in de postcode:
 
 ```http
 https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=postcode='2513 AA'
@@ -52,12 +52,10 @@ https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=p
 
 Deze retoneert uitsluitend adressen met postcode 2513 AA
 
-**:arrow_right: Vraag waarom werkt de eerst query niet en zonder spaties wel? **
+**:arrow_right: Vraag waarom werkt de eerst query niet en zonder spaties wel?**
 ??? success "Bekijk het antwoord"
 
 In deze dataset is de postcode opgeslagen zonder spatie. Het SQL filter werkt direct op de waardes in de dataset. Een waarde voor postcode met spaties komt niet voor.
-
-
 
 ---
 
@@ -65,7 +63,7 @@ In deze dataset is de postcode opgeslagen zonder spatie. Het SQL filter werkt di
 
 Voordat je een CQL-filter kunt schrijven, moet je weten op welke attributen gefilterd mag worden. Deze attributen worden binnen OGC API Features aangeduid als **queryables**.
 
-Queryables beschrijven de attributen van een object die gebruikt kunnen worden in een filterexpressie. Voor de BAG-adrescollectie zijn dat bijvoorbeeld attributen zoals `postcode`, `huisnummer`, `woonplaats_naam` en `openbare_ruimte_naam`. Deze velden zijn zichtbaar in de collectie en kunnen worden gebruikt in CQL-expressies. 
+Queryables beschrijven de attributen van een object die gebruikt kunnen worden in een filterexpressie. Voor de BAG-adrescollectie zijn dat bijvoorbeeld attributen zoals `postcode`, `huisnummer`, `woonplaats_naam` en `openbare_ruimte_naam`. Deze velden zijn zichtbaar in de collectie en kunnen worden gebruikt in CQL-expressies.
 
 Voorbeelden van queryables binnen de BAG-adrescollectie zijn:
 
@@ -104,16 +102,14 @@ Voor de BAG-adrescollectie is dat:
 https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/queryables
 ```
 
-Een goede werkwijze is om eerst de queryables te bekijken en daarna pas CQL-filters op te stellen. Zo voorkom je dat filters verwijzen naar velden die niet door de API ondersteund worden. Bij PDOK worden deze velden ook getoond onder 
----
-
+Een goede werkwijze is om eerst de queryables te bekijken en daarna pas CQL-filters op te stellen. Zo voorkom je dat filters verwijzen naar velden die niet door de API ondersteund worden. Bij PDOK worden deze velden ook getoond onder
 
 
 ### Beschikbare mogelijkheden in een OGC API "Conformance Classes"
 
 Hoe weet je welke filtermogelijkheden een OGC API daadwerkelijk ondersteunt?
 
-Daarvoor kun je de **Conformance Classes** raadplegen. Een conformance class beschrijft een onderdeel van een OGC-standaard dat door een implementatie wordt ondersteund. De BAG OGC API publiceert deze informatie via het conformance-endpoint. 
+Daarvoor kun je de **Conformance Classes** raadplegen. Een conformance class beschrijft een onderdeel van een OGC-standaard dat door een implementatie wordt ondersteund. De BAG OGC API publiceert deze informatie via het conformance-endpoint.
 
 Bekijk hiervoor:
 
@@ -121,7 +117,7 @@ Bekijk hiervoor:
 https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/conformance
 ```
 
-Wanneer je de conformance-pagina bekijkt zie je onder andere dat deze service ondersteuning biedt voor: 
+Wanneer je de conformance-pagina bekijkt zie je onder andere dat deze service ondersteuning biedt voor:
 
 - `ogcapi-features-3/conf/filter`
 - `ogcapi-features-3/conf/features-filter`
@@ -132,12 +128,12 @@ Wanneer je de conformance-pagina bekijkt zie je onder andere dat deze service on
 - `advanced-comparison-operators`
 - `basic-spatial-functions`
 - `spatial-functions`
-- `temporal-functions` 
+- `temporal-functions`
 
 Dat betekent onder meer dat:
 
 | Conformance class | Betekenis |
-|------------------|-----------|
+| ------------------ | ----------- |
 | `filter` | De API ondersteunt filteren van features. |
 | `features-filter` | Filters kunnen worden toegepast op een featurecollectie. |
 | `queryables` | De API publiceert welke attributen filterbaar zijn. |
@@ -147,7 +143,7 @@ Dat betekent onder meer dat:
 | `spatial-functions` | Ruimtelijke functies kunnen in filters worden gebruikt. |
 | `temporal-functions` | Tijdgerelateerde filters worden ondersteund. |
 
-Voordat je geavanceerde filters gaat gebruiken is het daarom verstandig om eerst het **conformance-endpoint** te bekijken. Daar kun je controleren welke onderdelen van CQL en OGC API Features door de betreffende service worden ondersteund. 
+Voordat je geavanceerde filters gaat gebruiken is het daarom verstandig om eerst het **conformance-endpoint** te bekijken. Daar kun je controleren welke onderdelen van CQL en OGC API Features door de betreffende service worden ondersteund.
 
 ## Exacte vergelijkingen
 
@@ -192,7 +188,7 @@ Voor numerieke velden kunnen standaard vergelijkingsoperatoren worden gebruikt.
 ### Beschikbare operatoren
 
 | Operator | Betekenis |
-|-----------|-----------|
+| ----------- | ----------- |
 | = | gelijk aan |
 | <> | ongelijk aan |
 | < | kleiner dan |
@@ -246,7 +242,7 @@ Zoek alle straatnamen die beginnen met "Snel":
 Veelgebruikte wildcards:
 
 | Wildcard | Betekenis |
-|-----------|-----------|
+| ----------- | ----------- |
 | % | nul of meer tekens |
 | _ | exact één teken |
 
@@ -350,6 +346,7 @@ De meeste HTTP-clients en GIS-tools verzorgen dit automatisch.
 ---
 
 ## Oefeningen
+
 ### Oefening 1
 
 Maak een query die alle adressen in Appingedam retourneert.
@@ -447,25 +444,3 @@ In deze query worden twee filters gecombineerd:
 Daardoor worden uitsluitend adressen binnen het opgegeven gebied én in Appingedam geretourneerd.
 
 ---
-
-## Wat wordt ondersteund in welke API
-
-Met CQL kunnen gegevens direct op de server worden gefilterd. Hierdoor worden alleen de relevante objecten teruggestuurd, wat leidt tot efficiëntere zoekopdrachten, minder netwerkverkeer en kleinere responses. 
-
-Veelgebruikte CQL-operatoren zijn:
-
-```text
-=
-<>
-<
-<=
->
->=
-AND
-OR
-NOT
-LIKE
-IN
-```
-
-Daarnaast ondersteunt deze BAG OGC API ook ruimtelijke filtering. Door CQL te combineren met een `bbox` of andere ruimtelijke functies kunnen zeer gerichte zoekopdrachten worden uitgevoerd. 
