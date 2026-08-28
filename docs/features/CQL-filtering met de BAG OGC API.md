@@ -135,7 +135,7 @@ Wanneer je de conformance-pagina bekijkt zie je onder andere dat deze service on
 Dat betekent onder meer dat:
 
 | Conformance class | Betekenis |
-|-----------|-----------|
+| ----------- | ----------- |
 | `filter` | De API ondersteunt filteren van features. |
 | `features-filter` | Filters kunnen worden toegepast op een featurecollectie. |
 | `queryables` | De API publiceert welke attributen filterbaar zijn. |
@@ -147,6 +147,24 @@ Dat betekent onder meer dat:
 
 Voordat je geavanceerde filters gaat gebruiken is het daarom verstandig om eerst het **conformance-endpoint** te bekijken. Daar kun je controleren welke onderdelen van CQL en OGC API Features door de betreffende service worden ondersteund.
 
+### URL encoding
+
+Wanneer een filter speciale tekens bevat, zoals spaties, aanhalingstekens of een procentteken (`%`), moeten deze in de URL worden gecodeerd. Dit noemen we *URL encoding*.
+
+Bijvoorbeeld:
+
+```text
+filter=openbare_ruimte_naam LIKE 'Snel%'
+```
+
+wordt:
+
+```text
+filter=openbare_ruimte_naam%20LIKE%20%27Snel%25%27
+```
+
+Veelgebruikte coderingen zijn: `spatie = %20`, `' = %27` en `% = %25`
+meer informatie over deze manier van encoding is te vinden op de [wikipedia pagina Percent Encoding](https://en.wikipedia.org/wiki/Percent-encoding)
 ---
 
 ## Exacte vergelijkingen
@@ -192,7 +210,7 @@ Voor numerieke velden kunnen standaard vergelijkingsoperatoren worden gebruikt.
 ### Beschikbare operatoren
 
 | Operator | Betekenis |
-|-----------|-----------|
+| ----------- | ----------- |
 | = | gelijk aan |
 | <> | ongelijk aan |
 | < | kleiner dan |
@@ -246,7 +264,7 @@ Zoek alle straatnamen die beginnen met "Snel":
 Veelgebruikte wildcards:
 
 | Wildcard | Betekenis |
-|-----------|-----------|
+| ----------- | ----------- |
 | % | nul of meer tekens |
 | _ | exact één teken |
 
@@ -394,8 +412,10 @@ Maak een query die alle adressen retourneert waarvan de straatnaam begint met `S
 ??? success "Antwoord"
 
     ```http
-    https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=openbare_ruimte_naam LIKE 'Snel%'
+    https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=openbare_ruimte_naam+LIKE+%27Snel%25%27
     ```
+
+    https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FOGC%2F1.3%2FCRS84&limit=10&filter=openbare_ruimte_naam+LIKE+%27Snel%25%27
 
     De wildcard `%` betekent: nul of meer willekeurige tekens.
 
