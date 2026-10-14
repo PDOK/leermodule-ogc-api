@@ -1,0 +1,2041 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Een leermodule met achtergrondinformatie en oefeningen om te leren werken met OGC API's van PDOK">
+      
+      
+      
+        <link rel="canonical" href="https://www.acceptatie.pdok.nl/leermodule/features/CQL-filtering%20met%20de%20BAG%20OGC%20API/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/pdok.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>CQL-filtering met de BAG OGC API - OGC API Leermodule</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cql-filtering-met-de-bag-ogc-api" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OGC API Leermodule" class="md-header__button md-logo" aria-label="OGC API Leermodule" data-md-component="logo">
+      
+  <img src="../../assets/pdok.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OGC API Leermodule
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CQL-filtering met de BAG OGC API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PDOK/leermodule-ogc-api/" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introductie
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../achtergrondinformatie/Introductie/" class="md-tabs__link">
+          
+  
+  
+  Achtergrondinformatie
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tiles/Introductie/" class="md-tabs__link">
+          
+  
+  
+  OGC API - Tiles
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../Introductie/" class="md-tabs__link">
+          
+  
+  
+  OGC API - Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Afronding/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Afronding
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Community/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Community
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../referenties/features/" class="md-tabs__link">
+          
+  
+  
+  Referenties
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OGC API Leermodule" class="md-nav__button md-logo" aria-label="OGC API Leermodule" data-md-component="logo">
+      
+  <img src="../../assets/pdok.png" alt="logo">
+
+    </a>
+    OGC API Leermodule
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PDOK/leermodule-ogc-api/" title="Ga naar repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Achtergrondinformatie
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Achtergrondinformatie
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20is%20geo-informatie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat is geo-informatie?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20doet%20het%20Kadaster%20-%20PDOK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat doet het Kadaster / PDOK?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Wat%20zijn%20OGC%20APIs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wat zijn OGC API's?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Het%20belang%20van%20standaarden/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Het belang van standaarden
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../achtergrondinformatie/Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OGC API - Tiles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OGC API - Tiles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Verken%20OGC%20API%20-%20Tiles%20in%20de%20browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verken OGC API - Tiles in de browser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Analyseer%20een%20voorbeeldkaart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Analyseer een voorbeeldkaart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Casus%20-%20Maak%20een%20kaart%20met%20OGC%20API%20-%20Tiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casus - Maak een kaart met OGC API - Tiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tiles/Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OGC API - Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OGC API - Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Introductie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introductie
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Verken%20OGC%20API%20-%20Features%20in%20de%20browser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verken OGC API - Features in de browser
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bevraag%20OGC%20API%20-%20Features%20met%20curl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bevraag OGC API - Features met curl
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Casus%20-%20Analyseer%20data%20met%20OGC%20API%20-%20Features%20met%20Python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Casus - Analyseer data met OGC API - Features met Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Terugblik/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terugblik
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Afronding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Afronding
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Community/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referenties
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Referenties
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../referenties/features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verwijzingen
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#leerdoelen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leerdoelen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introductie" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introductie
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wat-is-cql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wat is CQL?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#beschikbare-attributen-om-mee-te-filteren-queryables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beschikbare attributen om mee te filteren "Queryables"
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Beschikbare attributen om mee te filteren &#34;Queryables&#34;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beschikbare-mogelijkheden-in-een-ogc-api-conformance-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beschikbare mogelijkheden in een OGC API "Conformance Classes"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url-encoding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL encoding
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exacte-vergelijkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exacte vergelijkingen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exacte vergelijkingen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gelijk-aan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gelijk aan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ongelijk-aan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ongelijk aan
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerieke-vergelijkingen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numerieke vergelijkingen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerieke vergelijkingen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#groter-dan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Groter dan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kleiner-dan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kleiner dan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beschikbare-operatoren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Beschikbare operatoren
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#meerdere-voorwaarden-combineren" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Meerdere voorwaarden combineren
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Meerdere voorwaarden combineren">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#and" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AND
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NOT
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tekstfiltering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tekstfiltering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tekstfiltering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#like" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LIKE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#werken-met-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Werken met IN
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cql-combineren-met-een-bbox" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CQL combineren met een BBOX
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#praktijkvoorbeelden" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Praktijkvoorbeelden
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Praktijkvoorbeelden">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zoek-een-postcode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zoek een postcode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zoek-een-postcode-en-huisnummer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zoek een postcode en huisnummer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zoek-alle-adressen-in-groningen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zoek alle adressen in Groningen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zoek-alleen-verblijfsobjecten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zoek alleen verblijfsobjecten
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#zoek-straten-die-beginnen-met-snel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Zoek straten die beginnen met "Snel"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#url-encoding_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL-encoding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oefeningen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oefeningen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Oefeningen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oefening-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oefening 1
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oefening-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oefening 2
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oefening-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oefening 3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oefening-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oefening 4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oefening-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oefening 5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonusopgave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonusopgave
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cql-filtering-met-de-bag-ogc-api">CQL-filtering met de BAG OGC API</h1>
+<h2 id="leerdoelen">Leerdoelen</h2>
+<p>Na het doorlopen van deze module kun je:</p>
+<ul>
+<li>uitleggen wat CQL (Common Query Language) is;</li>
+<li>attributen filteren binnen een OGC API Features-collectie;</li>
+<li>eenvoudige CQL-expressies schrijven;</li>
+<li>meerdere filtervoorwaarden combineren met <code>AND</code>, <code>OR</code> en <code>NOT</code>;</li>
+<li>tekstfilters toepassen met <code>LIKE</code> en <code>IN</code>;</li>
+<li>CQL-filtering combineren met een ruimtelijke filter (<code>bbox</code>);</li>
+<li>BAG-adressen gericht opvragen met behulp van CQL.</li>
+</ul>
+<hr />
+<h2 id="introductie">Introductie</h2>
+<p>Een OGC API Features-service kan grote hoeveelheden gegevens bevatten. Vaak ben je slechts geïnteresseerd in een klein deel van de dataset.</p>
+<p>Met <strong>CQL (Common Query Language)</strong> stuur je filtervoorwaarden mee naar de server. Hierdoor ontvang je alleen de objecten die voldoen aan de opgegeven criteria. Dit voorkomt onnodig dataverkeer en maakt applicaties efficiënter.</p>
+<p>In deze module gebruiken we de BAG OGC API collectie <strong>Adres</strong>:</p>
+<div class="highlight"><pre><span></span><code>https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items
+</code></pre></div>
+<hr />
+<h2 id="wat-is-cql">Wat is CQL?</h2>
+<p>CQL is een gestandaardiseerde querytaal van het Open Geospatial Consortium (OGC) voor het filteren van geografische gegevens.</p>
+<p>Een filter wordt opgegeven via de queryparameter:</p>
+<div class="highlight"><pre><span></span><code>filter=
+</code></pre></div>
+<p>Een eenvoudige query ziet er als volgt uit:</p>
+<div class="highlight"><pre><span></span><code><span class="err">https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=postcode='2513 AA'</span>
+</code></pre></div>
+<p>Deze aanvraag retourneert helaas geen adressen. Probeer het nogmaals zonder spatie in de postcode:</p>
+<div class="highlight"><pre><span></span><code><span class="err">https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=postcode='2513AA'</span>
+</code></pre></div>
+<p>Deze retourneert uitsluitend adressen met postcode 2513 AA.</p>
+<p><strong><img alt="➡" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@16.0.1/assets/svg/27a1.svg" title=":arrow_right:" /> Vraag waarom werkt de eerste query niet en zonder spaties wel?</strong></p>
+<details class="success">
+<summary>Bekijk het antwoord</summary>
+<p>In deze dataset is de postcode opgeslagen zonder spatie. Het CQL-filter werkt direct op de waarden in de dataset. Een waarde voor postcode met spaties komt niet voor.</p>
+</details>
+<hr />
+<h2 id="beschikbare-attributen-om-mee-te-filteren-queryables">Beschikbare attributen om mee te filteren "Queryables"</h2>
+<p>Voordat je een CQL-filter kunt schrijven, moet je weten op welke attributen gefilterd mag worden. Deze attributen worden binnen OGC API Features aangeduid als <strong>queryables</strong>.</p>
+<p>Queryables beschrijven de attributen van een object die gebruikt kunnen worden in een filterexpressie. Voor de BAG-adrescollectie zijn dat bijvoorbeeld attributen zoals <code>postcode</code>, <code>huisnummer</code>, <code>woonplaats_naam</code> en <code>openbare_ruimte_naam</code>. Deze velden zijn zichtbaar in de collectie en kunnen worden gebruikt in CQL-expressies.</p>
+<p>Voorbeelden van queryables binnen de BAG-adrescollectie zijn:</p>
+<div class="highlight"><pre><span></span><code>postcode
+huisnummer
+huisletter
+woonplaats_naam
+openbare_ruimte_naam
+provincie_naam
+status
+adresseerbaar_object_type
+</code></pre></div>
+<p>Een queryable kan vervolgens direct in een filter worden gebruikt:</p>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=postcode='2513AA'</span>
+</code></pre></div>
+<p>of:</p>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=woonplaats_naam='Den Haag'</span>
+</code></pre></div>
+<p>Het concept <em>queryables</em> is belangrijk omdat niet ieder attribuut automatisch filterbaar is. Door de queryables van een collectie te raadplegen weet je welke eigenschappen door de API worden ondersteund voor filtering.</p>
+<p>Bij een OGC API Features-service kunnen queryables opgevraagd worden via het endpoint:</p>
+<div class="highlight"><pre><span></span><code>/collections/{collectionId}/queryables
+</code></pre></div>
+<p>Voor de BAG-adrescollectie is dat:</p>
+<div class="highlight"><pre><span></span><code>https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/queryables
+</code></pre></div>
+<p>Een goede werkwijze is om eerst de queryables te bekijken en daarna pas CQL-filters op te stellen. Zo voorkom je dat filters verwijzen naar velden die niet door de API ondersteund worden. Bij PDOK worden deze velden ook getoond via het queryables-endpoint van de collectie.</p>
+<h3 id="beschikbare-mogelijkheden-in-een-ogc-api-conformance-classes">Beschikbare mogelijkheden in een OGC API "Conformance Classes"</h3>
+<p>Hoe weet je welke filtermogelijkheden een OGC API daadwerkelijk ondersteunt?</p>
+<p>Daarvoor kun je de <strong>Conformance Classes</strong> raadplegen. Een conformance class beschrijft een onderdeel van een OGC-standaard dat door een implementatie wordt ondersteund. De BAG OGC API publiceert deze informatie via het conformance-endpoint.</p>
+<p>Bekijk hiervoor:</p>
+<div class="highlight"><pre><span></span><code>https://api.pdok.nl/kadaster/bag/ogc/v2/conformance
+</code></pre></div>
+<p>Wanneer je de conformance-pagina bekijkt zie je onder andere dat deze service ondersteuning biedt voor:</p>
+<ul>
+<li><code>ogcapi-features-3/conf/filter</code></li>
+<li><code>ogcapi-features-3/conf/features-filter</code></li>
+<li><code>ogcapi-features-3/conf/queryables</code></li>
+<li><code>ogcapi-features-3/conf/queryables-query-parameters</code></li>
+<li><code>cql2-text</code></li>
+<li><code>basic-cql2</code></li>
+<li><code>advanced-comparison-operators</code></li>
+<li><code>basic-spatial-functions</code></li>
+<li><code>spatial-functions</code></li>
+<li><code>temporal-functions</code></li>
+</ul>
+<p>Dat betekent onder meer dat:</p>
+<table>
+<thead>
+<tr>
+<th>Conformance class</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filter</code></td>
+<td>De API ondersteunt filteren van features.</td>
+</tr>
+<tr>
+<td><code>features-filter</code></td>
+<td>Filters kunnen worden toegepast op een featurecollectie.</td>
+</tr>
+<tr>
+<td><code>queryables</code></td>
+<td>De API publiceert welke attributen filterbaar zijn.</td>
+</tr>
+<tr>
+<td><code>cql2-text</code></td>
+<td>CQL2-expressies kunnen als tekst worden aangeleverd.</td>
+</tr>
+<tr>
+<td><code>basic-cql2</code></td>
+<td>Basisoperatoren zoals <code>=</code>, <code>AND</code> en <code>OR</code> worden ondersteund.</td>
+</tr>
+<tr>
+<td><code>advanced-comparison-operators</code></td>
+<td>Extra vergelijkingsoperatoren zijn beschikbaar.</td>
+</tr>
+<tr>
+<td><code>spatial-functions</code></td>
+<td>Ruimtelijke functies kunnen in filters worden gebruikt.</td>
+</tr>
+<tr>
+<td><code>temporal-functions</code></td>
+<td>Tijdgerelateerde filters worden ondersteund.</td>
+</tr>
+</tbody>
+</table>
+<p>Voordat je geavanceerde filters gaat gebruiken is het daarom verstandig om eerst het <strong>conformance-endpoint</strong> te bekijken. Daar kun je controleren welke onderdelen van CQL en OGC API Features door de betreffende service worden ondersteund.</p>
+<h3 id="url-encoding">URL encoding</h3>
+<p>Wanneer een filter speciale tekens bevat, zoals spaties, aanhalingstekens of een procentteken (<code>%</code>), moeten deze in de URL worden gecodeerd. Dit noemen we <em>URL encoding</em>.</p>
+<p>Bijvoorbeeld:</p>
+<div class="highlight"><pre><span></span><code>filter=openbare_ruimte_naam LIKE 'Snel%'
+</code></pre></div>
+<p>wordt:</p>
+<div class="highlight"><pre><span></span><code>filter=openbare_ruimte_naam%20LIKE%20%27Snel%25%27
+</code></pre></div>
+<p>Veelgebruikte coderingen zijn: <code>spatie = %20</code>, <code>' = %27</code> en <code>% = %25</code>
+meer informatie over deze manier van encoding is te vinden op de <a href="https://en.wikipedia.org/wiki/Percent-encoding">wikipedia pagina Percent Encoding</a></p>
+<hr />
+<h2 id="exacte-vergelijkingen">Exacte vergelijkingen</h2>
+<h3 id="gelijk-aan">Gelijk aan</h3>
+<p>Zoek alle adressen in Appingedam:</p>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=woonplaats_naam='Appingedam'</span>
+</code></pre></div>
+<p>Zoek alle adressen met postcode 9901AA:</p>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=postcode='9901AA'</span>
+</code></pre></div>
+<h3 id="ongelijk-aan">Ongelijk aan</h3>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=woonplaats_naam&lt;&gt;'Appingedam'</span>
+</code></pre></div>
+<hr />
+<h2 id="numerieke-vergelijkingen">Numerieke vergelijkingen</h2>
+<p>Voor numerieke velden kunnen standaard vergelijkingsoperatoren worden gebruikt.</p>
+<h3 id="groter-dan">Groter dan</h3>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=huisnummer &gt; 100</span>
+</code></pre></div>
+<h3 id="kleiner-dan">Kleiner dan</h3>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=huisnummer &lt; 50</span>
+</code></pre></div>
+<h3 id="beschikbare-operatoren">Beschikbare operatoren</h3>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>gelijk aan</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>ongelijk aan</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>kleiner dan</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>kleiner dan of gelijk aan</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>groter dan</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>groter dan of gelijk aan</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="meerdere-voorwaarden-combineren">Meerdere voorwaarden combineren</h2>
+<h3 id="and">AND</h3>
+<p>Alle voorwaarden moeten waar zijn.</p>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=woonplaats_naam='Appingedam' AND huisnummer &gt; 10</span>
+</code></pre></div>
+<h3 id="or">OR</h3>
+<p>Minimaal één voorwaarde moet waar zijn.</p>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=woonplaats_naam='Appingedam'</span>
+<span class="err">OR woonplaats_naam='Sittard'</span>
+</code></pre></div>
+<h3 id="not">NOT</h3>
+<p>Keert een voorwaarde om.</p>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=NOT woonplaats_naam='Appingedam'</span>
+</code></pre></div>
+<hr />
+<h2 id="tekstfiltering">Tekstfiltering</h2>
+<h3 id="like">LIKE</h3>
+<p>Met <code>LIKE</code> kan gezocht worden op patronen.</p>
+<p>Zoek alle straatnamen die beginnen met "Snel":</p>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=openbare_ruimte_naam LIKE 'Snel%'</span>
+</code></pre></div>
+<p>Veelgebruikte wildcards:</p>
+<table>
+<thead>
+<tr>
+<th>Wildcard</th>
+<th>Betekenis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%</td>
+<td>nul of meer tekens</td>
+</tr>
+<tr>
+<td>_</td>
+<td>exact één teken</td>
+</tr>
+</tbody>
+</table>
+<p>Voorbeelden:</p>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=openbare_ruimte_naam LIKE '%weg'</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=openbare_ruimte_naam LIKE 'Hoofd_%'</span>
+</code></pre></div>
+<hr />
+<h2 id="werken-met-in">Werken met IN</h2>
+<p>Wanneer meerdere waarden toegestaan zijn, kan <code>IN</code> de query leesbaarder maken.</p>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=woonplaats_naam IN ('Appingedam','Sittard')</span>
+</code></pre></div>
+<p>Dit is functioneel gelijk aan:</p>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=woonplaats_naam='Appingedam'</span>
+<span class="err">OR woonplaats_naam='Sittard'</span>
+</code></pre></div>
+<hr />
+<h2 id="cql-combineren-met-een-bbox">CQL combineren met een BBOX</h2>
+<p>CQL kan gecombineerd worden met een ruimtelijke filter.</p>
+<p>Zoek adressen binnen een bepaald gebied én in Appingedam:</p>
+<div class="highlight"><pre><span></span><code><span class="err">https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?bbox=6.82,53.31,6.85,53.33&amp;filter=woonplaats_naam='Appingedam'</span>
+</code></pre></div>
+<p>Hiermee worden eerst objecten binnen de opgegeven bounding box geselecteerd. Vervolgens wordt de CQL-filter toegepast.</p>
+<hr />
+<h2 id="praktijkvoorbeelden">Praktijkvoorbeelden</h2>
+<h3 id="zoek-een-postcode">Zoek een postcode</h3>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=postcode='9901AA'</span>
+</code></pre></div>
+<h3 id="zoek-een-postcode-en-huisnummer">Zoek een postcode en huisnummer</h3>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=postcode='9901AA' AND huisnummer=13</span>
+</code></pre></div>
+<h3 id="zoek-alle-adressen-in-groningen">Zoek alle adressen in Groningen</h3>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=provincie_naam='Groningen'</span>
+</code></pre></div>
+<h3 id="zoek-alleen-verblijfsobjecten">Zoek alleen verblijfsobjecten</h3>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=adresseerbaar_object_type='Verblijfsobject'</span>
+</code></pre></div>
+<h3 id="zoek-straten-die-beginnen-met-snel">Zoek straten die beginnen met "Snel"</h3>
+<div class="highlight"><pre><span></span><code><span class="err">...?filter=openbare_ruimte_naam LIKE 'Snel%'</span>
+</code></pre></div>
+<hr />
+<h2 id="url-encoding_1">URL-encoding</h2>
+<p>CQL-expressies worden onderdeel van de URL. Speciale tekens en spaties moeten daarom worden geëncodeerd.</p>
+<p>Voorbeeld:</p>
+<div class="highlight"><pre><span></span><code>woonplaats_naam = 'Appingedam'
+</code></pre></div>
+<p>wordt:</p>
+<div class="highlight"><pre><span></span><code>woonplaats_naam%20%3D%20%27Appingedam%27
+</code></pre></div>
+<p>De meeste HTTP-clients en GIS-tools verzorgen dit automatisch.</p>
+<hr />
+<h2 id="oefeningen">Oefeningen</h2>
+<h3 id="oefening-1">Oefening 1</h3>
+<p>Maak een query die alle adressen in Appingedam retourneert.</p>
+<details class="success">
+<summary>Antwoord</summary>
+<div class="highlight"><pre><span></span><code><span class="err">https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=woonplaats_naam='Appingedam'</span>
+</code></pre></div>
+</details>
+<hr />
+<h3 id="oefening-2">Oefening 2</h3>
+<p>Maak een query die alle adressen met postcode <code>9901AA</code> retourneert.</p>
+<details class="success">
+<summary>Antwoord</summary>
+<div class="highlight"><pre><span></span><code><span class="err">https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=postcode='9901AA'</span>
+</code></pre></div>
+</details>
+<hr />
+<h3 id="oefening-3">Oefening 3</h3>
+<p>Maak een query die alle adressen met een huisnummer groter dan 50 retourneert.</p>
+<details class="success">
+<summary>Antwoord</summary>
+<div class="highlight"><pre><span></span><code><span class="err">https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=huisnummer&gt;50</span>
+</code></pre></div>
+<p>Hierbij wordt het queryable <code>huisnummer</code> gebruikt in combinatie met de operator <code>&gt;</code>.</p>
+</details>
+<hr />
+<h3 id="oefening-4">Oefening 4</h3>
+<p>Maak een query die alle adressen retourneert waarvan de straatnaam begint met <code>Snel</code>.</p>
+<details class="success">
+<summary>Antwoord</summary>
+<div class="highlight"><pre><span></span><code><span class="err">https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=openbare_ruimte_naam+LIKE+%27Snel%25%27</span>
+</code></pre></div>
+<p>https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FOGC%2F1.3%2FCRS84&amp;limit=10&amp;filter=openbare_ruimte_naam+LIKE+%27Snel%25%27</p>
+<p>De wildcard <code>%</code> betekent: nul of meer willekeurige tekens.</p>
+</details>
+<hr />
+<h3 id="oefening-5">Oefening 5</h3>
+<p>Combineer een <code>bbox</code> met een CQL-filter op woonplaats.</p>
+<details class="success">
+<summary>Antwoord</summary>
+<div class="highlight"><pre><span></span><code><span class="err">https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?bbox=6.82,53.31,6.85,53.33&amp;filter=woonplaats_naam='Appingedam'</span>
+</code></pre></div>
+<p>Eerst worden de adressen binnen de bounding box geselecteerd.
+Vervolgens worden alleen de adressen in woonplaats <code>Appingedam</code> teruggegeven.</p>
+</details>
+<hr />
+<h3 id="bonusopgave">Bonusopgave</h3>
+<p>Zoek alle adressen van het Binnenhof in Den Haag met postcode <code>2513AA</code>.</p>
+<details class="success">
+<summary>Antwoord</summary>
+<div class="highlight"><pre><span></span><code><span class="err">    https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=postcode='2513AA'</span>
+</code></pre></div>
+<p>Probeer deze query uit te breiden met een extra filter op
+<code>openbare_ruimte_naam</code> of <code>huisnummer</code>.</p>
+</details>
+<hr />
+<p><strong>Toelichting</strong></p>
+<p>In deze query worden twee filters gecombineerd:</p>
+<ol>
+<li>De <code>bbox</code> beperkt de resultaten tot een geografisch gebied.</li>
+<li>De CQL-expressie selecteert alleen adressen waarvan de woonplaats <code>Appingedam</code> is.</li>
+</ol>
+<p>Daardoor worden uitsluitend adressen binnen het opgegeven gebied én in Appingedam geretourneerd.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Terug naar boven
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.footer", "search.suggest", "search.highlight", "navigation.top", "header.autohide", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
