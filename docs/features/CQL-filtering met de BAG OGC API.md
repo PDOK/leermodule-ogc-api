@@ -23,7 +23,7 @@ Met **CQL (Common Query Language)** stuur je filtervoorwaarden mee naar de serve
 In deze module gebruiken we de BAG OGC API collectie **Adres**:
 
 ```text
-https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items
+https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items
 ```
 
 ---
@@ -41,13 +41,13 @@ filter=
 Een eenvoudige query ziet er als volgt uit:
 
 ```http
-https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=postcode='2513 AA'
+https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=postcode='2513 AA'
 ```
 
 Deze aanvraag retourneert helaas geen adressen. Probeer het nogmaals zonder spatie in de postcode:
 
 ```http
-https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=postcode='2513AA'
+https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=postcode='2513AA'
 ```
 
 Deze retourneert uitsluitend adressen met postcode 2513 AA.
@@ -102,7 +102,7 @@ Bij een OGC API Features-service kunnen queryables opgevraagd worden via het end
 Voor de BAG-adrescollectie is dat:
 
 ```text
-https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/queryables
+https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/queryables
 ```
 
 Een goede werkwijze is om eerst de queryables te bekijken en daarna pas CQL-filters op te stellen. Zo voorkom je dat filters verwijzen naar velden die niet door de API ondersteund worden. Bij PDOK worden deze velden ook getoond via het queryables-endpoint van de collectie.
@@ -116,7 +116,7 @@ Daarvoor kun je de **Conformance Classes** raadplegen. Een conformance class bes
 Bekijk hiervoor:
 
 ```text
-https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/conformance
+https://api.pdok.nl/kadaster/bag/ogc/v2/conformance
 ```
 
 Wanneer je de conformance-pagina bekijkt zie je onder andere dat deze service ondersteuning biedt voor:
@@ -304,7 +304,7 @@ CQL kan gecombineerd worden met een ruimtelijke filter.
 Zoek adressen binnen een bepaald gebied én in Appingedam:
 
 ```http
-https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?bbox=6.82,53.31,6.85,53.33&filter=woonplaats_naam='Appingedam'
+https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?bbox=6.82,53.31,6.85,53.33&filter=woonplaats_naam='Appingedam'
 ```
 
 Hiermee worden eerst objecten binnen de opgegeven bounding box geselecteerd. Vervolgens wordt de CQL-filter toegepast.
@@ -374,7 +374,7 @@ Maak een query die alle adressen in Appingedam retourneert.
 ??? success "Antwoord"
 
     ```http
-    https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=woonplaats_naam='Appingedam'
+    https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=woonplaats_naam='Appingedam'
     ```
 
 ---
@@ -386,7 +386,7 @@ Maak een query die alle adressen met postcode `9901AA` retourneert.
 ??? success "Antwoord"
 
     ```http
-    https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=postcode='9901AA'
+    https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=postcode='9901AA'
     ```
 
 ---
@@ -398,7 +398,7 @@ Maak een query die alle adressen met een huisnummer groter dan 50 retourneert.
 ??? success "Antwoord"
 
     ```http
-    https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=huisnummer>50
+    https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=huisnummer>50
     ```
 
     Hierbij wordt het queryable `huisnummer` gebruikt in combinatie met de operator `>`.
@@ -412,10 +412,10 @@ Maak een query die alle adressen retourneert waarvan de straatnaam begint met `S
 ??? success "Antwoord"
 
     ```http
-    https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=openbare_ruimte_naam+LIKE+%27Snel%25%27
+    https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=openbare_ruimte_naam+LIKE+%27Snel%25%27
     ```
 
-    https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FOGC%2F1.3%2FCRS84&limit=10&filter=openbare_ruimte_naam+LIKE+%27Snel%25%27
+    https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?crs=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FOGC%2F1.3%2FCRS84&limit=10&filter=openbare_ruimte_naam+LIKE+%27Snel%25%27
 
     De wildcard `%` betekent: nul of meer willekeurige tekens.
 
@@ -428,7 +428,7 @@ Combineer een `bbox` met een CQL-filter op woonplaats.
 ??? success "Antwoord"
 
     ```http
-    https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?bbox=6.82,53.31,6.85,53.33&filter=woonplaats_naam='Appingedam'
+    https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?bbox=6.82,53.31,6.85,53.33&filter=woonplaats_naam='Appingedam'
     ```
 
     Eerst worden de adressen binnen de bounding box geselecteerd.
@@ -443,7 +443,7 @@ Zoek alle adressen van het Binnenhof in Den Haag met postcode `2513AA`.
 ??? success "Antwoord"
 
     ```http
-    https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/adres/items?filter=postcode='2513AA'
+        https://api.pdok.nl/kadaster/bag/ogc/v2/collections/adres/items?filter=postcode='2513AA'
     ```
 
     Probeer deze query uit te breiden met een extra filter op

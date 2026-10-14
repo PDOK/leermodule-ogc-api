@@ -20,8 +20,7 @@ In eerdere voorbeelden hebben we een `bbox` gebruikt om objecten binnen een rech
 Voor de BAG Woonplaats-collectie:
 
 ```http
-https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/woonplaats/items?
-bbox=4.28,52.05,4.33,52.09
+https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats/items?bbox=4.28,52.05,4.33,52.09
 ```
 
 Met een bounding box selecteer je alle woonplaatsen die binnen het opgegeven gebied vallen.
@@ -44,7 +43,7 @@ Elke OGC API publiceert via het endpoint `/conformance` welke delen van de stand
 Voor de BAG API:
 
 ```text
-https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/conformance
+https://api.pdok.nl/kadaster/bag/ogc/v2/conformance
 ```
 
 Op de conformance-pagina zijn onder meer de volgende conformance classes aanwezig:
@@ -364,7 +363,7 @@ De Woonplaats-collectie bevat de geometrische begrenzingen van woonplaatsen. Daa
 Bijvoorbeeld:
 
 ```http
-https://api.pdok.nl/kadaster/bag/ogc/v2-preprod/collections/woonplaats/items?
+https://api.pdok.nl/kadaster/bag/ogc/v2/collections/woonplaats/items?
 filter=S_INTERSECTS(geometry,POLYGON((4.29 52.07,4.31 52.07,4.31 52.08,4.29 52.08,4.29 52.07)))
 ```
 
