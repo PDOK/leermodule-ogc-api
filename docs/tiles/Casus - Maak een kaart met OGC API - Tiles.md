@@ -258,6 +258,39 @@ In het voorbeeld hebben we gekozen voor de BRT Achtergrondkaart met de standaard
 
 **:arrow_right: Plak de URL in jouw code**
 
+??? tip "Een kaart in RD New"
+
+    Sinds versie 6.15 kan MapLibre ook kaarten in RD New (EPSG:28992) tonen. Met `addProjection` leg je eerst vast hoe MapLibre coördinaten omrekent tussen lengte- en breedtegraad en RD, met [proj4js](https://proj4js.org/), en hoe de tegels van de NetherlandsRDNewQuad Tile Matrix Set liggen. Daarna gebruik je een NetherlandsRDNewQuad style, waarin je de projectie aangeeft. Dit voorbeeld staat ook in `docs/voorbeelden/tiles-rd`:
+
+    ```js
+    import * as maplibregl from "https://cdn.jsdelivr.net/npm/maplibre-gl@6.16.0/dist/maplibre-gl.mjs";
+    import proj4 from "https://cdn.jsdelivr.net/npm/proj4@2.22.0/+esm";
+
+    // RD New (EPSG:28992), with the NetherlandsRDNewQuad Tile Matrix Set
+    maplibregl.addProjection({
+        name: 'EPSG:28992',
+        projection: proj4('EPSG:4326', '+proj=sterea +lat_0=52.1561605555556 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.4171,50.3319,465.5524,-0.398957388243,0.343987817378,-1.87740163998,4.0725 +units=m +no_defs'),
+        tileMatrixSet: {
+            origin: [-285401.92, 903401.92], // top left corner of tile 0/0/0 in RD coordinates
+            extentAtZoom0: 880803.84 // width of tile 0/0/0 in meters
+        }
+    });
+
+    const style = await (await fetch('https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1/styles/standaard__netherlandsrdnewquad?f=json')).json(); // style URL
+    style.projection = { type: 'EPSG:28992' };
+
+    const map = new maplibregl.Map({
+        container: 'map', // container id
+        style: style,
+        center: [5.44, 52.05], // starting position [lng, lat]
+        zoom: 2, // starting zoomlevel
+        minZoom: 2, // minimum zoomlevel zoom out
+        maxZoom: 9 // maximum zoomlevel zoom in
+    });
+    ```
+
+    Het `center` en de `maxBounds` geef je nog steeds op in lengte- en breedtegraad. De zoomniveaus zijn die van de NetherlandsRDNewQuad Tile Matrix Set en liggen ongeveer vijf lager dan in WebMercator: zoom 2 toont ongeveer hetzelfde gebied als zoom 7 in WebMercator. Kies je voor RD, gebruik dan in de rest van deze casus ook de NetherlandsRDNewQuad tilesets en styles.
+
 Standaard krijg je heel Nederland te zien wanneer je de kaart opent. Het is handiger als de kaart meteen is ingezoomd op jouw eigen interessegebied. 
 
 **:arrow_right: Ga naar <https://vibhorsingh.com/boundingbox/>**
