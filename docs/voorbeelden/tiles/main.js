@@ -1,4 +1,4 @@
-import * as maplibregl from "https://esm.sh/maplibre-gl";
+import * as maplibregl from "https://cdn.jsdelivr.net/npm/maplibre-gl@6.16.0/dist/maplibre-gl.mjs";
 
 const map = new maplibregl.Map({
     container: 'map', // container id
