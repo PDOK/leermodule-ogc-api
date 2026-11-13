@@ -32,3 +32,4 @@ site/webfonts/fa-v4compatibility.woff2
 .vscode/launch.json
 .vscode/
 
+.venv/
