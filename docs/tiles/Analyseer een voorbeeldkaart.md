@@ -11,7 +11,7 @@ We bekijken nu eerst de voorbeeldwebmap in een webbrowser.
 **:arrow_right: Bekijk de kaart zelf, zoom eens in en uit**
 
 
-Dit is een web viewer die gemaakt is met de library MapLibre. Deze kaart maakt gebruik van de OGC API – Tiles van de BRT Achtergrondkaart: <https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1> 
+Dit is een web viewer die gemaakt is met de library [MapLibre](https://maplibre.org/). Deze kaart maakt gebruik van de OGC API – Tiles van de BRT Achtergrondkaart: <https://api.pdok.nl/kadaster/brt-achtergrondkaart/ogc/v1> 
 
 ??? info "Wat is de BRT?"
 

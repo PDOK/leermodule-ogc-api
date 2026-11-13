@@ -48,8 +48,11 @@ nav:
     - OGC API - Tiles: 
         - Introductie: tiles/Introductie.md
         - Verken OGC API - Tiles in de browser: tiles/Verken OGC API - Tiles in de browser.md
-        - Analyseer een voorbeeldkaart: tiles/Analyseer een voorbeeldkaart.md
-        - Casus - Maak een kaart met OGC API - Tiles: tiles/Casus - Maak een kaart met OGC API - Tiles.md
+        - MapLibre:
+            - Analyseer een voorbeeldkaart: tiles/Analyseer een voorbeeldkaart.md
+            - Casus - Maak een kaart met OGC API - Tiles: tiles/Casus - Maak een kaart met OGC API - Tiles.md
+        - OpenLayers:
+            - Voorbeeld - OGC API - Tiles in een kaart met OpenLayers: tiles/Voorbeeld - OGC API - Tiles in een kaart met OpenLayers.md
         - Terugblik: tiles/Terugblik.md
     - OGC API - Features:
         - Introductie: features/Introductie.md

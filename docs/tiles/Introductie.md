@@ -23,5 +23,7 @@ Eerst leer je met behulp van de API landing page wat de verschillende mogelijkhe
 
     - Internetbrowser
     - Code-editor
-    - MapLibre (JavaScript)
+    - JavaScript, met een bibliotheek naar keuze:
+        - MapLibre
+        - OpenLayers
 
