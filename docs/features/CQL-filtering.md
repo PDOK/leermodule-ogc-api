@@ -1,4 +1,4 @@
-# CQL-filtering met de BAG OGC API
+# CQL filtering
 
 ## Leerdoelen
 
