@@ -1,4 +1,4 @@
-# Ruimtelijke filtering met CQL2 op de BAG Woonplaats-collectie
+# Ruimtelijke CQL filtering
 
 ## Leerdoelen
 

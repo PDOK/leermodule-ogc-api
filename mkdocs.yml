@@ -57,6 +57,9 @@ nav:
         - Bevraag OGC API - Features met curl: features/Bevraag OGC API - Features met curl.md
         - Casus - Analyseer data met OGC API - Features met Python: features/Casus - Analyseer data met OGC API - Features met Python.md
         - Terugblik: features/Terugblik.md
+        - Gevorderd:
+            - CQL filtering: features/CQL-filtering.md
+            - Ruimtelijke CQL filtering: features/Ruimtelijke CQL-filtering.md
     - Afronding: Afronding.md
     - Community: Community.md
     - Referenties:
